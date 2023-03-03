@@ -1,7 +1,7 @@
 project:
   type: website
   resources:
-    - cv_contributor_2023_03_02.pdf
+    - cv.pdf
 website:
   title: "Jaume Amores"
   description: "Personal page"
