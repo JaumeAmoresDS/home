@@ -43,14 +43,10 @@ I intend to write about my research on this subject in my blog posts.
 At the moment I only have published one open source library written in python with [nbdev](https://nbdev.fast.ai/). 
 I intend to publish more projects in the future.
 
-- [forecasting](https://github.com/JaumeAmoresDS/forecasting): this library intends to provide a uniform API 
+- **forecasting**: [link](https://github.com/JaumeAmoresDS/forecasting). This library intends to provide a uniform API 
 around popular time-series forecasting solutions and libraries. At this moment, I have implemented a library 
 based on LSTM auto-regressive models, using tensorflow's dataset API. The next steps are to add baselines 
-based on Random Forests, XGBoost, and ARIMA; and integrate libraries such as [darts](https://github.com/unit8co/darts) and [tsai] (https://github.com/timeseriesAI/tsai). Hopefully also [gluonts](https://ts.gluon.ai/stable/).
-
-Please note that, since the python modules are created using `nbdev`, there are some small comments automatically inserted across the python 
-code. These small comments can be safely ignored, as they just act as small internal references used by `nbdev`. In the future, 
-I intend to implement an extension of `nbdev` which avoids writing these comments.
+based on Random Forests, XGBoost, and ARIMA; and integrate libraries such as [darts](https://github.com/unit8co/darts) and [tsai](https://github.com/timeseriesAI/tsai). Hopefully also [gluonts](https://ts.gluon.ai/stable/).
 <p></p>
 
 :::
