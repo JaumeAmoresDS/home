@@ -1,6 +1,6 @@
 ---
-title: "My Posts"
-subtitle: "Subtitle posts"
+title: "Posts"
+subtitle: "Introducing my blog posts"
 author: "Jaume Amores"
 date: "2023-03-03"
 toc: true
@@ -9,4 +9,4 @@ toc: true
 
 ## Introduction
 
-Hello!
+Hello! I will be publishing here my list of blogs, hopefully soon. The main topics I am interested in writing about is early childhood education, data science, and software engineering.
