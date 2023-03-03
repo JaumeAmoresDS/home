@@ -1,23 +1,23 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
     "objectID": "posts.html",
     "href": "posts.html",
-    "title": "My Posts",
+    "title": "Posts",
     "section": "",
-    "text": "Hello!"
+    "text": "Hello! I will be publishing here my list of blogs, hopefully soon. The main topics I am interested in writing about is early childhood education, data science, and software engineering."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Jaume Amores",
     "section": "",
-    "text": "Hello, and welcome to my home page! I work currently as a Principal Data Scientist in Johnson Controls. I have been working on Data Science for more than 20 years, in both academia and industry. I received a Ph.D. in Machine Learning and Computer vision in 2006, and have been in industry for more than 10 years, working both as individual contributor and technical lead in multi-disciplinary teams. I enjoy both the theoretical and practical aspects of Data Science, I like developing high quality software based on best practices, and have experience generating intellectual property.\n\n\n\n\n\n\nPh.D. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2006\nM.Sc. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2003\nB.Sc. in Computer Science | Universitat de Valencia | 2000"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "text": "Hello, and welcome to my home page! I work currently as a Principal Data Scientist in Johnson Controls. I have been working on Data Science for more than 20 years, in both academia and industry. I received a Ph.D. in Machine Learning and Computer vision in 2006, and have been in industry for more than 10 years, working both as individual contributor and technical lead in multi-disciplinary teams. I enjoy both the theoretical and practical aspects of Data Science, I like developing high quality software based on best practices, and have experience generating intellectual property. Please check my open source projects in the last section below.\nApart from my work, I am a dad of a little child and I am interested in early childhood education. I intend to write about my research on this subject in my blog posts.\n\n\n\n\n\n\nPh.D. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2006\nM.Sc. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2003\nB.Sc. in Computer Science | Universitat de Valencia | 2000\n\n\n\n\n\n\nAt the moment I only have published one open source library written in python with nbdev. I intend to publish more projects in the future.\n\nforecasting: this library intends to provide a uniform API around popular time-series forecasting solutions and libraries. At this moment, I have implemented a library based on LSTM auto-regressive models, using tensorflow’s dataset API. The next steps are to add baselines based on Random Forests, XGBoost, and ARIMA; and integrate libraries such as darts and [tsai] (https://github.com/timeseriesAI/tsai). Hopefully also gluonts.\n\nPlease note that, since the python modules are created using nbdev, there are some small comments automatically inserted across the python code. These small comments can be safely ignored, as they just act as small internal references used by nbdev. In the future, I intend to implement an extension of nbdev which avoids writing these comments."
   }
 ]
