@@ -1,0 +1,27 @@
+project:
+  type: website
+  resources:
+    - cv_contributor_2023_03_02.pdf
+website:
+  title: "Jaume Amores"
+  description: "Personal page"
+  open-graph:
+    locale: en_US
+  twitter-card:
+    creator: "@JaumeEire"
+  navbar:
+    right:
+      - text: "Home"
+        file: index.qmd
+      - posts.qmd
+      - text: "Papers"
+        url: "papers.pdf"
+  page-footer:
+    left: "© Copyright 2023 Jaume Amores."
+format:
+  html:
+    theme: [cosmo, _variables.scss]
+    css: styles.css
+comments:
+  giscus:
+    repo: beatrizmilz/blog-en
