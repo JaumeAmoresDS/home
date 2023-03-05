@@ -1,12 +1,14 @@
 ---
 title: "Posts"
-subtitle: "Introducing my blog posts"
-author: "Jaume Amores"
-date: "2023-03-03"
-toc: true
+listing:
+  - id: talks
+    contents: "**/*/index.qmd"
+    fields: [date, title]
+    sort: "date desc"
+    categories: true
+    sort-ui: true
+    filter-ui: true  
+page-layout: full
+comments: false
 ---
 
-
-## Introduction
-
-Hello! I will be publishing here my list of blogs, hopefully soon. The main topics I am interested in writing about is early childhood education, data science, and software engineering.

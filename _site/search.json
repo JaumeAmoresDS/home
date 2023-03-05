@@ -2,16 +2,16 @@
   {
     "objectID": "posts.html",
     "href": "posts.html",
-    "title": "My Posts",
+    "title": "Posts",
     "section": "",
-    "text": "Hello!"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nEarly childhood education: preliminary findings\n\n\n\n\n\n\n\n\n\nMar 5, 2023\n\n\n\n\n\n\n\n\nHealth: resources and protocols\n\n\n\n\n\n\n\n\n\nMar 4, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Jaume Amores",
     "section": "",
-    "text": "Hello, and welcome to my home page! I work currently as a Principal Data Scientist in Johnson Controls. I have been working on Data Science for more than 20 years, in both academia and industry. I received a Ph.D. in Machine Learning and Computer vision in 2006, and have been in industry for more than 10 years, working both as individual contributor and technical lead in multi-disciplinary teams. I enjoy both the theoretical and practical aspects of Data Science, I like developing high quality software based on best practices, and have experience generating intellectual property.\n\n\n\n\n\n\nPh.D. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2006\nM.Sc. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2003\nB.Sc. in Computer Science | Universitat de Valencia | 2000"
+    "text": "Hello, and welcome to my home page! I work currently as a Principal Data Scientist in Johnson Controls. I have been working on Data Science for more than 20 years, in both academia and industry. I received a Ph.D. in Machine Learning and Computer vision in 2006, and have been in industry for more than 10 years, working both as individual contributor and technical lead in multi-disciplinary teams. I enjoy both the theoretical and practical aspects of Data Science, I like developing high quality software based on best practices, and have experience generating intellectual property. Please check my open source projects in the last section below.\nApart from my work, I am a dad of a little child and I am interested in early childhood education. I intend to write about my research on this subject in my blog posts.\n\n\n\n\n\n\nPh.D. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2006\nM.Sc. in Machine Learning and Computer Vision | Universitat Autonoma de Barcelona | 2003\nB.Sc. in Computer Science | Universitat de Valencia | 2000\n\n\n\n\n\n\nAt the moment I only have published one open source library written in python with nbdev. I intend to publish more projects in the future.\n\nforecasting: link. This library intends to provide a uniform API around popular time-series forecasting solutions and libraries. At this moment, I have implemented a library based on LSTM auto-regressive models, using tensorflow’s dataset API. The next steps are to add baselines based on Random Forests, XGBoost, and ARIMA; and integrate libraries such as darts and tsai. Hopefully also gluonts."
   },
   {
     "objectID": "about.html",
@@ -19,5 +19,33 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html",
+    "href": "posts/health_objectives/index.html",
+    "title": "Health: resources and protocols",
+    "section": "",
+    "text": "Hello"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#protocols",
+    "href": "posts/health_objectives/index.html#protocols",
+    "title": "Health: resources and protocols",
+    "section": "Protocols",
+    "text": "Protocols\nHello"
+  },
+  {
+    "objectID": "posts/education/index.html",
+    "href": "posts/education/index.html",
+    "title": "Early childhood education: preliminary findings",
+    "section": "",
+    "text": "This is some text"
+  },
+  {
+    "objectID": "posts/education/index.html#some-section",
+    "href": "posts/education/index.html#some-section",
+    "title": "Early childhood education: preliminary findings",
+    "section": "Some section",
+    "text": "Some section\nHello"
   }
 ]

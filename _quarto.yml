@@ -13,7 +13,8 @@ website:
     right:
       - text: "Home"
         file: index.qmd
-      - posts.qmd
+      - text: "Posts"
+        file: posts.qmd
       - text: "Papers"
         url: "papers.pdf"
   page-footer:
