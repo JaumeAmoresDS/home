@@ -1,0 +1,14 @@
+---
+title: "Early childhood education: preliminary findings"
+author: "Jaume Amores"
+date: 2023-03-05
+toc: true
+categories:
+  - Education
+---
+
+This is some text
+
+## Some section
+
+Hello
