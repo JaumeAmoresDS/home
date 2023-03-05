@@ -23,11 +23,10 @@ I have been working on Data Science for more than 20 years, in both academia and
 I received a Ph.D. in Machine Learning and Computer vision in 2006, and have been in industry for more 
 than 10 years, working both as individual contributor and technical lead in multi-disciplinary teams. 
 I enjoy both the theoretical and practical aspects of Data Science, I like developing high quality software 
-based on best practices, and have experience generating intellectual property. Please check my open source 
-projects in the last section below.
+based on best practices, and have experience generating intellectual property. 
 
-Apart from my work, I am a dad of a little child and I am interested in early childhood education. 
-I intend to write about my research on this subject in my blog posts. 
+Apart from my work, I am a dad of a little child and I am interested in early childhood education and health.
+I intend to write about those subjects in my blog posts, above.
 <p></p>
 
 ## Education
@@ -37,16 +36,3 @@ I intend to write about my research on this subject in my blog posts.
 - B.Sc. in Computer Science | Universitat de Valencia | 2000
 
 <p></p>
-
-## Open Source
-
-At the moment I only have published one open source library written in python with [nbdev](https://nbdev.fast.ai/). 
-I intend to publish more projects in the future.
-
-- **forecasting**: [link](https://github.com/JaumeAmoresDS/tsforecast). This library intends to provide a uniform API 
-around popular time-series forecasting solutions and libraries. At this moment, I have implemented a library 
-based on LSTM auto-regressive models, using tensorflow's dataset API. The next steps are to add baselines 
-based on Random Forests, XGBoost, and ARIMA; and integrate libraries such as [darts](https://github.com/unit8co/darts) and [tsai](https://github.com/timeseriesAI/tsai). Hopefully also [gluonts](https://ts.gluon.ai/stable/).
-<p></p>
-
-:::
