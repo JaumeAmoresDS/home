@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Posts",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nEarly childhood education: preliminary findings\n\n\n\n\n\n\n\n\n\nMar 5, 2023\n\n\n\n\n\n\n\n\nHealth: resources and protocols\n\n\n\n\n\n\n\n\n\nMar 4, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nEarly childhood education\n\n\n\n\n\n\n\n\n\nMar 5, 2023\n\n\n\n\n\n\n\n\nHealth: resources and protocols\n\n\n\n\n\n\n\n\n\nMar 4, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -25,27 +25,83 @@
     "href": "posts/health_objectives/index.html",
     "title": "Health: resources and protocols",
     "section": "",
-    "text": "Hello"
+    "text": "Findings regarding best protocols on health."
   },
   {
     "objectID": "posts/health_objectives/index.html#protocols",
     "href": "posts/health_objectives/index.html#protocols",
     "title": "Health: resources and protocols",
     "section": "Protocols",
-    "text": "Protocols\nHello"
+    "text": "Protocols\n\nSleep\n\nThe single most important thing seems to be sleeping well close to eight hours per day.\nCoffee, while having its benefits, needs to be avoided from noon. Ideally, the latest should be taken twelve hours before going to sleep.\n\n\n\nNutrition\n\nFasting\n\nIntermitent fasting. Specifically, time-restricted fasting, although there are other appropriate forms.\nFasting up to one week, three times per year, with keto diet the week before and the week after.\n\nIf fasting is done for more than three days, we might have our sleep affected. To avoid that, we need to take some supplements.\n\nFasting for up to 48 hours once per month.\n\n\n\nDiet: plant-based with fish\nSpecifically, salmon and other blue fishes rich in omega-3"
   },
   {
     "objectID": "posts/education/index.html",
     "href": "posts/education/index.html",
-    "title": "Early childhood education: preliminary findings",
+    "title": "Early childhood education",
     "section": "",
-    "text": "This is some text"
+    "text": "This is currently a placeholder. The intend of this post is to provide a brief summary about my ongoing research in the world of early childhood education."
   },
   {
     "objectID": "posts/education/index.html#some-section",
     "href": "posts/education/index.html#some-section",
-    "title": "Early childhood education: preliminary findings",
+    "title": "Early childhood education",
     "section": "Some section",
     "text": "Some section\nHello"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#sleep",
+    "href": "posts/health_objectives/index.html#sleep",
+    "title": "Health: resources and protocols",
+    "section": "Sleep",
+    "text": "Sleep\n\nThe single most important thing seems to be sleeping well, close to eight hours per day.\nCoffee, while having its benefits, needs to be avoided from noon. Ideally, the latest coffee should be taken no later than twelve hours before going to sleep."
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#nutrition",
+    "href": "posts/health_objectives/index.html#nutrition",
+    "title": "Health: resources and protocols",
+    "section": "Nutrition",
+    "text": "Nutrition\n\nFasting\n\nIntermitent fasting. Specifically, time-restricted fasting, although there are other appropriate forms of intermitent fasting.\nFasting up to one week, three times per year, with keto diet the week before and the week after.\n\nIf fasting is done for more than three days, we might have our sleep affected. To avoid that, we need to take some supplements. I need to find their name.\n\nFasting for up to 48 hours once per month.\n\n\n\nDiet: plant-based with fish\n\nSpecifically, salmon and other blue fishes rich in omega-3\nIt seems to be slightly better than a pure vegan diet, which in turn is better than a meat-based western diet."
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#exercise",
+    "href": "posts/health_objectives/index.html#exercise",
+    "title": "Health: resources and protocols",
+    "section": "Exercise",
+    "text": "Exercise\n\nCardio\n\nCardio seems to be the most important exercise of all.\nIn order to avoid removing the benefits of doing cardio, we need to stay on stand-up position at least 50% of the day, rather than sitting. For office jobs, a standing desk is advisable.\nCardio can be done by running, using air-bike, or using stairs, among others.\nWe need to arrive to Zone 2, several days per week. A proxy for this is to achieve the maximum intensity while still being able to keep a conversation while doing the exercise.\nWe need to have a high-intensity exercise at least 10 minutes? (I need to check this) per week. This is exercise would be the next level to zone 2, i.e., not being able to have a conversation while doing it.\n\n\nAvoiding injuries while running\n\nWarmup before running: exercises.\nStrecth after running: exercises\nDo knee exercises\nStart running progressively: plan"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#aerobic-exercise",
+    "href": "posts/health_objectives/index.html#aerobic-exercise",
+    "title": "Health: resources and protocols",
+    "section": "Aerobic exercise",
+    "text": "Aerobic exercise\n\nCan be running, using air-bike, or stairs.\nThe target is to be on Zone 2, several days per week. This is defined as the maximum"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#cardio",
+    "href": "posts/health_objectives/index.html#cardio",
+    "title": "Health: resources and protocols",
+    "section": "Cardio",
+    "text": "Cardio\n\nCan be running, using air-bike, or stairs, among others.\nWe need to arrive to Zone 2, several days per week. A proxy for this is to achieve the maximum intensity while still being able to keep a conversation while doing the exercise.\nWe need to have a high-intensity exercise at least 10 minutes? (I need to check this) per week. This is exercise that makes us palm."
+  },
+  {
+    "objectID": "posts/education/index.html#resources",
+    "href": "posts/education/index.html#resources",
+    "title": "Early childhood education",
+    "section": "Resources",
+    "text": "Resources\nI list here the books, blogs, and podcasts from which the ideas summarized in this post have been gathered."
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#microbiomes",
+    "href": "posts/health_objectives/index.html#microbiomes",
+    "title": "Health: resources and protocols",
+    "section": "Microbiomes",
+    "text": "Microbiomes"
+  },
+  {
+    "objectID": "posts/health_objectives/index.html#nutrition-to-keep-guts-microbiome-healthy.",
+    "href": "posts/health_objectives/index.html#nutrition-to-keep-guts-microbiome-healthy.",
+    "title": "Health: resources and protocols",
+    "section": "Nutrition to keep gut’s microbiome healthy.",
+    "text": "Nutrition to keep gut’s microbiome healthy."
   }
 ]
