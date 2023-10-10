@@ -1,3 +1,5 @@
 /.quarto/
 *:Zone.Identifier
 **/*/*:Zone.Identifier
+*.jfif*
+**/*/*.jfif
