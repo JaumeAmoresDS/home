@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/about.html</loc>
-    <lastmod>2023-10-10T02:04:01.117Z</lastmod>
+    <lastmod>2023-10-10T02:36:20.974Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health_objectives/index.html</loc>
-    <lastmod>2023-10-10T02:03:59.669Z</lastmod>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/index.html</loc>
+    <lastmod>2023-10-10T02:36:19.594Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health_objectives/objectives_on_agency_and_gratitude.html</loc>
-    <lastmod>2023-10-10T02:03:58.104Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts.html</loc>
-    <lastmod>2023-10-10T02:03:56.476Z</lastmod>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/agency_and_gratitude.html</loc>
+    <lastmod>2023-10-10T02:36:17.802Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/index.html</loc>
-    <lastmod>2023-10-10T02:03:57.216Z</lastmod>
+    <lastmod>2023-10-10T02:36:16.386Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health_objectives/healthy_physical_habits.html</loc>
-    <lastmod>2023-10-10T02:03:58.993Z</lastmod>
+    <loc>https://github.com/JaumeAmoresDS/home/posts.html</loc>
+    <lastmod>2023-10-10T02:36:15.722Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/objectives_on_agency_and_gratitude.html</loc>
+    <lastmod>2023-10-10T02:36:17.150Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/physical_health.html</loc>
+    <lastmod>2023-10-10T02:36:18.798Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/posts/education/index.html</loc>
-    <lastmod>2023-10-10T02:04:00.429Z</lastmod>
+    <lastmod>2023-10-10T02:36:20.302Z</lastmod>
   </url>
 </urlset>

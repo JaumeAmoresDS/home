@@ -1,12 +1,15 @@
 [
   {
-    "listing": "/posts/health_objectives/index.html",
-    "items": []
+    "listing": "/posts/health/index.html",
+    "items": [
+      "/posts/health/agency_and_gratitude.html",
+      "/posts/health/physical_health.html"
+    ]
   },
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/health_objectives/index.html",
+      "/posts/health/index.html",
       "/posts/education/index.html"
     ]
   }

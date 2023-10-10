@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jaume Amores">
-<meta name="dcterms.date" content="2023-03-04">
 
-<title>Jaume Amores - Notes on personal objectives, agency and gratitude</title>
+<title>Jaume Amores - Health</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,15 +61,46 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-talks .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Notes on personal objectives, agency and gratitude">
-<meta property="og:description" content="">
+<meta property="og:title" content="Jaume Amores - Health">
+<meta property="og:description" content="Personal notes on physical and mental health">
 <meta property="og:site-name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Notes on personal objectives, agency and gratitude">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Jaume Amores - Health">
+<meta name="twitter:description" content="Personal notes on physical and mental health">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
@@ -115,52 +146,22 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#sleep" id="toc-sleep" class="nav-link active" data-scroll-target="#sleep">Sleep</a></li>
-  <li><a href="#nutrition" id="toc-nutrition" class="nav-link" data-scroll-target="#nutrition">Nutrition</a>
-  <ul class="collapse">
-  <li><a href="#fasting" id="toc-fasting" class="nav-link" data-scroll-target="#fasting">Fasting</a></li>
-  <li><a href="#diet-plant-based-with-fish" id="toc-diet-plant-based-with-fish" class="nav-link" data-scroll-target="#diet-plant-based-with-fish">Diet: plant-based with fish</a></li>
-  </ul></li>
-  <li><a href="#nutrition-to-keep-guts-microbiome-healthy." id="toc-nutrition-to-keep-guts-microbiome-healthy." class="nav-link" data-scroll-target="#nutrition-to-keep-guts-microbiome-healthy.">Nutrition to keep gut’s microbiome healthy.</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
-  <ul class="collapse">
-  <li><a href="#cardio" id="toc-cardio" class="nav-link" data-scroll-target="#cardio">Cardio</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Health">Health <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notes on personal objectives, agency and gratitude</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Health</div>
-  </div>
-  </div>
+<h1 class="title">Health</h1>
+<p class="subtitle lead">Personal notes on physical and mental health</p>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jaume Amores </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 4, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -168,64 +169,47 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>I would like to start contributing back to the community following the framework disseminated by <a href="https://drpaulconti.com/">Dr.&nbsp;Paul Conti</a></p>
-<section id="sleep" class="level2">
-<h2 class="anchored" data-anchor-id="sleep">Sleep</h2>
-<ul>
-<li>The single most important thing seems to be sleeping well, close to eight hours per day.</li>
-<li>Coffee, while having its benefits, needs to be avoided from noon. Ideally, the latest coffee should be taken no later than twelve hours before going to sleep.</li>
-</ul>
-</section>
-<section id="nutrition" class="level2">
-<h2 class="anchored" data-anchor-id="nutrition">Nutrition</h2>
-<section id="fasting" class="level3">
-<h3 class="anchored" data-anchor-id="fasting">Fasting</h3>
-<ul>
-<li>Intermitent fasting. Specifically, time-restricted fasting, although there are other appropriate forms of intermitent fasting.</li>
-<li>Fasting up to one week, three times per year, with keto diet the week before and the week after.
-<ul>
-<li>If fasting is done for more than three days, we might have our sleep affected. To avoid that, we need to take some supplements. I need to find their name.</li>
-</ul></li>
-<li>Fasting for up to 48 hours once per month.</li>
-</ul>
-</section>
-<section id="diet-plant-based-with-fish" class="level3">
-<h3 class="anchored" data-anchor-id="diet-plant-based-with-fish">Diet: plant-based with fish</h3>
-<ul>
-<li>Specifically, salmon and other blue fishes rich in omega-3</li>
-<li>It seems to be slightly better than a pure vegan diet, which in turn is better than a meat-based western diet.</li>
-</ul>
-</section>
-</section>
-<section id="nutrition-to-keep-guts-microbiome-healthy." class="level2">
-<h2 class="anchored" data-anchor-id="nutrition-to-keep-guts-microbiome-healthy.">Nutrition to keep gut’s microbiome healthy.</h2>
-</section>
-<section id="exercise" class="level2">
-<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
-<section id="cardio" class="level3">
-<h3 class="anchored" data-anchor-id="cardio">Cardio</h3>
-<ul>
-<li>Cardio seems to be the most important exercise of all.</li>
-<li>In order to avoid removing the benefits of doing cardio, we need to stay on stand-up position at least 50% of the day, rather than sitting. For office jobs, a standing desk is advisable.</li>
-<li>Cardio can be done by running, using air-bike, or using stairs, among others.</li>
-<li>We need to arrive to <code>Zone 2</code>, several days per week. A proxy for this is to achieve the maximum intensity while still being able to keep a conversation while doing the exercise.</li>
-<li>We need to have a high-intensity exercise at least 10 minutes? (I need to check this) per week. This is exercise would be the next level to zone 2, i.e., not being able to have a conversation while doing it.</li>
-</ul>
-<section id="avoiding-injuries-while-running" class="level4">
-<h4 class="anchored" data-anchor-id="avoiding-injuries-while-running">Avoiding injuries while running</h4>
-<ul>
-<li>Warmup before running: <a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/how-to-warm-up-before-exercising/">exercises</a>.</li>
-<li>Strecth after running: <a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/how-to-stretch-after-exercising/">exercises</a></li>
-<li>Do <a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/knee-exercises-for-runners/">knee exercises</a></li>
-<li>Start running progressively: <a href="https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k">plan</a></li>
-</ul>
 
 
-</section>
-</section>
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1696905360814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="body">
+<a href="../../posts/health/agency_and_gratitude.html">
+<h3 class="no-anchor listing-title">
+Notes on personal objectives, agency and gratitude
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../../posts/health/agency_and_gratitude.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1696905360814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="body">
+<a href="../../posts/health/physical_health.html">
+<h3 class="no-anchor listing-title">
+Notes of on physical health: resources and protocols
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../../posts/health/physical_health.html"> </a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
