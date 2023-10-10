@@ -247,35 +247,35 @@
   {
     "objectID": "posts/health/physical_health.html",
     "href": "posts/health/physical_health.html",
-    "title": "Notes of on physical health: resources and protocols",
+    "title": "Healthspan and lifespan",
     "section": "",
     "text": "Findings regarding best protocols on health."
   },
   {
     "objectID": "posts/health/physical_health.html#sleep",
     "href": "posts/health/physical_health.html#sleep",
-    "title": "Notes of on physical health: resources and protocols",
+    "title": "Healthspan and lifespan",
     "section": "Sleep",
     "text": "Sleep\n\nThe single most important thing seems to be sleeping well, close to eight hours per day.\nCoffee, while having its benefits, needs to be avoided from noon. Ideally, the latest coffee should be taken no later than twelve hours before going to sleep."
   },
   {
     "objectID": "posts/health/physical_health.html#nutrition",
     "href": "posts/health/physical_health.html#nutrition",
-    "title": "Notes of on physical health: resources and protocols",
+    "title": "Healthspan and lifespan",
     "section": "Nutrition",
     "text": "Nutrition\n\nFasting\n\nIntermitent fasting. Specifically, time-restricted fasting, although there are other appropriate forms of intermitent fasting.\nFasting up to one week, three times per year, with keto diet the week before and the week after.\n\nIf fasting is done for more than three days, we might have our sleep affected. To avoid that, we need to take some supplements. I need to find their name.\n\nFasting for up to 48 hours once per month.\n\n\n\nDiet: plant-based with fish\n\nSpecifically, salmon and other blue fishes rich in omega-3\nIt seems to be slightly better than a pure vegan diet, which in turn is better than a meat-based western diet."
   },
   {
     "objectID": "posts/health/physical_health.html#nutrition-to-keep-guts-microbiome-healthy.",
     "href": "posts/health/physical_health.html#nutrition-to-keep-guts-microbiome-healthy.",
-    "title": "Notes of on physical health: resources and protocols",
+    "title": "Healthspan and lifespan",
     "section": "Nutrition to keep gut’s microbiome healthy.",
     "text": "Nutrition to keep gut’s microbiome healthy."
   },
   {
     "objectID": "posts/health/physical_health.html#exercise",
     "href": "posts/health/physical_health.html#exercise",
-    "title": "Notes of on physical health: resources and protocols",
+    "title": "Healthspan and lifespan",
     "section": "Exercise",
     "text": "Exercise\n\nCardio\n\nCardio seems to be the most important exercise of all.\nIn order to avoid removing the benefits of doing cardio, we need to stay on stand-up position at least 50% of the day, rather than sitting. For office jobs, a standing desk is advisable.\nCardio can be done by running, using air-bike, or using stairs, among others.\nWe need to arrive to Zone 2, several days per week. A proxy for this is to achieve the maximum intensity while still being able to keep a conversation while doing the exercise.\nWe need to have a high-intensity exercise at least 10 minutes? (I need to check this) per week. This is exercise would be the next level to zone 2, i.e., not being able to have a conversation while doing it.\n\n\nAvoiding injuries while running\n\nWarmup before running: exercises.\nStrecth after running: exercises\nDo knee exercises\nStart running progressively: plan"
   },
@@ -284,13 +284,27 @@
     "href": "posts/health/index.html",
     "title": "Health",
     "section": "",
-    "text": "Notes of on physical health: resources and protocols\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nNotes on personal objectives, agency and gratitude\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Healthspan and lifespan\n\n\nPhysical health: resources and protocols\n\n\n\n\n \n\n\n\n\n\n\nAgency and gratitude\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nAgency and gratitude\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/health/agency_and_gratitude.html",
     "href": "posts/health/agency_and_gratitude.html",
-    "title": "Notes on personal objectives, agency and gratitude",
+    "title": "Agency and gratitude",
     "section": "",
-    "text": "I would like to start contributing following the framework disseminated by Dr. Paul Conti"
+    "text": "I would like to start contributing following the framework from Dr. Paul Conti. The basic idea is to do things that make me feel good and can help other people at the same time. This can be small things as:\n\nCommenting on interesting reads.\nContributing to open source: my personal project nbmodular, exercism, clojure data science community, and others.\nDo clojure pipeline ala dsblocks.\nReach out to people that are influencing me and ask them questions that may be of interest to others as well, e.g., in twitter, youtube, etc. Examples: David Sinclair, Andrew Huberman, and Peter Attia.\n\nHuberman: difficult task after tenacy task. Did they try to wait until drive/motivation/dopamine comes back to baseline (from the experimented valley)? Are the results as strong in that case? Idea basically is to separate the experiments for long time.\nSinclair: some of the suggested strategies require a lot of will power and tenacity. Do you know of mental strategies that can help us achieve those goals? Tricks such as drinking tea or coffee can be quite effective, but I wonder about strategies focused on dieting, which involve a large amount of tenacity.\nFast.ai: nbdev_export done, link to test tutorials, include examples / demos.\nFinish tenacity podcast and maybe re-listen Paul Conti podcasts book\nFor each X personal things, do one thing that may help (even just a bit) to the community. - Can be for my son - for others Try to find best strategy here, something that makes me feel good and works.\nPotential next project.\n\nLearn R language.\nApplied Statistics for Data Science: null hypothesis tests, etc.\nVisualization techniques and libraries: blogs, kaggle notebooks, other material.\n\nReveal.js / quarto notebooks.\n\nPapers discussed by Huberman, Attia and maybe Sinclair: analyze them from an statistics point of view and write a blog summarizing the findings. Have a list of blogs about this subject.\n\nPotential pitfalls, which ones are stronger from a statistics viewpoint.\nDo rating. Can even be a website with ratings / open review about this type of papers, automatic review that includes ChatGPT type of analysis, etc. With the AI piece we may be able to automatically find sources references and more context information (opinions, rebuttals, etc.) for these papers.\n\nFind kaggle projects, mostly focused on medicine, that can be good to participate in.\n\nAlso for Kaggle Days and social interaction.\n\nCommit myself to write a blog or something everytime I learn something, e.g., TIL like Simon Willison - see his github’s TIL"
+  },
+  {
+    "objectID": "index.html#open-source",
+    "href": "index.html#open-source",
+    "title": "Jaume Amores",
+    "section": "Open Source",
+    "text": "Open Source\nAt the moment I have published one open source library written in python, based on the nbdev+quarto publishing framework. I intend to publish more projects in the future.\n\nnbmodular: link Convert data science notebooks with poor modularity to fully modular notebooks that are automatically exported as python modules."
+  },
+  {
+    "objectID": "posts/health/tenacity_on_dieting.html",
+    "href": "posts/health/tenacity_on_dieting.html",
+    "title": "Tenacity and will power",
+    "section": "",
+    "text": "General strategies about tenacity / will power goals:\n\nClearly write goal objectives before trying. Dieting example: always write I will be eating that day,before eating. This is what I can eat today: menu with 2000 calories for example, 30% fat, 25% protein, 10% sugar.\n\nWrite down times: time when I start breakfast, and duration (end time). Time when I start lunch (if I do it), and duration (end time). Total eating window time (end lunch - beginning breakfast). It should always be lower than 8 hours. No snacks in between.\nWrite down all the coffees and teas, and their times.\nExtra: may be also the regular drinks (e.g., water), to see how this affects sleep.\nAt least something at coarse level, that has just a reasonable accuracy.\n\nDieting or other goals: Always write down what I have eaten (or whatever the goal was). That’s even more important than meeting objectives. I need to know, if I don’t meet them, why I haven’t and what could’ve done better or changed for meeting them. Write this down as well, every time.\n\nAbout writing down what I eat, it doesn’t need to be super-accurate. But at least something at coarse level, that has just a reasonable accuracy.\n\nSleep objectives. If I don’t meet them, what should I’ve done better, what subset of objectives (e.g., number of coffees) I didn’t meet and which strategies I could’ve followed to meet them. Always have empathy and kindness towards myself, not be harsh, but do not stop trying.\nBuy all the necessary wearables: sleep, glucose, lactose and maybe heart rate (because of its relantionship with will power).\nContinue reading, for instance papers about super-agers and how they get will power. Write down a blog summarizing my findings.\nIzan:\n\nwrite down notes from Anita and publish them.\nlook for strategies on savings, and publish them."
   }
 ]

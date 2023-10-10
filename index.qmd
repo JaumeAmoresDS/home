@@ -35,3 +35,9 @@ I intend to write about those subjects in my blog posts, above.
 - B.Sc. in Computer Science | Universitat de Valencia | 2000
 
 <p></p>
+
+## Open Source
+
+At the moment I have published one open source library written in python, based on the nbdev+quarto publishing framework. I intend to publish more projects in the future.
+
+- **nbmodular**: [link](https://github.com/JaumeAmoresDS/nbmodular) Convert data science notebooks with poor modularity to fully modular notebooks that are automatically exported as python modules.

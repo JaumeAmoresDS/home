@@ -1,5 +1,6 @@
 ---
-title: "Notes of on physical health: resources and protocols"
+title: "Healthspan and lifespan"
+subtitle: "Physical health: resources and protocols"
 author: "Jaume Amores"
 date: 2023-03-04
 toc: true
