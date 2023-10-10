@@ -1,54 +1,15 @@
 ---
-title: "Health: resources and protocols"
-author: "Jaume Amores"
-date: 2023-03-04
-toc: true
-categories:
-  - Health
+title: "Health"
+subtitle: "Personal notes on physical and mental health"
+listing:
+  - id: talks
+    contents: "**/*/index.qmd"
+    #fields: [date, title]
+    fields: [title]
+    sort: "date desc"
+    categories: true
+    #sort-ui: true
+    #filter-ui: true  
+#page-layout: full
+#comments: false
 ---
-
-Findings regarding best protocols on health.
-
-## Sleep 
-
-- The single most important thing seems to be sleeping well, close to eight hours per day.
-- Coffee, while having its benefits, needs to be avoided from noon. Ideally, the latest coffee should be 
-taken no later than twelve hours before going to sleep. 
-
-
-## Nutrition
-
-### Fasting
-- Intermitent fasting. Specifically, time-restricted fasting, although there are other appropriate forms 
-of intermitent fasting.
-- Fasting up to one week, three times per year, with keto diet the week before and the week after.
-  - If fasting is done for more than three days, we might have our sleep affected. To avoid that, 
-  we need to take some supplements. I need to find their name.
-- Fasting for up to 48 hours once per month.
-
-### Diet: plant-based with fish
-
-- Specifically, salmon and other blue fishes rich in omega-3
-- It seems to be slightly better than a pure vegan diet, which in turn is better than a meat-based western diet.
-
-## Nutrition to keep gut's microbiome healthy.
-
-## Exercise
-
-### Cardio
-
-- Cardio seems to be the most important exercise of all. 
-- In order to avoid removing the benefits of doing cardio, we need to stay on stand-up position at least 
-50% of the day, rather than sitting. For office jobs, a standing desk is advisable. 
-- Cardio can be done by running, using air-bike, or using stairs, among others.
-- We need to arrive to `Zone 2`, several days per week. A proxy for this is to achieve the maximum intensity 
-while still being able to keep a conversation while doing the exercise.
-- We need to have a high-intensity exercise at least 10 minutes? (I need to check this) per week. This is 
-exercise would be the next level to zone 2, i.e., not being able to have a conversation while doing it.
-
-#### Avoiding injuries while running
-
-- Warmup before running: [exercises](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/how-to-warm-up-before-exercising/).
-- Strecth after running: [exercises](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/how-to-stretch-after-exercising/)
-- Do [knee exercises](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/knee-exercises-for-runners/)
-- Start running progressively: [plan](https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k)
