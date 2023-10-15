@@ -1,0 +1,27 @@
+---
+title: "Tenacity and will power TIL"
+subtitle: "Lessons from Huberman podcast"
+author: "Jaume Amores"
+date: 2023-03-04
+toc: true
+categories:
+  - Health
+---
+
+## Introduction
+
+This post is an in-progress Today-I-Learned (*TIL*) on the awesome Huberman podcast ["How to Increase Tenacity & Will Power"](https://www.hubermanlab.com/episode/how-to-increase-your-willpower-and-tenacity)
+
+## Short notes on lessons learned
+
+- Experts differ on whether Tenacity & Will Power are constant and limited in the individual. I interpret this as whether or not an individual is able to increase their maximum capacity of tenacity & will-power. If the answer is no, this means that each  person can only have X amount of tenacity & will power, and nothing they do can increase this amount. That is not the same as saying that our tenacity & will power is constant and cannot change. It can increase throghout life through practice, but it cannot exceed a certain limit, which is fixed. It is this limit or upper bound what is fixed and cannot change. 
+
+- On the previous topic, Dr. Huberman tends to lean towards the camp that, indeed, the maximum achievable Tenacity & Will Power is constant and cannot change.  
+
+- One way of increasing Tenacity & Will Power is through exercise / practice. This means, in a nutshell, to do tasks that one doesn't want to do, or, conversely don't engage in activities or behaviours that one would like to engage in, and that are presumably unhealthy or not recommendable in some sense. Huberman informally refers to these tasks as *micro-sucks*, i.e., things that one doesn't really feel like doing at some point, but that they are safe and, I interpret, not extremely challenging. 
+
+- Biological remarks:
+    - Increasing testosterone seems to be related with increasing Tenacity & Will Power.
+    - There is a specific region of the brain that is strongly associated with Tenacity & Will Power. The bigger this region grows, the more Tenacity & Will Power one has. So-called super-agers (or centenarians, as Dr. Attia calls them) tend to have such regions much bigger than the rest of people. And they tend to engage in activities that they would normally don't feel like engaging in (at least at the beginning, e.g., things out of their comfort-zone and that they do not feel particularly inclined to do), and avoid unheatlhy or not-recommendable things that they normally desire. Another way of looking at this is that elderly people (in their 60s to 90s) that do not cease trying to improve, evolve, and explore unchartered and mildly not-attractive territories, show in some sense a strong desire of living longer while growing personally, and this usually translates into them living longer. It looks to me, to some extent, as a sort-of self-fulfilling wish.
+    
+

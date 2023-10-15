@@ -8,7 +8,13 @@ categories:
   - Health
 ---
 
-General strategies about tenacity / will power goals:
+## Introduction
+
+This post is just a series of short notes I wrote for myself, on general strategies to achieve tenacity / will power goals.
+
+## Strategies
+
+These are the (evolving) strategies I would like to follow:
 
 - Clearly write goal objectives before trying. Dieting example: always write I will be eating that day,before eating. This is what I can eat today: menu with 2000 calories for example, 30% fat, 25% protein, 10% sugar.
 
