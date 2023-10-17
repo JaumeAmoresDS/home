@@ -1,0 +1,34 @@
+---
+title: "Parenting coach notes"
+author: "Jaume Amores"
+date: 2023-10-16
+toc: true
+categories:
+  - Parenting & Education
+---
+
+**In progress, just random notes as of now**
+
+Some months ago we started to attend parenting coach sessions that would help us learn a suit of strategies for early-childhood parenting that we would like to apply to our son, who is three years old at the moment. This post summarizes some of these strategies and other lessons gathered from those sessions.
+
+## Following a routine
+
+"I see to it that my child does the following:"
+
+| In the morning    | In the evening |
+| -------- | ------- |
+| Dress up      | Wash hands |
+| Go to the car | Tidy up |
+| ...           | Have dinner |
+
+## General guidelines
+
+- **Prevention is better than cure**. For instance, if we see that the child might do something wrong, instead of waiting and checking if they actually end up doing it, we might avoid it altogether.
+- **Avoid non-positive attention-seeking mechanisms**. For instance, when asking the child to dress-up, it is important to not ask it repeatedly, or otherwise they might just not do it as a way of obtaining
+a type of attention that we don't want to encourage, in which case they might happily ignore our request and expect us to be paying this attention continuously. Instead, a better strategy is to say something like 
+"While you dress up I will be getting ready myself. If you have any difficulties while dressing up, please let me know and I can help you, but I would like to see that you try to do it by yourself first". It is very important 
+that, even when things are a bit challenging, they are encouraged to try them a few times before seeking help.
+
+
+
+

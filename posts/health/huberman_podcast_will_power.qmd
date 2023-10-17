@@ -12,7 +12,7 @@ categories:
 
 This post is an in-progress Today-I-Learned (*TIL*) on the awesome Huberman podcast ["How to Increase Tenacity & Will Power"](https://www.hubermanlab.com/episode/how-to-increase-your-willpower-and-tenacity)
 
-## Short notes on lessons learned
+## Short notes / lessons learned
 
 - Experts differ on whether Tenacity & Will Power are constant and limited in the individual. I interpret this as whether or not an individual is able to increase their maximum capacity of tenacity & will-power. If the answer is no, this means that each  person can only have X amount of tenacity & will power, and nothing they do can increase this amount. That is not the same as saying that our tenacity & will power is constant and cannot change. It can increase throghout life through practice, but it cannot exceed a certain limit, which is fixed. It is this limit or upper bound what is fixed and cannot change. 
 
