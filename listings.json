@@ -11,8 +11,15 @@
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/health/index.html",
-      "/posts/education/index.html"
+      "/posts/education/index.html",
+      "/posts/health/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/education/index.html",
+    "items": [
+      "/posts/education/parenting_coach.html",
+      "/posts/education/resources_early_childhood_education.html"
     ]
   }
 ]
