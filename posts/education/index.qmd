@@ -1,8 +1,15 @@
 ---
 title: "Early childhood education and parenting"
 author: "Jaume Amores"
-date: 2023-03-05
-toc: true
+#date: 2023-03-05
+#toc: true
+listing:
+  - id: talks
+    #contents: "**/*/index.qmd"
+    #fields: [date, title]
+    fields: [title]
+    sort: "date desc"
+    categories: true
 categories:
   - Parenting & Education
 ---

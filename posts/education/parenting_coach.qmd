@@ -7,7 +7,7 @@ categories:
   - Parenting & Education
 ---
 
-**In progress, just random notes as of now**
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
 
 Some months ago we started to attend parenting coach sessions that would help us learn a suit of strategies for early-childhood parenting that we would like to apply to our son, who is three years old at the moment. This post summarizes some of these strategies and other lessons gathered from those sessions.
 
@@ -29,6 +29,42 @@ a type of attention that we don't want to encourage, in which case they might ha
 "While you dress up I will be getting ready myself. If you have any difficulties while dressing up, please let me know and I can help you, but I would like to see that you try to do it by yourself first". It is very important 
 that, even when things are a bit challenging, they are encouraged to try them a few times before seeking help.
 
+## Q & A
 
+To better reflect the parenting sessions, each one of the discussed topics is placed in a separate a sub-section, and within it we write a Q & A expressed as a dialogue between parents and coach. Parent questions or observations are indicated with `P` while coach responses with `C`.
 
+### Hitting
 
+- **P:** My child is hitting me a lot lately. It seems as if he doesn't control his emotions.
+
+- **C:** When this happens, the first thing we need to ask is whether something changed at school or in other domain that might have affected him in some way. 
+    
+- **P:** He's not saying anything, nor his teachers. We are concerned that we wouldn't notice if something happened at school. One reason for that concern is that all the staff has recently changed and the new staff is not communicating so much.
+        
+- **C:** If he had a behaviour issue, your teachers would certainly tell you. (Then I remember that one teacher told me about one event when our son pushed another kid). I wouldn't worry about that. 
+
+- **C:** Regarding your initial question, you need to set your boundaries early in the day. Something like "I'm not going to allow you to hit me anymore". Say it in an "I love you" manner. Use the last example when that happened. We tell him that this is ok because it happened yesterday (for example), so he feels safe when we talk about this. Then we can say something like "I don't want that because it hurts me."
+
+Then, if we see the child is going to hit us, we need to stop him/her before that happens (note for self: this falls under the "prevention is better than cure" general guideline, mentioned above). While we stop him, we can say something like - "Hang on, remember we spoke about this early today? I'm not going to allow you to hit me." 
+
+If the child stops trying to hit, then we can the following type of dialogue (just an example situation) with our child:
+
+    - What is it that you need?
+    - I want to have yoghurt!
+    - Hang on, I see. Let's talk about that without hitting. When was the last time you had one?
+    - I had it this morning.
+    - That's great, you can have it tomorrow morning.
+    
+This type of dialogue makes the child learn to rationalize cause and effect.
+    
+The previous dialogue can happen if the child stops to trying to hit. However, they don't stop, it is better that we leave the room so that they don't get the opportunity to do it. We say that we are going to leave because we don't want to allow them to hit us. By doing so we are not allowing the negativity of the behaviour to last for long time. 
+
+### Child talking bad about school
+
+**P:** Our son always talks in a negative way about school. 
+
+**C:** First of all, we have to be careful that there's nothing concerning at school. Tell the teachers about his feeling and see what they say about this. After that, we also need to be careful to not be continuously asking our child whether or not he had a good day or, more specifically, if there was any issue at school that day. Especially, we need to avoid asking about in a way that provides an image of us being concerned. This might make our child feel uncomfortable, like investigated, and this doesn't help them having an honest and open communication. 
+
+Instead of that we could simply ask something general like "how was your day" and, after they respond, we can say something like "Let me tell you how was my day" so that they don't feel the conversation is just about them or about investigating if there was any issue that day.
+
+Rather than investigating on potential negative things, it's better to talk about positive things. We can ask what activities he had or what games he played and then ask specific details about those ("What was this painting about?" "Do you remember what colors did you use?" or "What animals there were in that jig-saw?" This helps them practice and strengthen their memory, something especially important at early ages.
