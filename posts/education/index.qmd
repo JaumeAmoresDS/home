@@ -1,5 +1,5 @@
 ---
-title: "Early childhood education and parenting"
+title: "Education and Parenting"
 author: "Jaume Amores"
 #date: 2023-03-05
 #toc: true
@@ -11,6 +11,6 @@ listing:
     sort: "date desc"
     categories: true
 categories:
-  - Parenting & Education
+  - Education & Parenting
 ---
 

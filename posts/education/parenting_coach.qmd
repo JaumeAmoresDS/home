@@ -4,7 +4,7 @@ author: "Jaume Amores"
 date: 2023-10-16
 toc: true
 categories:
-  - Parenting & Education
+  - Education & Parenting
 ---
 
 <span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>

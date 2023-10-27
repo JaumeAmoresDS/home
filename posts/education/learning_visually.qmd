@@ -5,7 +5,7 @@ author: "Jaume Amores"
 date: 2023-10-27
 toc: true
 categories:
-  - Parenting & Education
+  - Education & Parenting
 ---
 
 I recently joined the amazing [exercism](https://exercism.org/) community. Exercism is an online free coding platform that encourages learning programming languages through practice, free mentorship by volunteers, and exposure to similar solutions once our own solution has been submitted and pass the tests. Each exercise comes with associated learning material, which is a concise description of the concepts that are strictly required for attempting the exercise. However, the focus is always to encourage the students through problem solving and autonomously investigating the bits that are required. This follows closely recent research on education and neuro-science.
