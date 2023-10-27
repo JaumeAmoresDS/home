@@ -1,51 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/JaumeAmoresDS/home/about.html</loc>
-    <lastmod>2023-10-18T03:04:21.100Z</lastmod>
+    <loc>https://github.com/JaumeAmoresDS/home/posts.html</loc>
+    <lastmod>2023-10-27T07:41:51.860Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/education/parenting_coach.html</loc>
-    <lastmod>2023-10-18T03:04:19.508Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health/index.html</loc>
-    <lastmod>2023-10-18T03:04:17.460Z</lastmod>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/others/podcasts.html</loc>
+    <lastmod>2023-10-27T07:41:50.680Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/posts/health/tenacity_and_will_power.html</loc>
-    <lastmod>2023-10-18T03:04:15.496Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health/agency_and_gratitude.html</loc>
-    <lastmod>2023-10-18T03:04:13.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/index.html</loc>
-    <lastmod>2023-10-18T03:04:11.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts.html</loc>
-    <lastmod>2023-10-18T03:04:11.084Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/objectives_on_agency_and_gratitude.html</loc>
-    <lastmod>2023-10-18T03:04:12.780Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JaumeAmoresDS/home/posts/health/huberman_podcast_will_power.html</loc>
-    <lastmod>2023-10-18T03:04:14.620Z</lastmod>
+    <lastmod>2023-10-27T07:41:48.668Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/posts/health/physical_health.html</loc>
-    <lastmod>2023-10-18T03:04:16.436Z</lastmod>
+    <lastmod>2023-10-27T07:41:46.984Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/education/learning_visually.html</loc>
+    <lastmod>2023-10-27T07:41:45.312Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/education/project_driven_learning.html</loc>
+    <lastmod>2023-10-27T07:41:43.504Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/posts/education/resources_early_childhood_education.html</loc>
-    <lastmod>2023-10-18T03:04:18.460Z</lastmod>
+    <lastmod>2023-10-27T07:41:41.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/about.html</loc>
+    <lastmod>2023-10-27T07:41:39.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/index.html</loc>
+    <lastmod>2023-10-27T07:41:40.652Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JaumeAmoresDS/home/posts/education/index.html</loc>
-    <lastmod>2023-10-18T03:04:20.352Z</lastmod>
+    <lastmod>2023-10-27T07:41:42.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/education/parenting_coach.html</loc>
+    <lastmod>2023-10-27T07:41:44.460Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/huberman_podcast_will_power.html</loc>
+    <lastmod>2023-10-27T07:41:46.160Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/index.html</loc>
+    <lastmod>2023-10-27T07:41:47.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/health/agency_and_gratitude.html</loc>
+    <lastmod>2023-10-27T07:41:49.508Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JaumeAmoresDS/home/posts/others/index.html</loc>
+    <lastmod>2023-10-27T07:41:51.416Z</lastmod>
   </url>
 </urlset>

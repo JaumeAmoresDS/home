@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jaume Amores">
+<meta name="dcterms.date" content="2023-10-27">
 
-<title>Jaume Amores - Early childhood education and parenting</title>
+<title>Jaume Amores - Learning visually</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,44 +61,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Early childhood education and parenting">
+<meta property="og:title" content="Jaume Amores - Learning visually">
+<meta property="og:description" content="Short notes on learning by practice and visualization.">
 <meta property="og:site-name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Early childhood education and parenting">
+<meta name="twitter:title" content="Jaume Amores - Learning visually">
+<meta name="twitter:description" content="Short notes on learning by practice and visualization.">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,13 +116,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Parenting &amp; Education">Parenting &amp; Education <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Early childhood education and parenting</h1>
+<h1 class="title">Learning visually</h1>
+<p class="subtitle lead">Short notes on learning by practice and visualization.</p>
   <div class="quarto-categories">
     <div class="quarto-category">Parenting &amp; Education</div>
   </div>
@@ -169,6 +140,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 27, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -176,77 +153,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>I recently joined the amazing <a href="https://exercism.org/">exercism</a> community. Exercism is an online free coding platform that encourages learning programming languages through practice, free mentorship by volunteers, and exposure to similar solutions once our own solution has been submitted and pass the tests. Each exercise comes with associated learning material, which is a concise description of the concepts that are strictly required for attempting the exercise. However, the focus is always to encourage the students through problem solving and autonomously investigating the bits that are required. This follows closely recent research on education and neuro-science.</p>
+<p>I would like to share related thoughts on learning through practice, visual learning, and mathematics or related disciplines. The following are just short notes on this matter, that can serve both as a high-level roadmap to a potential long-term project, and contain some references that I would like to keep in mind and expand in the future.</p>
+<p>I found exercism to be a nicely designed platform that, being open source, could be extended to be applied to other domains beyond programming languages, and in particular to math problems. We could then use libraries to describe the problems visually, similar to what <a href="https://www.3blue1brown.com/">3blue1brown</a> does. By presenting math problems as both visual puzzles, and in its original text form, we can make the problem more appealing, following the the ideas of Jo Boaler, e.g., in <a href="https://www.youcubed.org/resources/mathematical-mindsets/">Mathematical mindsets</a>, and <a href="https://www.youcubed.org/resource/visual-mathematics/">visual mathematics</a>. It would be nice if the student could manipulate the problem visually (i.e., manipulating and transforming the graphical elements with a mouse), and if the problem could be presented not only in 2D but also in 3D (using Virtual Reality, ideally), so that the student is able to also manipulate the objects in a sort-of “physical” world (be it through a game that emulates this world, or through gadgets like glasses and gloves, to have a better sensorial experience, although this would only be accessible by people able to buy those gadgets, unfortunately).</p>
+<p><a href="https://michaelnielsen.org/">Michael Nielsen</a> has written very nice essays on these lines, under the title “Tools for Thought”. In particular, his essays <a href="https://cognitivemedium.com/emm/emm.html">Toward an exploratory medium for mathematics</a>, <a href="http://cognitivemedium.com/tat/index.html">Thought as a Technology</a>, and <a href="https://numinous.productions/ttft/">How can we develop transformative tools for thought?</a> and <a href="http://michaelnielsen.org/reinventing_explanation/index.html">Reinventing Explanation</a>. Similar ideas are recently being developed by many scientists and educators and put in practice in journals such as <a href="https://distill.pub/">Distill</a>. I will be including those references in here as I find them, with a brief description, to serve as sources for the future.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Parenting &amp; Education" data-listing-date-sort="1698364800000" data-listing-file-modified-sort="1698392477303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="body">
-<a href="../../posts/education/learning_visually.html">
-<h3 class="no-anchor listing-title">
-Learning visually
-</h3>
-<div class="listing-subtitle">
-Short notes on learning by practice and visualization.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../../posts/education/learning_visually.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Parenting &amp; Education" data-listing-date-sort="1697414400000" data-listing-file-modified-sort="1698392477303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
-<div class="body">
-<a href="../../posts/education/parenting_coach.html">
-<h3 class="no-anchor listing-title">
-Parenting coach notes
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../../posts/education/parenting_coach.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Parenting &amp; Education" data-listing-date-sort="1677974400000" data-listing-file-modified-sort="1698392477303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="body">
-<a href="../../posts/education/resources_early_childhood_education.html">
-<h3 class="no-anchor listing-title">
-Resources on Parenting &amp; Early Childhood Education
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../../posts/education/resources_early_childhood_education.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Parenting &amp; Education" data-listing-date-sort="1677974400000" data-listing-file-modified-sort="1698392477303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="body">
-<a href="../../posts/education/project_driven_learning.html">
-<h3 class="no-anchor listing-title">
-Project-driven learning
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../../posts/education/project_driven_learning.html"> </a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
