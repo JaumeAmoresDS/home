@@ -8,7 +8,7 @@ categories:
   - Education & Parenting
 ---
 
-I recently joined the amazing [exercism](https://exercism.org/) community. Exercism is an online free coding platform that encourages learning programming languages through practice, free mentorship by volunteers, and exposure to similar solutions once our own solution has been submitted and pass the tests. Each exercise comes with associated learning material, which is a concise description of the concepts that are strictly required for attempting the exercise. However, the focus is always to encourage the students through problem solving and autonomously investigating the bits that are required. This follows closely recent research on education and neuro-science.
+I recently joined the amazing [exercism](https://exercism.org/) community. Exercism is an online free coding platform that encourages learning programming languages through practice, free mentorship by volunteers, and exposure to similar solutions once our own solution has been submitted and passes the tests. Each exercise comes with associated learning material, which is a concise description of the concepts that are strictly required for attempting the exercise. However, the focus is always to encourage the students to learn through problem solving, while autonomously investigating the bits that are required. This follows closely recent research on education and neuroscience.
 
 I would like to share related thoughts on learning through practice, visual learning, and mathematics or related disciplines. The following are just short notes on this matter, that can serve both as a high-level roadmap to a potential long-term project, and contain some references that I would like to keep in mind and expand in the future.
 
