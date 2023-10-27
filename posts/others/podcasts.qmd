@@ -1,0 +1,32 @@
+---
+title: "Podcasts"
+author: "Jaume Amores"
+date: 2023-03-05
+toc: true
+categories:
+  - Other
+---
+
+<span style="color:orange">**Note: this post is, at this moment, just a draft in progress.**</span>
+
+I have been a podcast and audio-book listener for the last few years. In this post, I would like to list and briefly describe the podcasts that I find interesting, and point to relevant sources.
+
+## List of podcasts
+
+### Health
+- [Huberman Lab Podcast](https://www.hubermanlab.com/podcast)
+- [The Peter Attia Drive Podcast](https://peterattiamd.com/podcast/)
+- [Dr Chaterjee](https://drchatterjee.com/blog/category/podcast/)
+
+### Education
+- [Mr Barton Maths Podcast](https://www.mrbartonmaths.com/blog/)
+
+### Parenting
+- [Rasing Good Humans](https://draliza.com/episodes/)
+- [Parent-Driven Development](https://www.parentdrivendevelopment.com/)
+
+### General
+- [Lex Fridman Podcast](https://lexfridman.com/podcast/)
+- [The Tim Ferris Show](https://tim.blog/podcast/)
+- [Joe Rogan Experience](https://www.joerogan.com/)
+
