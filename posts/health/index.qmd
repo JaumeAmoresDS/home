@@ -1,6 +1,6 @@
 ---
 title: "Health"
-subtitle: "Personal notes on physical and mental health"
+#subtitle: "Personal notes on physical and mental health"
 listing:
   - id: talks
     #contents: "**/*/index.qmd"

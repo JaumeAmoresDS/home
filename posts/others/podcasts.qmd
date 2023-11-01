@@ -13,20 +13,25 @@ I have been a podcast and audio-book listener for the last few years. In this po
 
 ## List of podcasts
 
+### General
+- [Lex Fridman Podcast](https://lexfridman.com/podcast/): long-format (>= 3h) interviews with interesting people of all types: literature, education, health, science, religion, politics... It started focusing on AI (the domain he is expert on), then expanded to science and software in general, then to everything. Very interesting guests IMO, most of them previously unknown by me. 
+- [Joe Rogan Experience](https://www.joerogan.com/): Similar to Lex Fridman podcast. i found many interesting personalities in this podcast, and Joe has this capacity of making every conversation a fascinating one, and showing respect and interest towards points of view that are quite different from his own ones. However, there are few things that make me get away from it sometimes: he tends to bring many UFC fighters and comedians, which are the two things he is expert on. I like martial arts, but this high bias towards this type of guests is not ideal for me. He also tends to criticize previous guests when they are not there, even if he doesn't do any criticism when the guest is there (at least not during the time I listen, sometimes I stop after one or two hours, and I should wait until the end to be sure about this).
+
 ### Health
-- [Huberman Lab Podcast](https://www.hubermanlab.com/podcast)
-- [The Peter Attia Drive Podcast](https://peterattiamd.com/podcast/)
-- [Dr Chaterjee](https://drchatterjee.com/blog/category/podcast/)
+- [Huberman Lab Podcast](https://www.hubermanlab.com/podcast): mental and physical health, performance, and well-being in general. Dr. Andrew Huberman is a neuroscientist and professor at the Standford School of Medicine. This podcast combines interviews with guests, many of them well-known scientists and pioneers in their field, with discussions about where he covers specific topics that he and his team have been researching for the podcast.
+- [The Peter Attia Drive Podcast](https://peterattiamd.com/podcast/): focused on latest research for increasing longevity, healthspan and lifespan. Dr. Peter Attia is the author of `Outlive`, and has a dedicated practice for studying and researching causes and solutions of age-related diseases, and how to stay healthy until the last years of our life.
+- [Dr Chaterjee](https://drchatterjee.com/blog/category/podcast/): mostly interviews with guests from the health sector, occasionally having well-known guests from other domains, usually with some relationship with health and well-being in general.
 
 ### Education
-- [Mr Barton Maths Podcast](https://www.mrbartonmaths.com/blog/)
+- [Mr Barton Maths Podcast](https://www.mrbartonmaths.com/blog/): education in mathematics (mostly secondary education), but extrapolable to education in general, as it talks about research in education, which in turn comes from fields such as neuroscience and psychology, and is applicable to many fields beyond mathematics.
+- [3blue1brown podcast](https://www.3blue1brown.com/podcast): interviews, mostly with mathematicians. Even if you don't like maths (which to be honest it is not something I'm really an expert on), i find the conversations very interesting, and amenable for non-mathematicians like myself.
 
 ### Parenting
-- [Rasing Good Humans](https://draliza.com/episodes/)
-- [Parent-Driven Development](https://www.parentdrivendevelopment.com/)
+- [Rasing Good Humans](https://draliza.com/episodes/): I listened to some of the episodes but still have to listen to more.
+- [Parent-Driven Development](https://www.parentdrivendevelopment.com/): just listened to a couple of podcasts. Informal conversations with parents involved in technology and software in particular: how they teach their children, what strategies they use to keep a good work-life balance, etc. 
 
-### General
-- [Lex Fridman Podcast](https://lexfridman.com/podcast/)
-- [The Tim Ferris Show](https://tim.blog/podcast/)
-- [Joe Rogan Experience](https://www.joerogan.com/)
+### Misc.
 
+- **The Rest is History**: Great podcast about both recent and ancient history, with in-depth coverage of different curious and interesting events, personalities, and cultures.
+- **The Rest is Money**: I discovered this through the Rest is History. It is a different way to follow recent developments, here focused on the ones having impact on the economy. 
+- **Global News Podcast** from the BBC. It has two episodes per day, 30 min each.
