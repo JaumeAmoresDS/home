@@ -1,0 +1,16 @@
+---
+title: "Data Science"
+author: "Jaume Amores"
+#date: 2024-03-22
+#toc: true
+listing:
+  - id: talks
+    #contents: "**/*/index.qmd"
+    #fields: [date, title]
+    fields: [title]
+    sort: "date desc"
+    categories: true
+categories:
+  - Data Science
+---
+
