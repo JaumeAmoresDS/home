@@ -2,18 +2,16 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/data_science/index.html",
       "/posts/education/index.html",
       "/posts/health/index.html",
       "/posts/others/index.html"
     ]
   },
   {
-    "listing": "/posts/education/index.html",
+    "listing": "/posts/others/index.html",
     "items": [
-      "/posts/education/learning_visually.html",
-      "/posts/education/parenting_coach.html",
-      "/posts/education/resources_early_childhood_education.html",
-      "/posts/education/project_driven_learning.html"
+      "/posts/others/podcasts.html"
     ]
   },
   {
@@ -26,9 +24,18 @@
     ]
   },
   {
-    "listing": "/posts/others/index.html",
+    "listing": "/posts/data_science/index.html",
     "items": [
-      "/posts/others/podcasts.html"
+      "/posts/data_science/hello_world.html"
+    ]
+  },
+  {
+    "listing": "/posts/education/index.html",
+    "items": [
+      "/posts/education/learning_visually.html",
+      "/posts/education/parenting_coach.html",
+      "/posts/education/resources_early_childhood_education.html",
+      "/posts/education/project_driven_learning.html"
     ]
   }
 ]
