@@ -1,1 +1,1 @@
-Sitemap: https://github.com/JaumeAmoresDS/home/sitemap.xml
+Sitemap: https://JaumeAmoresDS.github.io/home/sitemap.xml
