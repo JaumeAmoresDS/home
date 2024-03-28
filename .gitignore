@@ -5,3 +5,5 @@
 **/*/*.jfif
 **/*/*.ipynb_checkpoints
 _site
+.amlignore*
+

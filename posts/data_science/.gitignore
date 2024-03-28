@@ -1,0 +1,8 @@
+.amlignore
+*/.amlignore
+.ipynb_aml_checkpoints
+data
+test_pipelinee
+training
+preprocessing
+inference
