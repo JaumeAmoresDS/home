@@ -2,7 +2,7 @@
 */.amlignore
 .ipynb_aml_checkpoints
 data
-test_pipelinee
+test_pipeline
 training
 preprocessing
 inference
