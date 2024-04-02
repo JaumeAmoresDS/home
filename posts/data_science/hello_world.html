@@ -2487,7 +2487,7 @@ Inference result:
 </section>
 <section id="pipeline-3" class="level3">
 <h3 class="anchored" data-anchor-id="pipeline-3">Pipeline</h3>
-<div id="f8050551" class="cell" data-execution_count="73">
+<div id="f8050551" class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="at">@dsl.pipeline</span>(</span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>    compute<span class="op">=</span><span class="st">"serverless"</span>,  <span class="co"># "serverless" value runs pipeline on serverless compute</span></span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"E2E hello world pipeline with input"</span>,</span>
@@ -2583,50 +2583,24 @@ Inference result:
 <span id="cb93-93"><a href="#cb93-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
 <span id="cb93-94"><a href="#cb93-94" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------------------</span></span>
 <span id="cb93-95"><a href="#cb93-95" aria-hidden="true" tabindex="-1"></a>ml_client.jobs.stream(three_components_pipeline_job.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Class AutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
-Class AutoDeleteConditionSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
-Class BaseAutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
-Class IntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
-Class ProtectionLevelSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
-Class BaseIntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>RunId: busy_toe_03bv5yshzh
-Web View: https://ml.azure.com/runs/busy_toe_03bv5yshzh?wsid=/subscriptions/6af6741b-f140-48c2-84ca-027a27365026/resourcegroups/helloworld/workspaces/helloworld
+<pre><code>RunId: blue_sugar_ns1v5dpj4c
+Web View: https://ml.azure.com/runs/blue_sugar_ns1v5dpj4c?wsid=/subscriptions/6af6741b-f140-48c2-84ca-027a27365026/resourcegroups/helloworld/workspaces/helloworld
 
 Streaming logs/azureml/executionlogs.txt
 ========================================
 
-[2024-03-29 08:45:11Z] Submitting 2 runs, first five are: f39c6442:de45cd94-3bf9-4405-9b9f-59782424a8fb,feeb5198:0b543053-d140-4699-9c29-1ec2e755898e
-[2024-03-29 08:50:08Z] Completing processing run id de45cd94-3bf9-4405-9b9f-59782424a8fb.
-[2024-03-29 08:50:33Z] Completing processing run id 0b543053-d140-4699-9c29-1ec2e755898e.
-[2024-03-29 08:50:34Z] Submitting 1 runs, first five are: 5731fc43:46a9ab31-8a68-42ee-a377-a5e84cbad37d
-[2024-03-29 08:55:36Z] Completing processing run id 46a9ab31-8a68-42ee-a377-a5e84cbad37d.
-[2024-03-29 08:55:36Z] Submitting 1 runs, first five are: 5af83f98:fd50a27d-6687-431a-88d3-b8ba3d8799f4
-[2024-03-29 08:56:12Z] Execution of experiment failed, update experiment status and cancel running nodes.
+[2024-03-29 09:00:10Z] Completing processing run id 2319106a-3802-4727-8e58-c347521ab38f.
+[2024-03-29 09:00:10Z] Completing processing run id caf9c677-ff96-4cd8-ac83-0439f16bc635.
+[2024-03-29 09:00:11Z] Completing processing run id 3c7a3956-de79-4e6c-90d1-e012ed8ccaa8.
+[2024-03-29 09:00:12Z] Submitting 1 runs, first five are: eeca7330:4a267c73-32ee-451d-9d53-b144842236ee
+[2024-03-29 09:00:52Z] Completing processing run id 4a267c73-32ee-451d-9d53-b144842236ee.
 
 Execution Summary
 =================
-RunId: busy_toe_03bv5yshzh
-Web View: https://ml.azure.com/runs/busy_toe_03bv5yshzh?wsid=/subscriptions/6af6741b-f140-48c2-84ca-027a27365026/resourcegroups/helloworld/workspaces/helloworld</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<pre><code>JobException: Exception : 
- {
-    "error": {
-        "code": "UserError",
-        "message": "Pipeline has failed child jobs. Failed nodes: /inference_job. For more details and logs, please go to the job detail page and check the child jobs.",
-        "message_format": "Pipeline has failed child jobs. {0}",
-        "message_parameters": {},
-        "reference_code": "PipelineHasStepJobFailed",
-        "details": []
-    },
-    "environment": "eastus2",
-    "location": "eastus2",
-    "time": "2024-03-29T08:56:11.952518Z",
-    "component_name": ""
-} </code></pre>
+RunId: blue_sugar_ns1v5dpj4c
+Web View: https://ml.azure.com/runs/blue_sugar_ns1v5dpj4c?wsid=/subscriptions/6af6741b-f140-48c2-84ca-027a27365026/resourcegroups/helloworld/workspaces/helloworld
+</code></pre>
 </div>
 </div>
 <p>Here we can see the resulting pipeline:</p>
