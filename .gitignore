@@ -6,4 +6,4 @@
 **/*/*.ipynb_checkpoints
 _site
 .amlignore*
-
+.ipynb_checkpoints/
