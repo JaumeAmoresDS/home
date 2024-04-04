@@ -6,3 +6,5 @@ test_pipeline
 training
 preprocessing
 inference
+*.py
+*.json
