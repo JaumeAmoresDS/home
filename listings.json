@@ -1,14 +1,5 @@
 [
   {
-    "listing": "/posts.html",
-    "items": [
-      "/posts/data_science/index.html",
-      "/posts/education/index.html",
-      "/posts/health/index.html",
-      "/posts/others/index.html"
-    ]
-  },
-  {
     "listing": "/posts/education/index.html",
     "items": [
       "/posts/education/learning_visually.html",
@@ -18,18 +9,27 @@
     ]
   },
   {
+    "listing": "/posts/health/index.html",
+    "items": [
+      "/posts/health/tenacity_and_will_power.html",
+      "/posts/health/agency_and_gratitude.html",
+      "/posts/health/physical_health.html",
+      "/posts/health/huberman_podcast_will_power.html"
+    ]
+  },
+  {
     "listing": "/posts/data_science/index.html",
     "items": [
       "/posts/data_science/hello_world.html"
     ]
   },
   {
-    "listing": "/posts/health/index.html",
+    "listing": "/posts.html",
     "items": [
-      "/posts/health/tenacity_and_will_power.html",
-      "/posts/health/huberman_podcast_will_power.html",
-      "/posts/health/physical_health.html",
-      "/posts/health/agency_and_gratitude.html"
+      "/posts/data_science/index.html",
+      "/posts/education/index.html",
+      "/posts/health/index.html",
+      "/posts/others/index.html"
     ]
   },
   {

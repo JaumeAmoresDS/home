@@ -224,6 +224,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pipeline-script" id="toc-pipeline-script" class="nav-link" data-scroll-target="#pipeline-script">pipeline script</a></li>
   <li><a href="#removing-global-variables" id="toc-removing-global-variables" class="nav-link" data-scroll-target="#removing-global-variables">Removing global variables</a></li>
   </ul></li>
+  <li><a href="#indicating-environment-and-compute-instance" id="toc-indicating-environment-and-compute-instance" class="nav-link" data-scroll-target="#indicating-environment-and-compute-instance">Indicating environment and compute instance</a>
+  <ul class="collapse">
+  <li><a href="#environment" id="toc-environment" class="nav-link" data-scroll-target="#environment">Environment</a></li>
+  <li><a href="#compute-instance" id="toc-compute-instance" class="nav-link" data-scroll-target="#compute-instance">Compute instance</a></li>
+  <li><a href="#connect_setup_and_run" id="toc-connect_setup_and_run" class="nav-link" data-scroll-target="#connect_setup_and_run">connect_setup_and_run</a></li>
+  <li><a href="#final-script" id="toc-final-script" class="nav-link" data-scroll-target="#final-script">Final script</a></li>
+  </ul></li>
   <li><a href="#further-refactorings" id="toc-further-refactorings" class="nav-link" data-scroll-target="#further-refactorings">Further refactorings</a></li>
   </ul></li>
   </ul>
@@ -683,7 +690,7 @@ Web View: https://ml.azure.com/runs/olive_plastic_gvnjy01b5s?wsid=/subscriptions
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    code<span class="op">=</span><span class="ss">f"./"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    command<span class="op">=</span><span class="st">"python hello_world_core.py --name $</span><span class="sc">{{</span><span class="st">inputs.name</span><span class="sc">}}</span><span class="st">"</span>,</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    environment<span class="op">=</span><span class="st">"hello-world"</span>,</span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    display_name<span class="op">=</span><span class="st">"Hello World with uri_file"</span>,</span>
 <span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>hello_world_component <span class="op">=</span> ml_client.create_or_update(job.component)</span>
@@ -2947,7 +2954,7 @@ jupyter_env              /anaconda/envs/jupyter_env</code></pre>
 <p>Let’s introduce two optional changes:</p>
 <ul>
 <li>Instead of defining the <code>preprocessing_command</code>, <code>training_command</code> and <code>inference_command</code> out of the pipeline function, we will define them inside.</li>
-<li>We will avoid creating the components beforehand, by not calling <code>ml_client.create_or_update</code>, as it was done for example here:</li>
+<li>We will avoid creating the components beforehand, by not calling <code>ml_client.create_or_update (my_component_command.component)</code>, as it was done for example here:</li>
 </ul>
 <div class="sourceCode" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>preprocessing_component <span class="op">=</span> ml_client.create_or_update(preprocessing_command.component)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="3b093697" class="cell" data-execution_count="14">
@@ -3065,187 +3072,620 @@ jupyter_env              /anaconda/envs/jupyter_env</code></pre>
 <span id="cb104-112"><a href="#cb104-112" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
 <span id="cb104-113"><a href="#cb104-113" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"Pre-processing"</span>,</span>
 <span id="cb104-114"><a href="#cb104-114" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-115"><a href="#cb104-115" aria-hidden="true" tabindex="-1"></a>    <span class="co">#preprocessing_component = ml_client.create_or_update(preprocessing_component.component)</span></span>
-<span id="cb104-116"><a href="#cb104-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-117"><a href="#cb104-117" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
-<span id="cb104-118"><a href="#cb104-118" aria-hidden="true" tabindex="-1"></a>    preprocessing_training_job <span class="op">=</span> preprocessing_component(</span>
-<span id="cb104-119"><a href="#cb104-119" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_training_input_file,</span>
-<span id="cb104-120"><a href="#cb104-120" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb104-121"><a href="#cb104-121" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
-<span id="cb104-122"><a href="#cb104-122" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
-<span id="cb104-123"><a href="#cb104-123" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-124"><a href="#cb104-124" aria-hidden="true" tabindex="-1"></a>    preprocessing_test_job <span class="op">=</span> preprocessing_component(</span>
-<span id="cb104-125"><a href="#cb104-125" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_test_input_file,</span>
-<span id="cb104-126"><a href="#cb104-126" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb104-127"><a href="#cb104-127" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
-<span id="cb104-128"><a href="#cb104-128" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
-<span id="cb104-129"><a href="#cb104-129" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-130"><a href="#cb104-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-131"><a href="#cb104-131" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-132"><a href="#cb104-132" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training component</span></span>
-<span id="cb104-133"><a href="#cb104-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-134"><a href="#cb104-134" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
-<span id="cb104-135"><a href="#cb104-135" aria-hidden="true" tabindex="-1"></a>    training_component <span class="op">=</span> command(</span>
-<span id="cb104-136"><a href="#cb104-136" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb104-137"><a href="#cb104-137" aria-hidden="true" tabindex="-1"></a>            input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb104-138"><a href="#cb104-138" aria-hidden="true" tabindex="-1"></a>            input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb104-139"><a href="#cb104-139" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb104-140"><a href="#cb104-140" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb104-141"><a href="#cb104-141" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb104-142"><a href="#cb104-142" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb104-143"><a href="#cb104-143" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb104-144"><a href="#cb104-144" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./training/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
-<span id="cb104-145"><a href="#cb104-145" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python training.py "</span></span>
-<span id="cb104-146"><a href="#cb104-146" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_folder $</span><span class="sc">{{</span><span class="st">inputs.input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-147"><a href="#cb104-147" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_filename $</span><span class="sc">{{</span><span class="st">inputs.input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-148"><a href="#cb104-148" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-149"><a href="#cb104-149" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
-<span id="cb104-150"><a href="#cb104-150" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
-<span id="cb104-151"><a href="#cb104-151" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"Training"</span>,</span>
-<span id="cb104-152"><a href="#cb104-152" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-153"><a href="#cb104-153" aria-hidden="true" tabindex="-1"></a>    <span class="co">#training_component = ml_client.create_or_update(training_component.component)</span></span>
-<span id="cb104-154"><a href="#cb104-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-155"><a href="#cb104-155" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
-<span id="cb104-156"><a href="#cb104-156" aria-hidden="true" tabindex="-1"></a>    training_job <span class="op">=</span> training_component(</span>
-<span id="cb104-157"><a href="#cb104-157" aria-hidden="true" tabindex="-1"></a>        input_folder<span class="op">=</span>preprocessing_training_job.outputs.output_folder,</span>
-<span id="cb104-158"><a href="#cb104-158" aria-hidden="true" tabindex="-1"></a>        input_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
-<span id="cb104-159"><a href="#cb104-159" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb104-160"><a href="#cb104-160" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>training_output_filename,</span>
-<span id="cb104-161"><a href="#cb104-161" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-162"><a href="#cb104-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-115"><a href="#cb104-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-116"><a href="#cb104-116" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb104-117"><a href="#cb104-117" aria-hidden="true" tabindex="-1"></a>    preprocessing_training_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb104-118"><a href="#cb104-118" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_training_input_file,</span>
+<span id="cb104-119"><a href="#cb104-119" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb104-120"><a href="#cb104-120" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb104-121"><a href="#cb104-121" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
+<span id="cb104-122"><a href="#cb104-122" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-123"><a href="#cb104-123" aria-hidden="true" tabindex="-1"></a>    preprocessing_test_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb104-124"><a href="#cb104-124" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_test_input_file,</span>
+<span id="cb104-125"><a href="#cb104-125" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb104-126"><a href="#cb104-126" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb104-127"><a href="#cb104-127" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
+<span id="cb104-128"><a href="#cb104-128" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-129"><a href="#cb104-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-130"><a href="#cb104-130" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-131"><a href="#cb104-131" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training component</span></span>
+<span id="cb104-132"><a href="#cb104-132" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-133"><a href="#cb104-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
+<span id="cb104-134"><a href="#cb104-134" aria-hidden="true" tabindex="-1"></a>    training_component <span class="op">=</span> command(</span>
+<span id="cb104-135"><a href="#cb104-135" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb104-136"><a href="#cb104-136" aria-hidden="true" tabindex="-1"></a>            input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb104-137"><a href="#cb104-137" aria-hidden="true" tabindex="-1"></a>            input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb104-138"><a href="#cb104-138" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb104-139"><a href="#cb104-139" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb104-140"><a href="#cb104-140" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb104-141"><a href="#cb104-141" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb104-142"><a href="#cb104-142" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb104-143"><a href="#cb104-143" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./training/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb104-144"><a href="#cb104-144" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python training.py "</span></span>
+<span id="cb104-145"><a href="#cb104-145" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_folder $</span><span class="sc">{{</span><span class="st">inputs.input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-146"><a href="#cb104-146" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_filename $</span><span class="sc">{{</span><span class="st">inputs.input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-147"><a href="#cb104-147" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-148"><a href="#cb104-148" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
+<span id="cb104-149"><a href="#cb104-149" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
+<span id="cb104-150"><a href="#cb104-150" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"Training"</span>,</span>
+<span id="cb104-151"><a href="#cb104-151" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-152"><a href="#cb104-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-153"><a href="#cb104-153" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb104-154"><a href="#cb104-154" aria-hidden="true" tabindex="-1"></a>    training_job <span class="op">=</span> training_component(</span>
+<span id="cb104-155"><a href="#cb104-155" aria-hidden="true" tabindex="-1"></a>        input_folder<span class="op">=</span>preprocessing_training_job.outputs.output_folder,</span>
+<span id="cb104-156"><a href="#cb104-156" aria-hidden="true" tabindex="-1"></a>        input_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb104-157"><a href="#cb104-157" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb104-158"><a href="#cb104-158" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb104-159"><a href="#cb104-159" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-160"><a href="#cb104-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-161"><a href="#cb104-161" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-162"><a href="#cb104-162" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inference</span></span>
 <span id="cb104-163"><a href="#cb104-163" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-164"><a href="#cb104-164" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inference</span></span>
-<span id="cb104-165"><a href="#cb104-165" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-166"><a href="#cb104-166" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
-<span id="cb104-167"><a href="#cb104-167" aria-hidden="true" tabindex="-1"></a>    inference_component <span class="op">=</span> command(</span>
-<span id="cb104-168"><a href="#cb104-168" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb104-169"><a href="#cb104-169" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb104-170"><a href="#cb104-170" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb104-171"><a href="#cb104-171" aria-hidden="true" tabindex="-1"></a>            model_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb104-172"><a href="#cb104-172" aria-hidden="true" tabindex="-1"></a>            model_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb104-173"><a href="#cb104-173" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb104-174"><a href="#cb104-174" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb104-175"><a href="#cb104-175" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb104-176"><a href="#cb104-176" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb104-177"><a href="#cb104-177" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb104-178"><a href="#cb104-178" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./inference/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
-<span id="cb104-179"><a href="#cb104-179" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python inference.py "</span> </span>
-<span id="cb104-180"><a href="#cb104-180" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_folder $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-181"><a href="#cb104-181" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_filename $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-182"><a href="#cb104-182" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_folder $</span><span class="sc">{{</span><span class="st">inputs.model_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-183"><a href="#cb104-183" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_filename $</span><span class="sc">{{</span><span class="st">inputs.model_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-184"><a href="#cb104-184" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb104-185"><a href="#cb104-185" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st"> "</span>,</span>
-<span id="cb104-186"><a href="#cb104-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-187"><a href="#cb104-187" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
-<span id="cb104-188"><a href="#cb104-188" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"inference"</span>,</span>
-<span id="cb104-189"><a href="#cb104-189" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-190"><a href="#cb104-190" aria-hidden="true" tabindex="-1"></a>    <span class="co">#inference_component = ml_client.create_or_update(inference_component.component)</span></span>
-<span id="cb104-191"><a href="#cb104-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-192"><a href="#cb104-192" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
-<span id="cb104-193"><a href="#cb104-193" aria-hidden="true" tabindex="-1"></a>    inference_job <span class="op">=</span> inference_component(</span>
-<span id="cb104-194"><a href="#cb104-194" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_folder<span class="op">=</span>preprocessing_test_job.outputs.output_folder,</span>
-<span id="cb104-195"><a href="#cb104-195" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
-<span id="cb104-196"><a href="#cb104-196" aria-hidden="true" tabindex="-1"></a>        model_input_folder<span class="op">=</span>training_job.outputs.output_folder,</span>
-<span id="cb104-197"><a href="#cb104-197" aria-hidden="true" tabindex="-1"></a>        model_input_filename<span class="op">=</span>training_output_filename,</span>
-<span id="cb104-198"><a href="#cb104-198" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb104-199"><a href="#cb104-199" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>inference_output_filename,</span>
-<span id="cb104-200"><a href="#cb104-200" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-201"><a href="#cb104-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-202"><a href="#cb104-202" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-203"><a href="#cb104-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
-<span id="cb104-204"><a href="#cb104-204" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-205"><a href="#cb104-205" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pipeline (</span>
-<span id="cb104-206"><a href="#cb104-206" aria-hidden="true" tabindex="-1"></a>    config_path: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline_input.json"</span>,</span>
-<span id="cb104-207"><a href="#cb104-207" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
-<span id="cb104-208"><a href="#cb104-208" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb104-209"><a href="#cb104-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-210"><a href="#cb104-210" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read config json file</span></span>
-<span id="cb104-211"><a href="#cb104-211" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span> (config_path,<span class="st">"rt"</span>) <span class="im">as</span> config_file:</span>
-<span id="cb104-212"><a href="#cb104-212" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> json.load (config_file)</span>
-<span id="cb104-213"><a href="#cb104-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-214"><a href="#cb104-214" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert config dictionary into a Bunch object.</span></span>
-<span id="cb104-215"><a href="#cb104-215" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This allows to get access to fields as object attributes</span></span>
-<span id="cb104-216"><a href="#cb104-216" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Which I find more convenient.</span></span>
-<span id="cb104-217"><a href="#cb104-217" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> Bunch (<span class="op">**</span>config)</span>
+<span id="cb104-164"><a href="#cb104-164" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
+<span id="cb104-165"><a href="#cb104-165" aria-hidden="true" tabindex="-1"></a>    inference_component <span class="op">=</span> command(</span>
+<span id="cb104-166"><a href="#cb104-166" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb104-167"><a href="#cb104-167" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb104-168"><a href="#cb104-168" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb104-169"><a href="#cb104-169" aria-hidden="true" tabindex="-1"></a>            model_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb104-170"><a href="#cb104-170" aria-hidden="true" tabindex="-1"></a>            model_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb104-171"><a href="#cb104-171" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb104-172"><a href="#cb104-172" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb104-173"><a href="#cb104-173" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb104-174"><a href="#cb104-174" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb104-175"><a href="#cb104-175" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb104-176"><a href="#cb104-176" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./inference/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb104-177"><a href="#cb104-177" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python inference.py "</span> </span>
+<span id="cb104-178"><a href="#cb104-178" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_folder $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-179"><a href="#cb104-179" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_filename $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-180"><a href="#cb104-180" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_folder $</span><span class="sc">{{</span><span class="st">inputs.model_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-181"><a href="#cb104-181" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_filename $</span><span class="sc">{{</span><span class="st">inputs.model_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-182"><a href="#cb104-182" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb104-183"><a href="#cb104-183" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st"> "</span>,</span>
+<span id="cb104-184"><a href="#cb104-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-185"><a href="#cb104-185" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="st">"AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</span>,</span>
+<span id="cb104-186"><a href="#cb104-186" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"inference"</span>,</span>
+<span id="cb104-187"><a href="#cb104-187" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-188"><a href="#cb104-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-189"><a href="#cb104-189" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb104-190"><a href="#cb104-190" aria-hidden="true" tabindex="-1"></a>    inference_job <span class="op">=</span> inference_component(</span>
+<span id="cb104-191"><a href="#cb104-191" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_folder<span class="op">=</span>preprocessing_test_job.outputs.output_folder,</span>
+<span id="cb104-192"><a href="#cb104-192" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb104-193"><a href="#cb104-193" aria-hidden="true" tabindex="-1"></a>        model_input_folder<span class="op">=</span>training_job.outputs.output_folder,</span>
+<span id="cb104-194"><a href="#cb104-194" aria-hidden="true" tabindex="-1"></a>        model_input_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb104-195"><a href="#cb104-195" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb104-196"><a href="#cb104-196" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>inference_output_filename,</span>
+<span id="cb104-197"><a href="#cb104-197" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-198"><a href="#cb104-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-199"><a href="#cb104-199" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-200"><a href="#cb104-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
+<span id="cb104-201"><a href="#cb104-201" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-202"><a href="#cb104-202" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pipeline (</span>
+<span id="cb104-203"><a href="#cb104-203" aria-hidden="true" tabindex="-1"></a>    config_path: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline_input.json"</span>,</span>
+<span id="cb104-204"><a href="#cb104-204" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb104-205"><a href="#cb104-205" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb104-206"><a href="#cb104-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-207"><a href="#cb104-207" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read config json file</span></span>
+<span id="cb104-208"><a href="#cb104-208" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span> (config_path,<span class="st">"rt"</span>) <span class="im">as</span> config_file:</span>
+<span id="cb104-209"><a href="#cb104-209" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> json.load (config_file)</span>
+<span id="cb104-210"><a href="#cb104-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-211"><a href="#cb104-211" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert config dictionary into a Bunch object.</span></span>
+<span id="cb104-212"><a href="#cb104-212" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This allows to get access to fields as object attributes</span></span>
+<span id="cb104-213"><a href="#cb104-213" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Which I find more convenient.</span></span>
+<span id="cb104-214"><a href="#cb104-214" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> Bunch (<span class="op">**</span>config)</span>
+<span id="cb104-215"><a href="#cb104-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-216"><a href="#cb104-216" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connect to AML client</span></span>
+<span id="cb104-217"><a href="#cb104-217" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
 <span id="cb104-218"><a href="#cb104-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-219"><a href="#cb104-219" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connect to AML client</span></span>
-<span id="cb104-220"><a href="#cb104-220" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
-<span id="cb104-221"><a href="#cb104-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-222"><a href="#cb104-222" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build pipeline </span></span>
-<span id="cb104-223"><a href="#cb104-223" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
-<span id="cb104-224"><a href="#cb104-224" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first preprocessing component</span></span>
-<span id="cb104-225"><a href="#cb104-225" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_training_input_file),</span>
-<span id="cb104-226"><a href="#cb104-226" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename<span class="op">=</span>config.preprocessing_training_output_filename,</span>
-<span id="cb104-227"><a href="#cb104-227" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>config.x,</span>
-<span id="cb104-228"><a href="#cb104-228" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb104-229"><a href="#cb104-229" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second preprocessing component</span></span>
-<span id="cb104-230"><a href="#cb104-230" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_test_input_file),</span>
-<span id="cb104-231"><a href="#cb104-231" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename<span class="op">=</span>config.preprocessing_test_output_filename,</span>
+<span id="cb104-219"><a href="#cb104-219" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build pipeline </span></span>
+<span id="cb104-220"><a href="#cb104-220" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
+<span id="cb104-221"><a href="#cb104-221" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first preprocessing component</span></span>
+<span id="cb104-222"><a href="#cb104-222" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_training_input_file),</span>
+<span id="cb104-223"><a href="#cb104-223" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename<span class="op">=</span>config.preprocessing_training_output_filename,</span>
+<span id="cb104-224"><a href="#cb104-224" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>config.x,</span>
+<span id="cb104-225"><a href="#cb104-225" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb104-226"><a href="#cb104-226" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second preprocessing component</span></span>
+<span id="cb104-227"><a href="#cb104-227" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_test_input_file),</span>
+<span id="cb104-228"><a href="#cb104-228" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename<span class="op">=</span>config.preprocessing_test_output_filename,</span>
+<span id="cb104-229"><a href="#cb104-229" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb104-230"><a href="#cb104-230" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
+<span id="cb104-231"><a href="#cb104-231" aria-hidden="true" tabindex="-1"></a>        training_output_filename<span class="op">=</span>config.training_output_filename,</span>
 <span id="cb104-232"><a href="#cb104-232" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb104-233"><a href="#cb104-233" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
-<span id="cb104-234"><a href="#cb104-234" aria-hidden="true" tabindex="-1"></a>        training_output_filename<span class="op">=</span>config.training_output_filename,</span>
-<span id="cb104-235"><a href="#cb104-235" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb104-236"><a href="#cb104-236" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
-<span id="cb104-237"><a href="#cb104-237" aria-hidden="true" tabindex="-1"></a>        inference_output_filename<span class="op">=</span>config.inference_output_filename,</span>
-<span id="cb104-238"><a href="#cb104-238" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-239"><a href="#cb104-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-240"><a href="#cb104-240" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
-<span id="cb104-241"><a href="#cb104-241" aria-hidden="true" tabindex="-1"></a>        three_components_pipeline_object,</span>
-<span id="cb104-242"><a href="#cb104-242" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
-<span id="cb104-243"><a href="#cb104-243" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
-<span id="cb104-244"><a href="#cb104-244" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-245"><a href="#cb104-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-246"><a href="#cb104-246" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
-<span id="cb104-247"><a href="#cb104-247" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
-<span id="cb104-248"><a href="#cb104-248" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
-<span id="cb104-249"><a href="#cb104-249" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(three_components_pipeline_job.name)</span>
-<span id="cb104-250"><a href="#cb104-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-251"><a href="#cb104-251" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-252"><a href="#cb104-252" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing</span></span>
-<span id="cb104-253"><a href="#cb104-253" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-254"><a href="#cb104-254" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args ():</span>
-<span id="cb104-255"><a href="#cb104-255" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses input arguments"""</span></span>
-<span id="cb104-256"><a href="#cb104-256" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb104-257"><a href="#cb104-257" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
-<span id="cb104-258"><a href="#cb104-258" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
-<span id="cb104-259"><a href="#cb104-259" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--config-path"</span>, </span>
-<span id="cb104-260"><a href="#cb104-260" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
-<span id="cb104-261"><a href="#cb104-261" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"pipeline_input.json"</span>,</span>
-<span id="cb104-262"><a href="#cb104-262" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Path to config file specifying pipeline input parameters."</span>,</span>
-<span id="cb104-263"><a href="#cb104-263" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-264"><a href="#cb104-264" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
-<span id="cb104-265"><a href="#cb104-265" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--experiment-name"</span>, </span>
-<span id="cb104-266"><a href="#cb104-266" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
-<span id="cb104-267"><a href="#cb104-267" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
-<span id="cb104-268"><a href="#cb104-268" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Name of experiment."</span>,</span>
-<span id="cb104-269"><a href="#cb104-269" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-270"><a href="#cb104-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-271"><a href="#cb104-271" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
-<span id="cb104-272"><a href="#cb104-272" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb104-273"><a href="#cb104-273" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">"Running hello-world pipeline with args"</span>, args)</span>
-<span id="cb104-274"><a href="#cb104-274" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb104-275"><a href="#cb104-275" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> args</span>
-<span id="cb104-276"><a href="#cb104-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-277"><a href="#cb104-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-278"><a href="#cb104-278" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-279"><a href="#cb104-279" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
-<span id="cb104-280"><a href="#cb104-280" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-281"><a href="#cb104-281" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main ():</span>
-<span id="cb104-282"><a href="#cb104-282" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses arguments and runs pipeline"""</span></span>
-<span id="cb104-283"><a href="#cb104-283" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args ()</span>
-<span id="cb104-284"><a href="#cb104-284" aria-hidden="true" tabindex="-1"></a>    run_pipeline (</span>
-<span id="cb104-285"><a href="#cb104-285" aria-hidden="true" tabindex="-1"></a>        args.config_path,</span>
-<span id="cb104-286"><a href="#cb104-286" aria-hidden="true" tabindex="-1"></a>        args.experiment_name,</span>
-<span id="cb104-287"><a href="#cb104-287" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb104-288"><a href="#cb104-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-289"><a href="#cb104-289" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-290"><a href="#cb104-290" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb104-291"><a href="#cb104-291" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb104-292"><a href="#cb104-292" aria-hidden="true" tabindex="-1"></a>    main ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb104-233"><a href="#cb104-233" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
+<span id="cb104-234"><a href="#cb104-234" aria-hidden="true" tabindex="-1"></a>        inference_output_filename<span class="op">=</span>config.inference_output_filename,</span>
+<span id="cb104-235"><a href="#cb104-235" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-236"><a href="#cb104-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-237"><a href="#cb104-237" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
+<span id="cb104-238"><a href="#cb104-238" aria-hidden="true" tabindex="-1"></a>        three_components_pipeline_object,</span>
+<span id="cb104-239"><a href="#cb104-239" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
+<span id="cb104-240"><a href="#cb104-240" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb104-241"><a href="#cb104-241" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-242"><a href="#cb104-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-243"><a href="#cb104-243" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb104-244"><a href="#cb104-244" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
+<span id="cb104-245"><a href="#cb104-245" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb104-246"><a href="#cb104-246" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(three_components_pipeline_job.name)</span>
+<span id="cb104-247"><a href="#cb104-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-248"><a href="#cb104-248" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-249"><a href="#cb104-249" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing</span></span>
+<span id="cb104-250"><a href="#cb104-250" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-251"><a href="#cb104-251" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args ():</span>
+<span id="cb104-252"><a href="#cb104-252" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses input arguments"""</span></span>
+<span id="cb104-253"><a href="#cb104-253" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb104-254"><a href="#cb104-254" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
+<span id="cb104-255"><a href="#cb104-255" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb104-256"><a href="#cb104-256" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--config-path"</span>, </span>
+<span id="cb104-257"><a href="#cb104-257" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb104-258"><a href="#cb104-258" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"pipeline_input.json"</span>,</span>
+<span id="cb104-259"><a href="#cb104-259" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Path to config file specifying pipeline input parameters."</span>,</span>
+<span id="cb104-260"><a href="#cb104-260" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-261"><a href="#cb104-261" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb104-262"><a href="#cb104-262" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--experiment-name"</span>, </span>
+<span id="cb104-263"><a href="#cb104-263" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb104-264"><a href="#cb104-264" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb104-265"><a href="#cb104-265" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Name of experiment."</span>,</span>
+<span id="cb104-266"><a href="#cb104-266" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-267"><a href="#cb104-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-268"><a href="#cb104-268" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb104-269"><a href="#cb104-269" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb104-270"><a href="#cb104-270" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">"Running hello-world pipeline with args"</span>, args)</span>
+<span id="cb104-271"><a href="#cb104-271" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb104-272"><a href="#cb104-272" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> args</span>
+<span id="cb104-273"><a href="#cb104-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-274"><a href="#cb104-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-275"><a href="#cb104-275" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-276"><a href="#cb104-276" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
+<span id="cb104-277"><a href="#cb104-277" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-278"><a href="#cb104-278" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main ():</span>
+<span id="cb104-279"><a href="#cb104-279" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses arguments and runs pipeline"""</span></span>
+<span id="cb104-280"><a href="#cb104-280" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args ()</span>
+<span id="cb104-281"><a href="#cb104-281" aria-hidden="true" tabindex="-1"></a>    run_pipeline (</span>
+<span id="cb104-282"><a href="#cb104-282" aria-hidden="true" tabindex="-1"></a>        args.config_path,</span>
+<span id="cb104-283"><a href="#cb104-283" aria-hidden="true" tabindex="-1"></a>        args.experiment_name,</span>
+<span id="cb104-284"><a href="#cb104-284" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb104-285"><a href="#cb104-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-286"><a href="#cb104-286" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-287"><a href="#cb104-287" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb104-288"><a href="#cb104-288" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb104-289"><a href="#cb104-289" aria-hidden="true" tabindex="-1"></a>    main ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Overwriting hello_world_pipeline.py</code></pre>
 </div>
+</div>
+</section>
+</section>
+<section id="indicating-environment-and-compute-instance" class="level2">
+<h2 class="anchored" data-anchor-id="indicating-environment-and-compute-instance">Indicating environment and compute instance</h2>
+<section id="environment" class="level3">
+<h3 class="anchored" data-anchor-id="environment">Environment</h3>
+<p>Until now, we have been using <code>environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest"</code> wehn defining our component interfaces with the <code>command</code> function. This is one of the environments alreadyt available in the Azure ML studio, and it allows us to use scikit-learn as well as azure ml libraries on a ubuntu20.0.04 OS. Let us create a custom environment instead:</p>
+<div id="968c1dc0" class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>writefile hello_world.yml</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>name: hello<span class="op">-</span>world</span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>dependencies:</span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> python<span class="op">=</span><span class="fl">3.10</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> pip</span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> pandas</span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> numpy</span>
+<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> pip:</span>
+<span id="cb106-9"><a href="#cb106-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> scikit<span class="op">-</span>learn</span>
+<span id="cb106-10"><a href="#cb106-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> joblib</span>
+<span id="cb106-11"><a href="#cb106-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> azure<span class="op">-</span>ai<span class="op">-</span>ml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Available docker images can be found <a href="https://github.com/Azure/AzureML-Containers?tab=readme-ov-file#featured-tags">here</a>. With this, we can define our envioroment as follows:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> Environment (</span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> <span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>    conda_file<span class="op">=</span><span class="st">"./hello_world.yml"</span>,</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"hello-world"</span>,</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"Hello World"</span></span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a>ml_client.environments.create_or_update (env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We write the above code in a new function called <code>connect_setup_and_run</code>, where we will do all the setup required to run the pipeline, including indicating our compute instance (see below). After this, we can replace the name of our environment in the <code>command</code> functions used for defining the interface of our components, for instance:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>preprocessing_component <span class="op">=</span> command(</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>    environment<span class="op">=</span><span class="st">"hello-world@latest"</span>,</span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="compute-instance" class="level3">
+<h3 class="anchored" data-anchor-id="compute-instance">Compute instance</h3>
+<p>The compute instance can be indicated by using these two lines of code:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>compute_target <span class="op">=</span> ml_client.compute.get (compute_name)</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>pipeline.settings.default_compute <span class="op">=</span> compute_target</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and removing the following line of code in the pipeline decorator:</p>
+<pre><code>compute="serverless",  # "serverless" value runs pipeline on serverless compute</code></pre>
+</section>
+<section id="connect_setup_and_run" class="level3">
+<h3 class="anchored" data-anchor-id="connect_setup_and_run">connect_setup_and_run</h3>
+<p>The resulting <code>connect_setup_and_run</code> function is:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_setup_and_run (</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>    pipeline_object, </span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"pipeline experiment"</span>,</span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>    compute_file<span class="op">=</span><span class="st">"jaumecpu"</span>,</span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>    image<span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>    conda_env<span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>    name_env<span class="op">=</span><span class="st">"pipeline"</span>,</span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>    description_env<span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
+<span id="cb111-9"><a href="#cb111-9" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb111-10"><a href="#cb111-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># connect</span></span>
+<span id="cb111-11"><a href="#cb111-11" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
+<span id="cb111-12"><a href="#cb111-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-13"><a href="#cb111-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create env</span></span>
+<span id="cb111-14"><a href="#cb111-14" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment (</span>
+<span id="cb111-15"><a href="#cb111-15" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
+<span id="cb111-16"><a href="#cb111-16" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
+<span id="cb111-17"><a href="#cb111-17" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span>name_env,</span>
+<span id="cb111-18"><a href="#cb111-18" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span>description_env,</span>
+<span id="cb111-19"><a href="#cb111-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb111-20"><a href="#cb111-20" aria-hidden="true" tabindex="-1"></a>    ml_client.environments.create_or_update (env)</span>
+<span id="cb111-21"><a href="#cb111-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-22"><a href="#cb111-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute</span></span>
+<span id="cb111-23"><a href="#cb111-23" aria-hidden="true" tabindex="-1"></a>    compute_target <span class="op">=</span> ml_client.compute.get (compute_name)</span>
+<span id="cb111-24"><a href="#cb111-24" aria-hidden="true" tabindex="-1"></a>    pipeline.settings.default_compute <span class="op">=</span> compute_target </span>
+<span id="cb111-25"><a href="#cb111-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-26"><a href="#cb111-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create pipeline and run</span></span>
+<span id="cb111-27"><a href="#cb111-27" aria-hidden="true" tabindex="-1"></a>        pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
+<span id="cb111-28"><a href="#cb111-28" aria-hidden="true" tabindex="-1"></a>        pipeline_object,</span>
+<span id="cb111-29"><a href="#cb111-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
+<span id="cb111-30"><a href="#cb111-30" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb111-31"><a href="#cb111-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb111-32"><a href="#cb111-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-33"><a href="#cb111-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb111-34"><a href="#cb111-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
+<span id="cb111-35"><a href="#cb111-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb111-36"><a href="#cb111-36" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(pipeline_job.name)</span>
+<span id="cb111-37"><a href="#cb111-37" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is called after creating the pipeline object:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> read_config (config_path)</span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="co"># we need to add a new name_env parameter in our pipeline</span></span>
+<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to indicate it for each component interface  (see code in script below)</span></span>
+<span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a>three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
+<span id="cb112-9"><a href="#cb112-9" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a>    name_env <span class="op">=</span> config.name_env,</span>
+<span id="cb112-11"><a href="#cb112-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb112-12"><a href="#cb112-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-13"><a href="#cb112-13" aria-hidden="true" tabindex="-1"></a>connect_setup_and_run (</span>
+<span id="cb112-14"><a href="#cb112-14" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object, </span>
+<span id="cb112-15"><a href="#cb112-15" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb112-16"><a href="#cb112-16" aria-hidden="true" tabindex="-1"></a>    compute_name<span class="op">=</span>config.compute_name,</span>
+<span id="cb112-17"><a href="#cb112-17" aria-hidden="true" tabindex="-1"></a>    image<span class="op">=</span>config.image,</span>
+<span id="cb112-18"><a href="#cb112-18" aria-hidden="true" tabindex="-1"></a>    conda_env<span class="op">=</span>config.conda_env,</span>
+<span id="cb112-19"><a href="#cb112-19" aria-hidden="true" tabindex="-1"></a>    name_env<span class="op">=</span>config.name_env,</span>
+<span id="cb112-20"><a href="#cb112-20" aria-hidden="true" tabindex="-1"></a>    description_env<span class="op">=</span>config.description_env,</span>
+<span id="cb112-21"><a href="#cb112-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="final-script" class="level3">
+<h3 class="anchored" data-anchor-id="final-script">Final script</h3>
+<div id="52d5158d" class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>writefile hello_world_pipeline.py</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard imports</span></span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Third-party imports</span></span>
+<span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> Bunch</span>
+<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a><span class="co"># AML imports</span></span>
+<span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml <span class="im">import</span> (</span>
+<span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a>    command,</span>
+<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>    dsl,</span>
+<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a>    Input,</span>
+<span id="cb113-19"><a href="#cb113-19" aria-hidden="true" tabindex="-1"></a>    Output,</span>
+<span id="cb113-20"><a href="#cb113-20" aria-hidden="true" tabindex="-1"></a>    MLClient</span>
+<span id="cb113-21"><a href="#cb113-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb113-22"><a href="#cb113-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml.entities <span class="im">import</span> Environment</span>
+<span id="cb113-23"><a href="#cb113-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.identity <span class="im">import</span> DefaultAzureCredential</span>
+<span id="cb113-24"><a href="#cb113-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-25"><a href="#cb113-25" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-26"><a href="#cb113-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Connection</span></span>
+<span id="cb113-27"><a href="#cb113-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-28"><a href="#cb113-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="ex">connect</span> ():</span>
+<span id="cb113-29"><a href="#cb113-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># authenticate</span></span>
+<span id="cb113-30"><a href="#cb113-30" aria-hidden="true" tabindex="-1"></a>    credential <span class="op">=</span> DefaultAzureCredential()</span>
+<span id="cb113-31"><a href="#cb113-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-32"><a href="#cb113-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get a handle to the workspace</span></span>
+<span id="cb113-33"><a href="#cb113-33" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> MLClient.from_config (</span>
+<span id="cb113-34"><a href="#cb113-34" aria-hidden="true" tabindex="-1"></a>        credential<span class="op">=</span>credential,</span>
+<span id="cb113-35"><a href="#cb113-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-36"><a href="#cb113-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ml_client</span>
+<span id="cb113-37"><a href="#cb113-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-38"><a href="#cb113-38" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-39"><a href="#cb113-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup</span></span>
+<span id="cb113-40"><a href="#cb113-40" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-41"><a href="#cb113-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_setup_and_run (</span>
+<span id="cb113-42"><a href="#cb113-42" aria-hidden="true" tabindex="-1"></a>    pipeline_object, </span>
+<span id="cb113-43"><a href="#cb113-43" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"pipeline experiment"</span>,</span>
+<span id="cb113-44"><a href="#cb113-44" aria-hidden="true" tabindex="-1"></a>    compute_file<span class="op">=</span><span class="st">"jaumecpu"</span>,</span>
+<span id="cb113-45"><a href="#cb113-45" aria-hidden="true" tabindex="-1"></a>    image<span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
+<span id="cb113-46"><a href="#cb113-46" aria-hidden="true" tabindex="-1"></a>    conda_env<span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
+<span id="cb113-47"><a href="#cb113-47" aria-hidden="true" tabindex="-1"></a>    name_env<span class="op">=</span><span class="st">"pipeline"</span>,</span>
+<span id="cb113-48"><a href="#cb113-48" aria-hidden="true" tabindex="-1"></a>    description_env<span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
+<span id="cb113-49"><a href="#cb113-49" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb113-50"><a href="#cb113-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># connect</span></span>
+<span id="cb113-51"><a href="#cb113-51" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
+<span id="cb113-52"><a href="#cb113-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-53"><a href="#cb113-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create env</span></span>
+<span id="cb113-54"><a href="#cb113-54" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment (</span>
+<span id="cb113-55"><a href="#cb113-55" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
+<span id="cb113-56"><a href="#cb113-56" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
+<span id="cb113-57"><a href="#cb113-57" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span>name_env,</span>
+<span id="cb113-58"><a href="#cb113-58" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span>description_env,</span>
+<span id="cb113-59"><a href="#cb113-59" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-60"><a href="#cb113-60" aria-hidden="true" tabindex="-1"></a>    ml_client.environments.create_or_update (env)</span>
+<span id="cb113-61"><a href="#cb113-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-62"><a href="#cb113-62" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute</span></span>
+<span id="cb113-63"><a href="#cb113-63" aria-hidden="true" tabindex="-1"></a>    compute_target <span class="op">=</span> ml_client.compute.get (compute_name)</span>
+<span id="cb113-64"><a href="#cb113-64" aria-hidden="true" tabindex="-1"></a>    pipeline.settings.default_compute <span class="op">=</span> compute_target </span>
+<span id="cb113-65"><a href="#cb113-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-66"><a href="#cb113-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create pipeline and run</span></span>
+<span id="cb113-67"><a href="#cb113-67" aria-hidden="true" tabindex="-1"></a>        pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
+<span id="cb113-68"><a href="#cb113-68" aria-hidden="true" tabindex="-1"></a>        pipeline_object,</span>
+<span id="cb113-69"><a href="#cb113-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
+<span id="cb113-70"><a href="#cb113-70" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb113-71"><a href="#cb113-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-72"><a href="#cb113-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-73"><a href="#cb113-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb113-74"><a href="#cb113-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
+<span id="cb113-75"><a href="#cb113-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb113-76"><a href="#cb113-76" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(pipeline_job.name)</span>
+<span id="cb113-77"><a href="#cb113-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-78"><a href="#cb113-78" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-79"><a href="#cb113-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline definition</span></span>
+<span id="cb113-80"><a href="#cb113-80" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-81"><a href="#cb113-81" aria-hidden="true" tabindex="-1"></a><span class="at">@dsl.pipeline</span>(</span>
+<span id="cb113-82"><a href="#cb113-82" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"E2E hello world pipeline with input"</span>,</span>
+<span id="cb113-83"><a href="#cb113-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb113-84"><a href="#cb113-84" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> three_components_pipeline(</span>
+<span id="cb113-85"><a href="#cb113-85" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Preprocessing component parameters, first component:</span></span>
+<span id="cb113-86"><a href="#cb113-86" aria-hidden="true" tabindex="-1"></a>    preprocessing_training_input_file: <span class="bu">str</span>,</span>
+<span id="cb113-87"><a href="#cb113-87" aria-hidden="true" tabindex="-1"></a>    preprocessing_training_output_filename: <span class="bu">str</span>,</span>
+<span id="cb113-88"><a href="#cb113-88" aria-hidden="true" tabindex="-1"></a>    x: <span class="bu">int</span>,</span>
+<span id="cb113-89"><a href="#cb113-89" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-90"><a href="#cb113-90" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Preprocessing component parameters, second component:</span></span>
+<span id="cb113-91"><a href="#cb113-91" aria-hidden="true" tabindex="-1"></a>    preprocessing_test_input_file: <span class="bu">str</span>,</span>
+<span id="cb113-92"><a href="#cb113-92" aria-hidden="true" tabindex="-1"></a>    preprocessing_test_output_filename: <span class="bu">str</span>,</span>
+<span id="cb113-93"><a href="#cb113-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-94"><a href="#cb113-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training component parameters:</span></span>
+<span id="cb113-95"><a href="#cb113-95" aria-hidden="true" tabindex="-1"></a>    training_output_filename: <span class="bu">str</span>, </span>
+<span id="cb113-96"><a href="#cb113-96" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-97"><a href="#cb113-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inference component parameters:</span></span>
+<span id="cb113-98"><a href="#cb113-98" aria-hidden="true" tabindex="-1"></a>    inference_output_filename: <span class="bu">str</span>,</span>
+<span id="cb113-99"><a href="#cb113-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-100"><a href="#cb113-100" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Env name</span></span>
+<span id="cb113-101"><a href="#cb113-101" aria-hidden="true" tabindex="-1"></a>    name_env: <span class="bu">str</span>,</span>
+<span id="cb113-102"><a href="#cb113-102" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb113-103"><a href="#cb113-103" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb113-104"><a href="#cb113-104" aria-hidden="true" tabindex="-1"></a><span class="co">    Third pipeline: preprocessing, training and inference.</span></span>
+<span id="cb113-105"><a href="#cb113-105" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb113-106"><a href="#cb113-106" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb113-107"><a href="#cb113-107" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb113-108"><a href="#cb113-108" aria-hidden="true" tabindex="-1"></a><span class="co">    preprocessing_training_input_file: str</span></span>
+<span id="cb113-109"><a href="#cb113-109" aria-hidden="true" tabindex="-1"></a><span class="co">        Path to file containing training data to be preprocessed.</span></span>
+<span id="cb113-110"><a href="#cb113-110" aria-hidden="true" tabindex="-1"></a><span class="co">    preprocessing_training_output_filename: str</span></span>
+<span id="cb113-111"><a href="#cb113-111" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of file containing the preprocessed, training data.</span></span>
+<span id="cb113-112"><a href="#cb113-112" aria-hidden="true" tabindex="-1"></a><span class="co">    x: int</span></span>
+<span id="cb113-113"><a href="#cb113-113" aria-hidden="true" tabindex="-1"></a><span class="co">        Number to add to input data for preprocessing it.</span></span>
+<span id="cb113-114"><a href="#cb113-114" aria-hidden="true" tabindex="-1"></a><span class="co">    preprocessing_test_input_file: str</span></span>
+<span id="cb113-115"><a href="#cb113-115" aria-hidden="true" tabindex="-1"></a><span class="co">        Path to file containing test data to be preprocessed.</span></span>
+<span id="cb113-116"><a href="#cb113-116" aria-hidden="true" tabindex="-1"></a><span class="co">    preprocessing_test_output_filename: str</span></span>
+<span id="cb113-117"><a href="#cb113-117" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of file containing the preprocessed, test data.</span></span>
+<span id="cb113-118"><a href="#cb113-118" aria-hidden="true" tabindex="-1"></a><span class="co">    training_output_filename: str</span></span>
+<span id="cb113-119"><a href="#cb113-119" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of file containing the trained model.</span></span>
+<span id="cb113-120"><a href="#cb113-120" aria-hidden="true" tabindex="-1"></a><span class="co">    inference_output_filename: str</span></span>
+<span id="cb113-121"><a href="#cb113-121" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of file containing the output data with inference results.</span></span>
+<span id="cb113-122"><a href="#cb113-122" aria-hidden="true" tabindex="-1"></a><span class="co">    name_env: str</span></span>
+<span id="cb113-123"><a href="#cb113-123" aria-hidden="true" tabindex="-1"></a><span class="co">        Name of environment to use.</span></span>
+<span id="cb113-124"><a href="#cb113-124" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb113-125"><a href="#cb113-125" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb113-126"><a href="#cb113-126" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-127"><a href="#cb113-127" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Preprocessing</span></span>
+<span id="cb113-128"><a href="#cb113-128" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-129"><a href="#cb113-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
+<span id="cb113-130"><a href="#cb113-130" aria-hidden="true" tabindex="-1"></a>    preprocessing_component <span class="op">=</span> command(</span>
+<span id="cb113-131"><a href="#cb113-131" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-132"><a href="#cb113-132" aria-hidden="true" tabindex="-1"></a>            input_file<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>),</span>
+<span id="cb113-133"><a href="#cb113-133" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"number"</span>),</span>
+<span id="cb113-134"><a href="#cb113-134" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-135"><a href="#cb113-135" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-136"><a href="#cb113-136" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-137"><a href="#cb113-137" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-138"><a href="#cb113-138" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-139"><a href="#cb113-139" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./preprocessing/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb113-140"><a href="#cb113-140" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python preprocessing.py "</span></span>
+<span id="cb113-141"><a href="#cb113-141" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_file $</span><span class="sc">{{</span><span class="st">inputs.input_file</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-142"><a href="#cb113-142" aria-hidden="true" tabindex="-1"></a>            <span class="st">"-x $</span><span class="sc">{{</span><span class="st">inputs.x</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-143"><a href="#cb113-143" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-144"><a href="#cb113-144" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
+<span id="cb113-145"><a href="#cb113-145" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb113-146"><a href="#cb113-146" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"Pre-processing"</span>,</span>
+<span id="cb113-147"><a href="#cb113-147" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-148"><a href="#cb113-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-149"><a href="#cb113-149" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb113-150"><a href="#cb113-150" aria-hidden="true" tabindex="-1"></a>    preprocessing_training_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb113-151"><a href="#cb113-151" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_training_input_file,</span>
+<span id="cb113-152"><a href="#cb113-152" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb113-153"><a href="#cb113-153" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb113-154"><a href="#cb113-154" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
+<span id="cb113-155"><a href="#cb113-155" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-156"><a href="#cb113-156" aria-hidden="true" tabindex="-1"></a>    preprocessing_test_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb113-157"><a href="#cb113-157" aria-hidden="true" tabindex="-1"></a>        input_file<span class="op">=</span>preprocessing_test_input_file,</span>
+<span id="cb113-158"><a href="#cb113-158" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb113-159"><a href="#cb113-159" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb113-160"><a href="#cb113-160" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x,</span>
+<span id="cb113-161"><a href="#cb113-161" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-162"><a href="#cb113-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-163"><a href="#cb113-163" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-164"><a href="#cb113-164" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Training component</span></span>
+<span id="cb113-165"><a href="#cb113-165" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-166"><a href="#cb113-166" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
+<span id="cb113-167"><a href="#cb113-167" aria-hidden="true" tabindex="-1"></a>    training_component <span class="op">=</span> command(</span>
+<span id="cb113-168"><a href="#cb113-168" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-169"><a href="#cb113-169" aria-hidden="true" tabindex="-1"></a>            input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-170"><a href="#cb113-170" aria-hidden="true" tabindex="-1"></a>            input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-171"><a href="#cb113-171" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-172"><a href="#cb113-172" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-173"><a href="#cb113-173" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-174"><a href="#cb113-174" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-175"><a href="#cb113-175" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-176"><a href="#cb113-176" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./training/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb113-177"><a href="#cb113-177" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python training.py "</span></span>
+<span id="cb113-178"><a href="#cb113-178" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_folder $</span><span class="sc">{{</span><span class="st">inputs.input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-179"><a href="#cb113-179" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--input_filename $</span><span class="sc">{{</span><span class="st">inputs.input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-180"><a href="#cb113-180" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-181"><a href="#cb113-181" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
+<span id="cb113-182"><a href="#cb113-182" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb113-183"><a href="#cb113-183" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"Training"</span>,</span>
+<span id="cb113-184"><a href="#cb113-184" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-185"><a href="#cb113-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-186"><a href="#cb113-186" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb113-187"><a href="#cb113-187" aria-hidden="true" tabindex="-1"></a>    training_job <span class="op">=</span> training_component(</span>
+<span id="cb113-188"><a href="#cb113-188" aria-hidden="true" tabindex="-1"></a>        input_folder<span class="op">=</span>preprocessing_training_job.outputs.output_folder,</span>
+<span id="cb113-189"><a href="#cb113-189" aria-hidden="true" tabindex="-1"></a>        input_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb113-190"><a href="#cb113-190" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb113-191"><a href="#cb113-191" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb113-192"><a href="#cb113-192" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-193"><a href="#cb113-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-194"><a href="#cb113-194" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-195"><a href="#cb113-195" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inference</span></span>
+<span id="cb113-196"><a href="#cb113-196" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-197"><a href="#cb113-197" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interface</span></span>
+<span id="cb113-198"><a href="#cb113-198" aria-hidden="true" tabindex="-1"></a>    inference_component <span class="op">=</span> command(</span>
+<span id="cb113-199"><a href="#cb113-199" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-200"><a href="#cb113-200" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-201"><a href="#cb113-201" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-202"><a href="#cb113-202" aria-hidden="true" tabindex="-1"></a>            model_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-203"><a href="#cb113-203" aria-hidden="true" tabindex="-1"></a>            model_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-204"><a href="#cb113-204" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb113-205"><a href="#cb113-205" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-206"><a href="#cb113-206" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb113-207"><a href="#cb113-207" aria-hidden="true" tabindex="-1"></a>            output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb113-208"><a href="#cb113-208" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb113-209"><a href="#cb113-209" aria-hidden="true" tabindex="-1"></a>        code<span class="op">=</span><span class="ss">f"./inference/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb113-210"><a href="#cb113-210" aria-hidden="true" tabindex="-1"></a>        command<span class="op">=</span><span class="st">"python inference.py "</span> </span>
+<span id="cb113-211"><a href="#cb113-211" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_folder $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-212"><a href="#cb113-212" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprocessed_input_filename $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-213"><a href="#cb113-213" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_folder $</span><span class="sc">{{</span><span class="st">inputs.model_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-214"><a href="#cb113-214" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--model_input_filename $</span><span class="sc">{{</span><span class="st">inputs.model_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-215"><a href="#cb113-215" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb113-216"><a href="#cb113-216" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st"> "</span>,</span>
+<span id="cb113-217"><a href="#cb113-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-218"><a href="#cb113-218" aria-hidden="true" tabindex="-1"></a>        environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb113-219"><a href="#cb113-219" aria-hidden="true" tabindex="-1"></a>        display_name<span class="op">=</span><span class="st">"inference"</span>,</span>
+<span id="cb113-220"><a href="#cb113-220" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-221"><a href="#cb113-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-222"><a href="#cb113-222" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Instantiation</span></span>
+<span id="cb113-223"><a href="#cb113-223" aria-hidden="true" tabindex="-1"></a>    inference_job <span class="op">=</span> inference_component(</span>
+<span id="cb113-224"><a href="#cb113-224" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_folder<span class="op">=</span>preprocessing_test_job.outputs.output_folder,</span>
+<span id="cb113-225"><a href="#cb113-225" aria-hidden="true" tabindex="-1"></a>        preprocessed_input_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb113-226"><a href="#cb113-226" aria-hidden="true" tabindex="-1"></a>        model_input_folder<span class="op">=</span>training_job.outputs.output_folder,</span>
+<span id="cb113-227"><a href="#cb113-227" aria-hidden="true" tabindex="-1"></a>        model_input_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb113-228"><a href="#cb113-228" aria-hidden="true" tabindex="-1"></a>        <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb113-229"><a href="#cb113-229" aria-hidden="true" tabindex="-1"></a>        output_filename<span class="op">=</span>inference_output_filename,</span>
+<span id="cb113-230"><a href="#cb113-230" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-231"><a href="#cb113-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-232"><a href="#cb113-232" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_config (config_path: <span class="bu">str</span>):</span>
+<span id="cb113-233"><a href="#cb113-233" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read config json file</span></span>
+<span id="cb113-234"><a href="#cb113-234" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span> (config_path,<span class="st">"rt"</span>) <span class="im">as</span> config_file:</span>
+<span id="cb113-235"><a href="#cb113-235" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> json.load (config_file)</span>
+<span id="cb113-236"><a href="#cb113-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-237"><a href="#cb113-237" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert config dictionary into a Bunch object.</span></span>
+<span id="cb113-238"><a href="#cb113-238" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This allows to get access to fields as object attributes</span></span>
+<span id="cb113-239"><a href="#cb113-239" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Which I find more convenient.</span></span>
+<span id="cb113-240"><a href="#cb113-240" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> Bunch (<span class="op">**</span>config)</span>
+<span id="cb113-241"><a href="#cb113-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-242"><a href="#cb113-242" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> config</span>
+<span id="cb113-243"><a href="#cb113-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-244"><a href="#cb113-244" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-245"><a href="#cb113-245" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
+<span id="cb113-246"><a href="#cb113-246" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-247"><a href="#cb113-247" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pipeline (</span>
+<span id="cb113-248"><a href="#cb113-248" aria-hidden="true" tabindex="-1"></a>    config_path: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline_input.json"</span>,</span>
+<span id="cb113-249"><a href="#cb113-249" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb113-250"><a href="#cb113-250" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb113-251"><a href="#cb113-251" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read config</span></span>
+<span id="cb113-252"><a href="#cb113-252" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> read_config (config_path)</span>
+<span id="cb113-253"><a href="#cb113-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-254"><a href="#cb113-254" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build pipeline </span></span>
+<span id="cb113-255"><a href="#cb113-255" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
+<span id="cb113-256"><a href="#cb113-256" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first preprocessing component</span></span>
+<span id="cb113-257"><a href="#cb113-257" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_training_input_file),</span>
+<span id="cb113-258"><a href="#cb113-258" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename<span class="op">=</span>config.preprocessing_training_output_filename,</span>
+<span id="cb113-259"><a href="#cb113-259" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>config.x,</span>
+<span id="cb113-260"><a href="#cb113-260" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb113-261"><a href="#cb113-261" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second preprocessing component</span></span>
+<span id="cb113-262"><a href="#cb113-262" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_test_input_file),</span>
+<span id="cb113-263"><a href="#cb113-263" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename<span class="op">=</span>config.preprocessing_test_output_filename,</span>
+<span id="cb113-264"><a href="#cb113-264" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb113-265"><a href="#cb113-265" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
+<span id="cb113-266"><a href="#cb113-266" aria-hidden="true" tabindex="-1"></a>        training_output_filename<span class="op">=</span>config.training_output_filename,</span>
+<span id="cb113-267"><a href="#cb113-267" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb113-268"><a href="#cb113-268" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
+<span id="cb113-269"><a href="#cb113-269" aria-hidden="true" tabindex="-1"></a>        inference_output_filename<span class="op">=</span>config.inference_output_filename,</span>
+<span id="cb113-270"><a href="#cb113-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-271"><a href="#cb113-271" aria-hidden="true" tabindex="-1"></a>        <span class="co"># name env:</span></span>
+<span id="cb113-272"><a href="#cb113-272" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>config.name_env,</span>
+<span id="cb113-273"><a href="#cb113-273" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-274"><a href="#cb113-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-275"><a href="#cb113-275" aria-hidden="true" tabindex="-1"></a>    connect_setup_and_run (</span>
+<span id="cb113-276"><a href="#cb113-276" aria-hidden="true" tabindex="-1"></a>        three_components_pipeline_object, </span>
+<span id="cb113-277"><a href="#cb113-277" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb113-278"><a href="#cb113-278" aria-hidden="true" tabindex="-1"></a>        compute_name<span class="op">=</span>config.compute_name,</span>
+<span id="cb113-279"><a href="#cb113-279" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>config.image,</span>
+<span id="cb113-280"><a href="#cb113-280" aria-hidden="true" tabindex="-1"></a>        conda_env<span class="op">=</span>config.conda_env,</span>
+<span id="cb113-281"><a href="#cb113-281" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>config.name_env,</span>
+<span id="cb113-282"><a href="#cb113-282" aria-hidden="true" tabindex="-1"></a>        description_env<span class="op">=</span>config.description_env,</span>
+<span id="cb113-283"><a href="#cb113-283" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-284"><a href="#cb113-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-285"><a href="#cb113-285" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-286"><a href="#cb113-286" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing</span></span>
+<span id="cb113-287"><a href="#cb113-287" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-288"><a href="#cb113-288" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args ():</span>
+<span id="cb113-289"><a href="#cb113-289" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses input arguments"""</span></span>
+<span id="cb113-290"><a href="#cb113-290" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-291"><a href="#cb113-291" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
+<span id="cb113-292"><a href="#cb113-292" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb113-293"><a href="#cb113-293" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--config-path"</span>, </span>
+<span id="cb113-294"><a href="#cb113-294" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb113-295"><a href="#cb113-295" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"pipeline_input.json"</span>,</span>
+<span id="cb113-296"><a href="#cb113-296" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Path to config file specifying pipeline input parameters."</span>,</span>
+<span id="cb113-297"><a href="#cb113-297" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-298"><a href="#cb113-298" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb113-299"><a href="#cb113-299" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--experiment-name"</span>, </span>
+<span id="cb113-300"><a href="#cb113-300" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb113-301"><a href="#cb113-301" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb113-302"><a href="#cb113-302" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Name of experiment."</span>,</span>
+<span id="cb113-303"><a href="#cb113-303" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-304"><a href="#cb113-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-305"><a href="#cb113-305" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb113-306"><a href="#cb113-306" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-307"><a href="#cb113-307" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">"Running hello-world pipeline with args"</span>, args)</span>
+<span id="cb113-308"><a href="#cb113-308" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-309"><a href="#cb113-309" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> args</span>
+<span id="cb113-310"><a href="#cb113-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-311"><a href="#cb113-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-312"><a href="#cb113-312" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-313"><a href="#cb113-313" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
+<span id="cb113-314"><a href="#cb113-314" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-315"><a href="#cb113-315" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main ():</span>
+<span id="cb113-316"><a href="#cb113-316" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses arguments and runs pipeline"""</span></span>
+<span id="cb113-317"><a href="#cb113-317" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args ()</span>
+<span id="cb113-318"><a href="#cb113-318" aria-hidden="true" tabindex="-1"></a>    run_pipeline (</span>
+<span id="cb113-319"><a href="#cb113-319" aria-hidden="true" tabindex="-1"></a>        args.config_path,</span>
+<span id="cb113-320"><a href="#cb113-320" aria-hidden="true" tabindex="-1"></a>        args.experiment_name,</span>
+<span id="cb113-321"><a href="#cb113-321" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb113-322"><a href="#cb113-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-323"><a href="#cb113-323" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-324"><a href="#cb113-324" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb113-325"><a href="#cb113-325" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb113-326"><a href="#cb113-326" aria-hidden="true" tabindex="-1"></a>    main ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
