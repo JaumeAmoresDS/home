@@ -8,3 +8,10 @@ preprocessing
 inference
 *.py
 *.json
+*.yml
+*.amltmp
+*pycache*
+*/*.yml
+*/*.amltmp
+*/*pycache*
+simulation
