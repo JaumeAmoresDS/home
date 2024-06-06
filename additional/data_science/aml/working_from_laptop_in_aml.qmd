@@ -1,0 +1,87 @@
+---
+title: "Working from local environment in Azure ML"
+author: "Jaume Amores"
+date: 2024-05-30
+toc: true
+categories:
+  - Data Science
+---
+
+## Docker file
+
+We start by downloading the context from the `python-sdk-v2` curated environment from AML: [python-sdk-v2](https://ml.azure.com/registries/azureml/environments/python-sdk-v2/version/17?tid=369b25b1-777a-484a-8b5b-52d79bc83015)
+
+In the Dockerfile, we add the following statements at the end:
+
+```dockerfile
+# create folder to mount directory from host machine
+RUN mkdir host_dir
+
+# copy minimal set of files to work with
+COPY connect.py ./connect.py
+```
+
+
+This is the resulting Dockerfile:
+```dockerfile
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:20240528.v1
+
+RUN apt-get update -y && apt-get install cpio less libglib2.0-0 libglib2.0-data util-linux binutils libnghttp2-14 libssh-4 libsqlite3-0 libpam-modules linux-libc-dev libldap-common libldap-2.4-2 libc-bin libc-dev-bin libc6 libc6-dev libcurl3-gnutls libgnutls30 tar openssh-server openssh-client openssl curl -y
+
+WORKDIR /
+
+ENV CONDA_PREFIX=/azureml-envs/python-sdk-v2
+ENV CONDA_DEFAULT_ENV=$CONDA_PREFIX
+ENV PATH=$CONDA_PREFIX/bin:$PATH
+
+# This is needed for mpi to locate libpython
+ENV LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+
+# Create conda environment
+COPY conda_dependencies.yaml .
+RUN conda env create -p $CONDA_PREFIX -f conda_dependencies.yaml -q && \
+    rm conda_dependencies.yaml && \
+    conda run -p $CONDA_PREFIX pip cache purge && \
+    conda clean -a -y
+
+## Vulnerability fix
+RUN pip install tqdm requests
+
+# create folder to mount directory from host machine
+COPY connect.py ./connect.py
+
+# copy minimal set of files to work with
+RUN mkdir host_dir
+```
+
+Add the following libraries to conda environment, under pip section:
+
+- `ipython`: just to make the interactive process a bit less painful.
+- `pandas`: to read the data we will be using.
+
+We extract the folder in `python-sdk-v2` and build the image:
+
+```bash
+docker build -t connecting .
+```
+
+Run container:
+
+```bash
+docker run -v ./:/host_dir -it --entrypoint bash connecting
+```
+
+In AML:
+
+- Create data asset: click on `data` tab on left panel, then on `+ Create` button. We will call the asset `test_docker`. Hit next until and select the option `from local files` to upload data. Hit Next and then `Upload file` to upload any csv file from your local machine. Finally, hit `create`.
+- Copy code to be used for consuming the created asset. Just hit the tab `Consume` while still in the data asset window you just created.
+- Download the config.json file with details about your workspace: in your AML workspace, you'll see info about your subscription on the top left, under `Azure <...>` and the name of the subscription (`helloworld` in our case). Hit the arrow and then the link `Download config file` on the bottom part of the drop-down window that appears. Put the downloaded file inside the folder `python-sdk-v2`, since this is the one mounted in our Docker container, under `host_dir`.
+
+In the docker container, run:
+
+```bash
+cp connect.py host_dir
+cd host_dir
+ipython
+from connect import *
+```
