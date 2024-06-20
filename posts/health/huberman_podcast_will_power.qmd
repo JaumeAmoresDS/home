@@ -8,6 +8,8 @@ categories:
   - Health
 ---
 
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
 ## Introduction
 
 This post is an in-progress Today-I-Learned (*TIL*) on the awesome Huberman podcast ["How to Increase Tenacity & Will Power"](https://www.hubermanlab.com/episode/how-to-increase-your-willpower-and-tenacity)

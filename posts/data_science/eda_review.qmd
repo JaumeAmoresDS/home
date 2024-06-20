@@ -8,6 +8,8 @@ categories:
   - Data Science
 ---
 
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
 ## Introduction
 
 The objective of this post is to distill a set of lessons, best practices, and guidelines, on the available blogs and notebooks on EDA. This is a work-in-progress post and contains just a set of random thoughts and pointers at the moment.

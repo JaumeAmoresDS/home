@@ -7,6 +7,8 @@ categories:
   - Health
 ---
 
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
 I would like to start contributing following the framework from [Dr. Paul Conti](https://drpaulconti.com/). The basic idea is to do things that make me feel good and can help other people at the same time. This can be small things as:
 
 - Commenting on interesting reads.

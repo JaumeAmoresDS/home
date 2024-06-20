@@ -8,5 +8,7 @@ categories:
   - Data Science
 ---
 
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
 The objective of this post is to try to clarify myself about best practices and software methodology to be followed at different stages of a Data Science project. My process and opinions on this matter are gradually changing over time and I would like to connect with other data scientists to discuss about those, since this is an area that has always be interested for me. This is a work-in-progress post and contains just a set of random thoughts and pointers at the moment.
 

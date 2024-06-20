@@ -1,0 +1,21 @@
+---
+title: "Posts"
+subtitle: "Introducing my blog posts"
+listing:
+  - id: talks
+    #contents: "**/*/index.qmd"
+    #fields: [date, title]
+    fields: [title]
+    sort: "date desc"
+    categories: true
+    #sort-ui: true
+    #filter-ui: true  
+#page-layout: full
+comments: false
+---
+
+## Introduction
+
+Hello and welcome to my blog posts. In this website I will be publishing a series of blogs, mostly on health, data science, early childhood education, and software engineering. The blogs will be originally mostly personal notes, which I intend to polish and extend during successive reviews. 
+
+## Posts

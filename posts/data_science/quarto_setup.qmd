@@ -1,0 +1,56 @@
+---
+title: "Setting up Quarto on Visual Studio Code"
+format: html
+---
+
+I am trying to follow this [vscode tutorial](https://quarto.org/docs/get-started/hello/vscode.html)  in the quarto.org [site](https://quarto.org). These are the steps I followed:
+
+## Downloading the demo.qmd file shown in the tutorial
+
+In order to check things as I progress through the tutorial, I downloaded the .qmd file that is used in the tutorial, by hitting on the "edit in github" button, then ignoring the message and browsing throught the content of the folder where the tutorial file is. Note that the qmd file is not the same as the one tutorial file (the latter being `docs/get-started/hello/vscode.qmd`) 
+
+Currently, the *demo.qmd* file that appears in the tutorial snapshot is actually named `_hello.qmd` and it is found here: `https://github.com/quarto-dev/quarto-web/blob/main/docs/get-started/hello/_hello.qmd`
+
+We can download it to a local folder, save as `demo.qmd` and open it in Visual Studio Code.
+
+## Have Quarto use the appropriate conda environmnet 
+
+We need to edit the demo.qmd to indicate the jupyter kernel. Let us assume it is `my_kernel`, we change the header to be: 
+
+```
+---
+title: "Quarto Basics"
+format:
+  html:
+    code-fold: true
+jupyter: my_kernel
+---
+```
+
+Now, the trick is to have VS Code use this conda environment when running quarto [**Note**: In my case, **I am running VS Code from within WSL** (by using the remote VSCode connection `WSL:Ubuntu`)]. If I just try to preview the document (with the quarto extension installed as indicated in the tutorial), I get the following type of error:
+
+```
+ERROR: Jupyter kernel my_kernel not found. Known kernels: python3. Run 'quarto check jupyter' with your python environment activated to check python version used. 
+```
+
+Then if I run `quarto check jupyter` I get:
+```
+Jupyter is not available in this Python installation.
+```
+
+The issue seems that quarto preview is run within the `base` conda environment. I don't want to install any thing in that base environment. I tried many things, and what finally worked for me was to have VS Code use the conda environment where jupyter is installed. In my case, this is the same conda environment used by the `my_kernel` kernel, and I just call both things (the kernel and the conda environment) the same: `my_environment`. In order to make this environment be automatically picked up by a new terminal, I do as explained [here](https://github.com/microsoft/vscode-python/wiki/Setting-descriptions#pythondefaultinterpreterpath):
+
+In the Command Palette (Ctrl+Shift+P), I select "Preferences: Open Workspace Settings", then go to the Extensions section on the left, select Python, and then edit the "Default Interpreter" path to point to the python executable used by my environment. In Linux, we can find the later by activating the environment and then running `which python`:
+
+```bash
+conda activate my_environment
+which python
+```
+
+which, in my case, indicates something like:
+
+```
+/home/my_user/miniconda3/envs/my_environment/bin/python
+``` 
+
+Ctrl+Shift+K

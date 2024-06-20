@@ -8,6 +8,8 @@ categories:
   - Health
 ---
 
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
 ## Introduction
 
 This post is just a series of short notes I wrote for myself, on general strategies to achieve tenacity / will power goals.

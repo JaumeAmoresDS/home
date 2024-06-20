@@ -14,7 +14,7 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Posts"
-        file: posts.qmd
+        file: posts/posts.qmd
       - text: "Papers"
         url: "papers.pdf"
   page-footer:
