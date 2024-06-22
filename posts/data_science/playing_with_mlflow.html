@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jaume Amores">
+<meta name="dcterms.date" content="2024-10-06">
 
-<title>Jaume Amores - Playing with MLflow</title>
+<title>Jaume Amores - MLFlow Hello World</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,17 +108,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Playing with MLflow">
-<meta property="og:description" content="Personal page">
+<meta property="og:title" content="Jaume Amores - MLFlow Hello World">
+<meta property="og:description" content="Exploring MlFlow through Hello World experiments.">
 <meta property="og:site_name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Playing with MLflow">
-<meta name="twitter:description" content="Personal page">
+<meta name="twitter:title" content="Jaume Amores - MLFlow Hello World">
+<meta name="twitter:description" content="Exploring MlFlow through Hello World experiments.">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts.html"> 
+    <a class="nav-link" href="../../posts/posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
@@ -156,20 +158,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#initial-imports" id="toc-initial-imports" class="nav-link active" data-scroll-target="#initial-imports">Initial imports</a>
+  <ul class="collapse">
+  <li><a href="#additional-imports" id="toc-additional-imports" class="nav-link" data-scroll-target="#additional-imports">Additional imports</a></li>
+  </ul></li>
+  <li><a href="#connecting" id="toc-connecting" class="nav-link" data-scroll-target="#connecting">Connecting</a></li>
+  <li><a href="#logging-details" id="toc-logging-details" class="nav-link" data-scroll-target="#logging-details">Logging details</a>
+  <ul class="collapse">
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
+  <li><a href="#fixing-error" id="toc-fixing-error" class="nav-link" data-scroll-target="#fixing-error">Fixing error</a></li>
+  <li><a href="#result-1" id="toc-result-1" class="nav-link" data-scroll-target="#result-1">Result</a></li>
+  </ul></li>
+  <li><a href="#logging-experiments" id="toc-logging-experiments" class="nav-link" data-scroll-target="#logging-experiments">Logging experiments</a>
+  <ul class="collapse">
+  <li><a href="#result-2" id="toc-result-2" class="nav-link" data-scroll-target="#result-2">Result</a></li>
+  </ul></li>
+  <li><a href="#start_run-receives-experiment" id="toc-start_run-receives-experiment" class="nav-link" data-scroll-target="#start_run-receives-experiment">start_run receives experiment</a>
+  <ul class="collapse">
+  <li><a href="#result-3" id="toc-result-3" class="nav-link" data-scroll-target="#result-3">Result</a></li>
+  </ul></li>
+  <li><a href="#start_run-receives-under-experiment_id-name" id="toc-start_run-receives-under-experiment_id-name" class="nav-link" data-scroll-target="#start_run-receives-under-experiment_id-name">start_run receives under experiment_id name</a>
+  <ul class="collapse">
+  <li><a href="#result-4" id="toc-result-4" class="nav-link" data-scroll-target="#result-4">Result</a></li>
+  </ul></li>
+  <li><a href="#using-separate-runs-instead" id="toc-using-separate-runs-instead" class="nav-link" data-scroll-target="#using-separate-runs-instead">using separate runs instead</a>
+  <ul class="collapse">
+  <li><a href="#result-5" id="toc-result-5" class="nav-link" data-scroll-target="#result-5">Result</a></li>
+  </ul></li>
+  <li><a href="#separate-runs-experiment-in-command" id="toc-separate-runs-experiment-in-command" class="nav-link" data-scroll-target="#separate-runs-experiment-in-command">Separate runs + experiment in <code>command</code></a>
+  <ul class="collapse">
+  <li><a href="#result-6" id="toc-result-6" class="nav-link" data-scroll-target="#result-6">Result</a></li>
+  </ul></li>
+  <li><a href="#logging-images" id="toc-logging-images" class="nav-link" data-scroll-target="#logging-images">Logging images</a>
+  <ul class="collapse">
+  <li><a href="#result-7" id="toc-result-7" class="nav-link" data-scroll-target="#result-7">Result</a></li>
+  </ul></li>
+  <li><a href="#using-interactive" id="toc-using-interactive" class="nav-link" data-scroll-target="#using-interactive">Using interactive</a></li>
+  <li><a href="#multiple-metrics" id="toc-multiple-metrics" class="nav-link" data-scroll-target="#multiple-metrics">Multiple metrics</a></li>
+  <li><a href="#using-dataset" id="toc-using-dataset" class="nav-link" data-scroll-target="#using-dataset">Using dataset</a>
+  <ul class="collapse">
+  <li><a href="#auto-log-not-using-evaluate" id="toc-auto-log-not-using-evaluate" class="nav-link" data-scroll-target="#auto-log-not-using-evaluate">auto-log, not using evaluate</a></li>
+  <li><a href="#without-set_experiment-or-run" id="toc-without-set_experiment-or-run" class="nav-link" data-scroll-target="#without-set_experiment-or-run">without set_experiment or run</a></li>
+  <li><a href="#with-set_experiment-or-run" id="toc-with-set_experiment-or-run" class="nav-link" data-scroll-target="#with-set_experiment-or-run">with set_experiment or run</a></li>
+  <li><a href="#with-evaluate" id="toc-with-evaluate" class="nav-link" data-scroll-target="#with-evaluate">with evaluate</a></li>
+  <li><a href="#with-multiple-runs" id="toc-with-multiple-runs" class="nav-link" data-scroll-target="#with-multiple-runs">with multiple runs</a></li>
+  <li><a href="#with-shap-extra-metrics-and-multiple-runs" id="toc-with-shap-extra-metrics-and-multiple-runs" class="nav-link" data-scroll-target="#with-shap-extra-metrics-and-multiple-runs">with shap, extra metrics, and multiple runs</a></li>
+  </ul></li>
+  <li><a href="#try" id="toc-try" class="nav-link" data-scroll-target="#try">Try</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Playing with MLflow</h1>
-</div>
+<h1 class="title">MLFlow Hello World</h1>
+<p class="subtitle lead">Exploring MlFlow through Hello World experiments.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jaume Amores </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 6, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -179,6 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><span style="color:orange"><strong>Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.</strong></span></p>
 <section id="initial-imports" class="level2">
 <h2 class="anchored" data-anchor-id="initial-imports">Initial imports</h2>
 <div id="e9103813-05a4-445a-b450-130d3659a757" class="cell" data-execution_count="1">
@@ -17168,6 +17243,20 @@ PermutationExplainer explainer: 2001it [12:06,  2.73it/s]
 <p>https://mlflow.org/docs/latest/tracking.html#tracking-runs</p>
 <p>https://learn.microsoft.com/en-us/azure/machine-learning/how-to-log-view-metrics?view=azureml-api-2&amp;tabs=interactive#log-images</p>
 <p>https://www.databricks.com/notebooks/gallery/MLflowLoggingAPIPythonQuickstart.html</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<ul>
+<li>https://mlflow.org/docs/latest/traditional-ml/hyperparameter-tuning-with-child-runs/index.html</li>
+<li>https://mlflow.org/docs/latest/tracking/tutorials/local-database.html#:~:text=In%20this%20tutorial%2C%20you%20will,of%20a%20simple%20access%20interface.m</li>
+</ul>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>My own answer in Stack Overflow:</li>
+</ul>
+<p>https://stackoverflow.com/a/78582321/19850415</p>
 
 
 </section>

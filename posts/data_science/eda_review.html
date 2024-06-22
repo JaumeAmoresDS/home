@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jaume Amores">
+<meta name="dcterms.date" content="2024-05-31">
 
-<title>Jaume Amores - Posts</title>
+<title>Jaume Amores - Review of Exploratory Data Analysis best practices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,73 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Jaume Amores - Posts">
-<meta property="og:description" content="Introducing my blog posts">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jaume Amores - Review of Exploratory Data Analysis best practices">
+<meta property="og:description" content="Summary of best notebooks and blogs">
 <meta property="og:site_name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Posts">
-<meta name="twitter:description" content="Introducing my blog posts">
+<meta name="twitter:title" content="Jaume Amores - Review of Exploratory Data Analysis best practices">
+<meta name="twitter:description" content="Summary of best notebooks and blogs">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
@@ -146,7 +88,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jaume Amores</span>
     </a>
   </div>
@@ -157,15 +99,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts/posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./papers.pdf"> 
+    <a class="nav-link" href="../../papers.pdf"> 
 <span class="menu-text">Papers</span></a>
   </li>  
 </ul>
@@ -180,22 +122,51 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Data Science">Data Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Education &amp; Parenting">Education &amp; Parenting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Other">Other <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#beyond-eda" id="toc-beyond-eda" class="nav-link" data-scroll-target="#beyond-eda">Beyond EDA</a></li>
+  <li><a href="#related-topics" id="toc-related-topics" class="nav-link" data-scroll-target="#related-topics">Related topics</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a>
+  <ul class="collapse">
+  <li><a href="#papers" id="toc-papers" class="nav-link" data-scroll-target="#papers">Papers</a></li>
+  <li><a href="#notebooks" id="toc-notebooks" class="nav-link" data-scroll-target="#notebooks">Notebooks</a></li>
+  </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">github</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts</h1>
-<p class="subtitle lead">Introducing my blog posts</p>
-</div>
+<h1 class="title">Review of Exploratory Data Analysis best practices</h1>
+<p class="subtitle lead">Summary of best notebooks and blogs</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jaume Amores </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 31, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -205,80 +176,69 @@ window.Quarto = {
 </header>
 
 
+<p><span style="color:orange"><strong>Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.</strong></span></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Hello and welcome to my blog posts. In this website I will be publishing a series of blogs, mostly on health, data science, early childhood education, and software engineering. The blogs will be originally mostly personal notes, which I intend to polish and extend during successive reviews.</p>
+<p>The objective of this post is to distill a set of lessons, best practices, and guidelines, on the available blogs and notebooks on EDA. This is a work-in-progress post and contains just a set of random thoughts and pointers at the moment.</p>
 </section>
-<section id="posts" class="level2">
-<h2 class="anchored" data-anchor-id="posts">Posts</h2>
-
+<section id="beyond-eda" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-eda">Beyond EDA</h2>
+<p>EDA can be regarded as providing visual explanations based on statistical analysis of data. Each of these two axes, visual explanations and statistical analysis, are in some sense orthogonal to each other. In this section, we explore each of these individually.</p>
+</section>
+<section id="related-topics" class="level2">
+<h2 class="anchored" data-anchor-id="related-topics">Related topics</h2>
+<ul>
+<li>Education through visual explanations.</li>
+<li>Education through music composition (e.g., https://sonic-pi.net/)</li>
+<li>Literal programming.</li>
+</ul>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
+<section id="papers" class="level3">
+<h3 class="anchored" data-anchor-id="papers">Papers</h3>
+<p>https://theta.edu.pl/wp-content/uploads/2012/10/exploratorydataanalysis_tukey.pdf</p>
+<p>https://www.researchgate.net/profile/Dr-Subhendu-Pani/publication/337146539_IJITEE/links/5dc70b124585151435fb427e/IJITEE.pdf</p>
+<p>https://books.google.ie/books?hl=en&amp;lr=&amp;id=LbLrbQp6FoMC&amp;oi=fnd&amp;pg=PA33&amp;dq=review+of+exploratory+data+analysis&amp;ots=-KBhcbcCwk&amp;sig=4lyu8HHwwKMduML5aTdzHGMkXCk&amp;redir_esc=y#v=onepage&amp;q=review%20of%20exploratory%20data%20analysis&amp;f=false</p>
+<p>https://www.stat.berkeley.edu/~brill/Stat153/EDASage.pdf</p>
+<p>https://vyomaonline.com/studymaterial/uploads/pdf/2020/12/06_5abebacc31a558ecd6ba2d836f1db10f.pdf#page=60</p>
+<p>https://air.unimi.it/bitstream/2434/815200/2/csur21main.pdf</p>
+<p>https://d1wqtxts1xzle7.cloudfront.net/100103374/00401706.2019.167953520230320-1-e0odmm-libre.pdf?1679350681=&amp;response-content-disposition=inline%3B+filename%3DExploratory_Data_Analysis_With_MATLAB.pdf&amp;Expires=1717173901&amp;Signature=X0aq2tc0X-fRmde2ti3zAFbiuzJ5QBMenCfXkcLmPm1MtLpQHXl8j6ARC0dYwxsppQxErHWGsqlp5NWBz4<sub>egQsryD0X5sIhlP311rLTt0mk6MlDH3O7rx0CrmxTD9rTRpJriKx5hmxh9mS3lKeutMXUuQvjvEEAP7ncY9P</sub>fpVuj8bIym924lEsg7076TyhcP6nSZJqGdannBaCYyRJS<sub>aisM1DG-mG</sub>1LEZx0BBS-D9EjEVQrpP3Ygk9Py6V8Wio1C7VqzSxnxRKTsUdMO23yn7Roc~RLGUetDrs2keopDmb2Fj4vKHyaqQ5AYYfSJdquoEvjwRCL32XCQQ49hTw__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA</p>
+<p>https://arxiv.org/pdf/1911.00568</p>
+<p>https://web.archive.org/web/20191128121756id_/https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/9781118422007.fmatter</p>
+<p>https://drive.google.com/file/d/15Z83ztCYTqHSpDZdxzm_CTy-FzZXlicP/view</p>
+<p>https://friendly.github.io/6135/papers/Buja-etal-2009.pdf</p>
+<p>https://www.redalyc.org/pdf/2990/299023509014.pdf</p>
+<p>DATA VISUALIZATION IN EXPLORATORY DATA ANALYSIS: AN OVERVIEW OF METHODS AND TECHNOLOGIES</p>
+<p>Designing for Interactive Exploratory Data Analysis Requires Theories of Graphical Inference</p>
+<p>Exploratory data analysis (EDA) machine learning approaches for ocean world analog mass spectrometry</p>
+<p>https://www.academia.edu/download/100103374/00401706.2019.167953520230320-1-e0odmm.pdf</p>
+<p>https://www.sciencedirect.com/science/article/pii/S2772662223000528</p>
+<p>Exploratory Data Analysis for Building Energy Meters Using Machine Learning https://journal.ittelkom-pwt.ac.id/index.php/jtece/article/download/934/348</p>
+<pre><code>Prediction of Automobiles Prices Using Exploratory Data Analysis Based on Improved Machine Learning Techniques</code></pre>
+<p>https://www.jatit.org/volumes/Vol101No11/7Vol101No11.pdf</p>
+<p>https://library.acadlore.com/ATAIML/2022/1/1/ATAIML_01.01_03.pdf</p>
+</section>
+<section id="notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="notebooks">Notebooks</h3>
+<p>https://www.kaggle.com/competitions/titanic/discussion/176690</p>
+<pre><code>https://www.kaggle.com/code/neomatrix369/chaieda-sessions-titanic</code></pre>
+<p>https://www.kaggle.com/code/allohvk/titanic-advanced-eda?scriptVersionId=77739368</p>
+<p>https://www.kaggle.com/discussions/general/431668#2390311</p>
+<p>https://cran.r-project.org/web/packages/dlookr/vignettes/EDA.html</p>
+<p>https://r4ds.had.co.nz/exploratory-data-analysis.html</p>
+<p>https://r4ds.hadley.nz/</p>
+</section>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">github</h2>
+<p>https://github.com/xiaodaigh/awesome-eda</p>
+<p>https://github.com/qinwf/awesome-R</p>
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Data Science" data-listing-file-modified-sort="1717607011906" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/data_science/index.html" class="no-external">Data Science</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/data_science/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/data_science/index.html" class="no-external"></a></p><a href="./posts/data_science/index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Education &amp; Parenting" data-listing-file-modified-sort="1717607011922" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/education/index.html" class="no-external">Education and Parenting</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/education/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/education/index.html" class="no-external"></a></p><a href="./posts/education/index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1717607011922" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/health/index.html" class="no-external">Health</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/health/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/health/index.html" class="no-external"></a></p><a href="./posts/health/index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Other" data-listing-file-modified-sort="1717607011922" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/others/index.html" class="no-external">Other topics</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/others/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/others/index.html" class="no-external"></a></p><a href="./posts/others/index.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -688,6 +648,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="beatrizmilz/blog-en" data-repo-id="R_kgDOHc0DoQ" data-category="General" data-category-id="DIC_kwDOHc0Doc4CPeUR" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

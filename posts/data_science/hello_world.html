@@ -140,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts.html"> 
+    <a class="nav-link" href="../../posts/posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
@@ -235,6 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a></li>
   </ul></li>
   <li><a href="#further-refactorings" id="toc-further-refactorings" class="nav-link" data-scroll-target="#further-refactorings">Further refactorings</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul></li>
   </ul>
@@ -280,6 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="hello-world-aml-pipeline-with-components" class="level1">
 <h1>Hello World AML pipeline with components</h1>
+<p><span style="color:orange"><strong>Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.</strong></span></p>
 <p>The purpose of this tutorial is to show how to incrementally build a pipeline from simple and debuggable “Hello World” components. In order to run this at home, you may find it useful to create a free Azure ML subscription as described in the how-to guide I have <a href="../../additional/data_science/aml/free_subscription.html">here</a></p>
 <section id="starting-development-with-a-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="starting-development-with-a-notebook">Starting development with a notebook</h2>
@@ -4255,6 +4257,18 @@ bye</code></pre>
 <h2 class="anchored" data-anchor-id="further-refactorings">Further refactorings</h2>
 <ul>
 <li>Create more structure on config input file: one dictionary per pipeline component.</li>
+</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>Just using <code>MLFlow</code> automatically creates job in AML.
+<ul>
+<li>However, this job doesn’t log messages printed on console.</li>
+<li>It doesn’t seem to store any image or file saved to disk, and it doesn’t show any diagram.</li>
+<li>Need to check metrics and storing artificats.</li>
+<li>It records some metadata such as value of parameters, date of creation of job, and others.</li>
+</ul></li>
 </ul>
 </section>
 <section id="next-steps" class="level2">

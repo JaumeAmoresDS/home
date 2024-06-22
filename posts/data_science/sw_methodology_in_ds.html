@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jaume Amores">
+<meta name="dcterms.date" content="2024-05-30">
 
-<title>Jaume Amores - Health</title>
+<title>Jaume Amores - Software Methodology in Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,71 +68,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Health">
+<meta property="og:title" content="Jaume Amores - Software Methodology in Data Science">
+<meta property="og:description" content="Evolving thoughts">
 <meta property="og:site_name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Health">
+<meta name="twitter:title" content="Jaume Amores - Software Methodology in Data Science">
+<meta name="twitter:description" content="Evolving thoughts">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
@@ -159,7 +103,7 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts.html"> 
+    <a class="nav-link" href="../../posts/posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
@@ -179,20 +123,36 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Health">Health <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Health</h1>
-</div>
+<h1 class="title">Software Methodology in Data Science</h1>
+<p class="subtitle lead">Evolving thoughts</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jaume Amores </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 30, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -202,73 +162,12 @@ window.Quarto = {
 </header>
 
 
+<p><span style="color:orange"><strong>Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.</strong></span></p>
+<p>The objective of this post is to try to clarify myself about best practices and software methodology to be followed at different stages of a Data Science project. My process and opinions on this matter are gradually changing over time and I would like to connect with other data scientists to discuss about those, since this is an area that has always be interested for me. This is a work-in-progress post and contains just a set of random thoughts and pointers at the moment.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1717607011922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="422">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/health/agency_and_gratitude.html" class="no-external">Agency and gratitude</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../posts/health/agency_and_gratitude.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../../posts/health/agency_and_gratitude.html" class="no-external"></a></p><a href="../../posts/health/agency_and_gratitude.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1717607011922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="321">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/health/physical_health.html" class="no-external">Healthspan and lifespan</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../posts/health/physical_health.html" class="no-external">Physical health: resources and protocols</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../../posts/health/physical_health.html" class="no-external"></a></p><a href="../../posts/health/physical_health.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1717607011922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/health/huberman_podcast_will_power.html" class="no-external">Tenacity and will power TIL</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../posts/health/huberman_podcast_will_power.html" class="no-external">Lessons from Huberman podcast</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../../posts/health/huberman_podcast_will_power.html" class="no-external"></a></p><a href="../../posts/health/huberman_podcast_will_power.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Health" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1717607011922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="365">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../posts/health/tenacity_and_will_power.html" class="no-external">Tenacity and will power</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../posts/health/tenacity_and_will_power.html" class="no-external">Potential strategies</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="../../posts/health/tenacity_and_will_power.html" class="no-external"></a></p><a href="../../posts/health/tenacity_and_will_power.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

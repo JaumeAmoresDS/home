@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jaume Amores">
+<meta name="dcterms.date" content="2024-04-22">
 
-<title>Jaume Amores - Simulation</title>
+<title>Jaume Amores - Custom Docker images in AML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,15 +105,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Simulation">
+<meta property="og:title" content="Jaume Amores - Custom Docker images in AML">
+<meta property="og:description" content="Personal page">
 <meta property="og:site_name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Simulation">
+<meta name="twitter:title" content="Jaume Amores - Custom Docker images in AML">
+<meta name="twitter:description" content="Personal page">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -133,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts.html"> 
+    <a class="nav-link" href="../../posts/posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
@@ -151,20 +155,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#things-to-change-wrt-hello-world" id="toc-things-to-change-wrt-hello-world" class="nav-link active" data-scroll-target="#things-to-change-wrt-hello-world">Things to change wrt hello-world</a></li>
+  <li><a href="#copying-files" id="toc-copying-files" class="nav-link" data-scroll-target="#copying-files">Copying files</a></li>
+  <li><a href="#copying-settings.ini-and-setup.py-from-nbdev" id="toc-copying-settings.ini-and-setup.py-from-nbdev" class="nav-link" data-scroll-target="#copying-settings.ini-and-setup.py-from-nbdev">Copying settings.ini and setup.py from nbdev</a></li>
+  <li><a href="#changing-settings.ini" id="toc-changing-settings.ini" class="nav-link" data-scroll-target="#changing-settings.ini">C|hanging settings.ini</a></li>
+  <li><a href="#changing-the-conda-environment-file" id="toc-changing-the-conda-environment-file" class="nav-link" data-scroll-target="#changing-the-conda-environment-file">Changing the conda environment file</a></li>
+  <li><a href="#using-custom-docker-image" id="toc-using-custom-docker-image" class="nav-link" data-scroll-target="#using-custom-docker-image">Using custom docker image</a></li>
+  <li><a href="#change-aml_utils.py" id="toc-change-aml_utils.py" class="nav-link" data-scroll-target="#change-aml_utils.py">Change aml_utils.py</a></li>
+  <li><a href="#change-config-file" id="toc-change-config-file" class="nav-link" data-scroll-target="#change-config-file">Change config file</a></li>
+  <li><a href="#change-hello_world_pipeline.py-file" id="toc-change-hello_world_pipeline.py-file" class="nav-link" data-scroll-target="#change-hello_world_pipeline.py-file">Change hello_world_pipeline.py file</a></li>
+  <li><a href="#try" id="toc-try" class="nav-link" data-scroll-target="#try">Try</a></li>
+  <li><a href="#end" id="toc-end" class="nav-link" data-scroll-target="#end">End</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Simulation</h1>
-</div>
+<h1 class="title">Custom Docker images in AML</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jaume Amores </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 22, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -174,8 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="simulation" class="level2">
-<h2 class="anchored" data-anchor-id="simulation">simulation</h2>
+<p><span style="color:orange"><strong>Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.</strong></span></p>
 <section id="things-to-change-wrt-hello-world" class="level3">
 <h3 class="anchored" data-anchor-id="things-to-change-wrt-hello-world">Things to change wrt hello-world</h3>
 <ul>
@@ -914,7 +950,6 @@ Uploading simulation (0.04 MBs): 100%|██████████| 43370/4337
 </code></pre>
 </div>
 </div>
-</section>
 </section>
 <section id="end" class="level2">
 <h2 class="anchored" data-anchor-id="end">End</h2>
