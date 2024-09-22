@@ -3,6 +3,7 @@
     "listing": "/posts/posts.html",
     "items": [
       "/posts/data_science/quarto_setup.html",
+      "/posts/data_science/personal_health_tracking.html",
       "/posts/data_science/hp_tuning_with_mlflow.html",
       "/posts/data_science/playing_with_mlflow.html",
       "/posts/data_science/eda_review.html",
@@ -14,8 +15,8 @@
       "/posts/education/project_driven_learning.html",
       "/posts/education/resources_early_childhood_education.html",
       "/posts/others/podcasts.html",
-      "/posts/health/tenacity_and_will_power.html",
       "/posts/health/physical_health.html",
+      "/posts/health/tenacity_and_will_power.html",
       "/posts/health/agency_and_gratitude.html",
       "/posts/health/huberman_podcast_will_power.html"
     ]

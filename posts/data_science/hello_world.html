@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jaume Amores">
 <meta name="dcterms.date" content="2024-03-22">
 
-<title>Jaume Amores - Hello World AML pipeline with component</title>
+<title>Hello World AML pipeline with component – Jaume Amores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -108,11 +108,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jaume Amores - Hello World AML pipeline with component">
+<meta property="og:title" content="Hello World AML pipeline with component – Jaume Amores">
 <meta property="og:description" content="Exploring AML through Hello World components.">
 <meta property="og:site_name" content="Jaume Amores">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Jaume Amores - Hello World AML pipeline with component">
+<meta name="twitter:title" content="Hello World AML pipeline with component – Jaume Amores">
 <meta name="twitter:description" content="Exploring AML through Hello World components.">
 <meta name="twitter:creator" content="@JaumeEire">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -3763,8 +3763,13 @@ jupyter_env              /anaconda/envs/jupyter_env</code></pre>
 <div id="2184344d-dd29-42fc-8c34-6ab70e54f869" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run hello_world_pipeline.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Found the config file in: /config.json
-Class AutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
+<pre><code>Found the config file in: /config.json</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Running hello-world pipeline with args Namespace(config_path='pipeline_input.json', experiment_name='hello-world-experiment')</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Class AutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
 Class AutoDeleteConditionSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
 Class BaseAutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
 Class IntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
@@ -3772,8 +3777,7 @@ Class ProtectionLevelSchema: This is an experimental class, and may change at an
 Class BaseIntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Running hello-world pipeline with args Namespace(config_path='pipeline_input.json', experiment_name='hello-world-experiment')
-RunId: good_brain_fqtwt959vf
+<pre><code>RunId: good_brain_fqtwt959vf
 Web View: https://ml.azure.com/runs/good_brain_fqtwt959vf?wsid=/subscriptions/6af6741b-f140-48c2-84ca-027a27365026/resourcegroups/helloworld/workspaces/helloworld
 
 Streaming logs/azureml/executionlogs.txt
@@ -3802,355 +3806,355 @@ Web View: https://ml.azure.com/runs/good_brain_fqtwt959vf?wsid=/subscriptions/6a
 <p>We add the following to our config file:</p>
 <pre><code>    "name_env"="hello-world",</code></pre>
 <div id="c22f8da7-4f35-465f-9c8e-1fe134ddb236" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>writefile hello_world_pipeline.py</span>
-<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
-<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard imports</span></span>
-<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
-<span id="cb136-8"><a href="#cb136-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-10"><a href="#cb136-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Third-party imports</span></span>
-<span id="cb136-11"><a href="#cb136-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb136-12"><a href="#cb136-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> Bunch</span>
-<span id="cb136-13"><a href="#cb136-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-14"><a href="#cb136-14" aria-hidden="true" tabindex="-1"></a><span class="co"># AML imports</span></span>
-<span id="cb136-15"><a href="#cb136-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml <span class="im">import</span> (</span>
-<span id="cb136-16"><a href="#cb136-16" aria-hidden="true" tabindex="-1"></a>    command,</span>
-<span id="cb136-17"><a href="#cb136-17" aria-hidden="true" tabindex="-1"></a>    dsl,</span>
-<span id="cb136-18"><a href="#cb136-18" aria-hidden="true" tabindex="-1"></a>    Input,</span>
-<span id="cb136-19"><a href="#cb136-19" aria-hidden="true" tabindex="-1"></a>    Output,</span>
-<span id="cb136-20"><a href="#cb136-20" aria-hidden="true" tabindex="-1"></a>    MLClient</span>
-<span id="cb136-21"><a href="#cb136-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb136-22"><a href="#cb136-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml.entities <span class="im">import</span> Environment</span>
-<span id="cb136-23"><a href="#cb136-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.identity <span class="im">import</span> DefaultAzureCredential</span>
-<span id="cb136-24"><a href="#cb136-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-25"><a href="#cb136-25" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-26"><a href="#cb136-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Connection</span></span>
-<span id="cb136-27"><a href="#cb136-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-28"><a href="#cb136-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="ex">connect</span> ():</span>
-<span id="cb136-29"><a href="#cb136-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># authenticate</span></span>
-<span id="cb136-30"><a href="#cb136-30" aria-hidden="true" tabindex="-1"></a>    credential <span class="op">=</span> DefaultAzureCredential()</span>
-<span id="cb136-31"><a href="#cb136-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-32"><a href="#cb136-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get a handle to the workspace</span></span>
-<span id="cb136-33"><a href="#cb136-33" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> MLClient.from_config (</span>
-<span id="cb136-34"><a href="#cb136-34" aria-hidden="true" tabindex="-1"></a>        credential<span class="op">=</span>credential,</span>
-<span id="cb136-35"><a href="#cb136-35" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-36"><a href="#cb136-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ml_client</span>
-<span id="cb136-37"><a href="#cb136-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-38"><a href="#cb136-38" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-39"><a href="#cb136-39" aria-hidden="true" tabindex="-1"></a><span class="co"># environment</span></span>
-<span id="cb136-40"><a href="#cb136-40" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-41"><a href="#cb136-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_env (</span>
-<span id="cb136-42"><a href="#cb136-42" aria-hidden="true" tabindex="-1"></a>    ml_client,</span>
-<span id="cb136-43"><a href="#cb136-43" aria-hidden="true" tabindex="-1"></a>    image: <span class="bu">str</span><span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
-<span id="cb136-44"><a href="#cb136-44" aria-hidden="true" tabindex="-1"></a>    conda_file: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
-<span id="cb136-45"><a href="#cb136-45" aria-hidden="true" tabindex="-1"></a>    name_env: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline"</span>,</span>
-<span id="cb136-46"><a href="#cb136-46" aria-hidden="true" tabindex="-1"></a>    description_env: <span class="bu">str</span><span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
-<span id="cb136-47"><a href="#cb136-47" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb136-48"><a href="#cb136-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Creates environment in AML workspace"</span></span>
-<span id="cb136-49"><a href="#cb136-49" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment (</span>
-<span id="cb136-50"><a href="#cb136-50" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
-<span id="cb136-51"><a href="#cb136-51" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
-<span id="cb136-52"><a href="#cb136-52" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span>name_env,</span>
-<span id="cb136-53"><a href="#cb136-53" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span>description_env,</span>
-<span id="cb136-54"><a href="#cb136-54" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-55"><a href="#cb136-55" aria-hidden="true" tabindex="-1"></a>    ml_client.environments.create_or_update (env)</span>
-<span id="cb136-56"><a href="#cb136-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-57"><a href="#cb136-57" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-58"><a href="#cb136-58" aria-hidden="true" tabindex="-1"></a><span class="co"># connect and setup</span></span>
-<span id="cb136-59"><a href="#cb136-59" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-60"><a href="#cb136-60" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_setup_and_run (</span>
-<span id="cb136-61"><a href="#cb136-61" aria-hidden="true" tabindex="-1"></a>    pipeline_object, </span>
-<span id="cb136-62"><a href="#cb136-62" aria-hidden="true" tabindex="-1"></a>    experiment_name: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline experiment"</span>,</span>
-<span id="cb136-63"><a href="#cb136-63" aria-hidden="true" tabindex="-1"></a>    compute_name: <span class="bu">str</span><span class="op">=</span><span class="st">"jaumecpu"</span>,</span>
-<span id="cb136-64"><a href="#cb136-64" aria-hidden="true" tabindex="-1"></a>    image: <span class="bu">str</span><span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
-<span id="cb136-65"><a href="#cb136-65" aria-hidden="true" tabindex="-1"></a>    conda_file: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
-<span id="cb136-66"><a href="#cb136-66" aria-hidden="true" tabindex="-1"></a>    name_env: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline"</span>,</span>
-<span id="cb136-67"><a href="#cb136-67" aria-hidden="true" tabindex="-1"></a>    description_env: <span class="bu">str</span><span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
-<span id="cb136-68"><a href="#cb136-68" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb136-69"><a href="#cb136-69" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Does all the setup required to run the pipeline.</span></span>
-<span id="cb136-70"><a href="#cb136-70" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb136-71"><a href="#cb136-71" aria-hidden="true" tabindex="-1"></a><span class="co">    This includes: connecting, creating environment, indicating our compute instance,</span></span>
-<span id="cb136-72"><a href="#cb136-72" aria-hidden="true" tabindex="-1"></a><span class="co">    creating and running the pipeline.</span></span>
-<span id="cb136-73"><a href="#cb136-73" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb136-74"><a href="#cb136-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># connect</span></span>
-<span id="cb136-75"><a href="#cb136-75" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
-<span id="cb136-76"><a href="#cb136-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-77"><a href="#cb136-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create env</span></span>
-<span id="cb136-78"><a href="#cb136-78" aria-hidden="true" tabindex="-1"></a>    create_env (</span>
-<span id="cb136-79"><a href="#cb136-79" aria-hidden="true" tabindex="-1"></a>        ml_client,</span>
-<span id="cb136-80"><a href="#cb136-80" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
-<span id="cb136-81"><a href="#cb136-81" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
-<span id="cb136-82"><a href="#cb136-82" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>name_env,</span>
-<span id="cb136-83"><a href="#cb136-83" aria-hidden="true" tabindex="-1"></a>        description_env<span class="op">=</span>description_env,</span>
-<span id="cb136-84"><a href="#cb136-84" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-85"><a href="#cb136-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-86"><a href="#cb136-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute</span></span>
-<span id="cb136-87"><a href="#cb136-87" aria-hidden="true" tabindex="-1"></a>    pipeline_object.settings.default_compute <span class="op">=</span> compute_name </span>
-<span id="cb136-88"><a href="#cb136-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-89"><a href="#cb136-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create pipeline and run</span></span>
-<span id="cb136-90"><a href="#cb136-90" aria-hidden="true" tabindex="-1"></a>    pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
-<span id="cb136-91"><a href="#cb136-91" aria-hidden="true" tabindex="-1"></a>        pipeline_object,</span>
-<span id="cb136-92"><a href="#cb136-92" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
-<span id="cb136-93"><a href="#cb136-93" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
-<span id="cb136-94"><a href="#cb136-94" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-95"><a href="#cb136-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-96"><a href="#cb136-96" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
-<span id="cb136-97"><a href="#cb136-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
-<span id="cb136-98"><a href="#cb136-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
-<span id="cb136-99"><a href="#cb136-99" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(pipeline_job.name)</span>
-<span id="cb136-100"><a href="#cb136-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-101"><a href="#cb136-101" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_config (config_path: <span class="bu">str</span>):</span>
-<span id="cb136-102"><a href="#cb136-102" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read config json file</span></span>
-<span id="cb136-103"><a href="#cb136-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span> (config_path,<span class="st">"rt"</span>) <span class="im">as</span> config_file:</span>
-<span id="cb136-104"><a href="#cb136-104" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> json.load (config_file)</span>
-<span id="cb136-105"><a href="#cb136-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-106"><a href="#cb136-106" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert config dictionary into a Bunch object.</span></span>
-<span id="cb136-107"><a href="#cb136-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This allows to get access to fields as object attributes</span></span>
-<span id="cb136-108"><a href="#cb136-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Which I find more convenient.</span></span>
-<span id="cb136-109"><a href="#cb136-109" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> Bunch (<span class="op">**</span>config)</span>
-<span id="cb136-110"><a href="#cb136-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-111"><a href="#cb136-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> config</span>
-<span id="cb136-112"><a href="#cb136-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-113"><a href="#cb136-113" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-114"><a href="#cb136-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
-<span id="cb136-115"><a href="#cb136-115" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-116"><a href="#cb136-116" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pipeline (</span>
-<span id="cb136-117"><a href="#cb136-117" aria-hidden="true" tabindex="-1"></a>    config_path: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline_input.json"</span>,</span>
-<span id="cb136-118"><a href="#cb136-118" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
-<span id="cb136-119"><a href="#cb136-119" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb136-120"><a href="#cb136-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read config</span></span>
-<span id="cb136-121"><a href="#cb136-121" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> read_config (config_path)</span>
-<span id="cb136-122"><a href="#cb136-122" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb136-123"><a href="#cb136-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline definition</span></span>
-<span id="cb136-124"><a href="#cb136-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">@dsl.pipeline</span>(</span>
-<span id="cb136-125"><a href="#cb136-125" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">"E2E hello world pipeline with input"</span>,</span>
-<span id="cb136-126"><a href="#cb136-126" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-127"><a href="#cb136-127" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> three_components_pipeline(</span>
-<span id="cb136-128"><a href="#cb136-128" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing component parameters, first component:</span></span>
-<span id="cb136-129"><a href="#cb136-129" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file: <span class="bu">str</span>,</span>
-<span id="cb136-130"><a href="#cb136-130" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename: <span class="bu">str</span>,</span>
-<span id="cb136-131"><a href="#cb136-131" aria-hidden="true" tabindex="-1"></a>        x: <span class="bu">int</span>,</span>
-<span id="cb136-132"><a href="#cb136-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-133"><a href="#cb136-133" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing component parameters, second component:</span></span>
-<span id="cb136-134"><a href="#cb136-134" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file: <span class="bu">str</span>,</span>
-<span id="cb136-135"><a href="#cb136-135" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename: <span class="bu">str</span>,</span>
-<span id="cb136-136"><a href="#cb136-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-137"><a href="#cb136-137" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
-<span id="cb136-138"><a href="#cb136-138" aria-hidden="true" tabindex="-1"></a>        training_output_filename: <span class="bu">str</span>, </span>
-<span id="cb136-139"><a href="#cb136-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-140"><a href="#cb136-140" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
-<span id="cb136-141"><a href="#cb136-141" aria-hidden="true" tabindex="-1"></a>        inference_output_filename: <span class="bu">str</span>,</span>
-<span id="cb136-142"><a href="#cb136-142" aria-hidden="true" tabindex="-1"></a>    ):</span>
-<span id="cb136-143"><a href="#cb136-143" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
-<span id="cb136-144"><a href="#cb136-144" aria-hidden="true" tabindex="-1"></a><span class="co">        Third pipeline: preprocessing, training and inference.</span></span>
-<span id="cb136-145"><a href="#cb136-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-146"><a href="#cb136-146" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
-<span id="cb136-147"><a href="#cb136-147" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
-<span id="cb136-148"><a href="#cb136-148" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_training_input_file: str</span></span>
-<span id="cb136-149"><a href="#cb136-149" aria-hidden="true" tabindex="-1"></a><span class="co">            Path to file containing training data to be preprocessed.</span></span>
-<span id="cb136-150"><a href="#cb136-150" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_training_output_filename: str</span></span>
-<span id="cb136-151"><a href="#cb136-151" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the preprocessed, training data.</span></span>
-<span id="cb136-152"><a href="#cb136-152" aria-hidden="true" tabindex="-1"></a><span class="co">        x: int</span></span>
-<span id="cb136-153"><a href="#cb136-153" aria-hidden="true" tabindex="-1"></a><span class="co">            Number to add to input data for preprocessing it.</span></span>
-<span id="cb136-154"><a href="#cb136-154" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_test_input_file: str</span></span>
-<span id="cb136-155"><a href="#cb136-155" aria-hidden="true" tabindex="-1"></a><span class="co">            Path to file containing test data to be preprocessed.</span></span>
-<span id="cb136-156"><a href="#cb136-156" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_test_output_filename: str</span></span>
-<span id="cb136-157"><a href="#cb136-157" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the preprocessed, test data.</span></span>
-<span id="cb136-158"><a href="#cb136-158" aria-hidden="true" tabindex="-1"></a><span class="co">        training_output_filename: str</span></span>
-<span id="cb136-159"><a href="#cb136-159" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the trained model.</span></span>
-<span id="cb136-160"><a href="#cb136-160" aria-hidden="true" tabindex="-1"></a><span class="co">        inference_output_filename: str</span></span>
-<span id="cb136-161"><a href="#cb136-161" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the output data with inference results.</span></span>
-<span id="cb136-162"><a href="#cb136-162" aria-hidden="true" tabindex="-1"></a><span class="co">        name_env: str</span></span>
-<span id="cb136-163"><a href="#cb136-163" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of environment to use.</span></span>
-<span id="cb136-164"><a href="#cb136-164" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb136-165"><a href="#cb136-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-166"><a href="#cb136-166" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="ss">f"using </span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>)</span>
-<span id="cb136-167"><a href="#cb136-167" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb136-168"><a href="#cb136-168" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-169"><a href="#cb136-169" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing</span></span>
-<span id="cb136-170"><a href="#cb136-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-171"><a href="#cb136-171" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
-<span id="cb136-172"><a href="#cb136-172" aria-hidden="true" tabindex="-1"></a>        preprocessing_component <span class="op">=</span> command(</span>
-<span id="cb136-173"><a href="#cb136-173" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-174"><a href="#cb136-174" aria-hidden="true" tabindex="-1"></a>                input_file<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>),</span>
-<span id="cb136-175"><a href="#cb136-175" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"number"</span>),</span>
-<span id="cb136-176"><a href="#cb136-176" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-177"><a href="#cb136-177" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-178"><a href="#cb136-178" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-179"><a href="#cb136-179" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-180"><a href="#cb136-180" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-181"><a href="#cb136-181" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./preprocessing/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
-<span id="cb136-182"><a href="#cb136-182" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python preprocessing.py "</span></span>
-<span id="cb136-183"><a href="#cb136-183" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_file $</span><span class="sc">{{</span><span class="st">inputs.input_file</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-184"><a href="#cb136-184" aria-hidden="true" tabindex="-1"></a>                <span class="st">"-x $</span><span class="sc">{{</span><span class="st">inputs.x</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-185"><a href="#cb136-185" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-186"><a href="#cb136-186" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
-<span id="cb136-187"><a href="#cb136-187" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
-<span id="cb136-188"><a href="#cb136-188" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"Pre-processing"</span>,</span>
-<span id="cb136-189"><a href="#cb136-189" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-190"><a href="#cb136-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-191"><a href="#cb136-191" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
-<span id="cb136-192"><a href="#cb136-192" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_job <span class="op">=</span> preprocessing_component(</span>
-<span id="cb136-193"><a href="#cb136-193" aria-hidden="true" tabindex="-1"></a>            input_file<span class="op">=</span>preprocessing_training_input_file,</span>
-<span id="cb136-194"><a href="#cb136-194" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb136-195"><a href="#cb136-195" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
-<span id="cb136-196"><a href="#cb136-196" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>x,</span>
-<span id="cb136-197"><a href="#cb136-197" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-198"><a href="#cb136-198" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_job <span class="op">=</span> preprocessing_component(</span>
-<span id="cb136-199"><a href="#cb136-199" aria-hidden="true" tabindex="-1"></a>            input_file<span class="op">=</span>preprocessing_test_input_file,</span>
-<span id="cb136-200"><a href="#cb136-200" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb136-201"><a href="#cb136-201" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
-<span id="cb136-202"><a href="#cb136-202" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>x,</span>
-<span id="cb136-203"><a href="#cb136-203" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-204"><a href="#cb136-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-205"><a href="#cb136-205" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-206"><a href="#cb136-206" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component</span></span>
-<span id="cb136-207"><a href="#cb136-207" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-208"><a href="#cb136-208" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
-<span id="cb136-209"><a href="#cb136-209" aria-hidden="true" tabindex="-1"></a>        training_component <span class="op">=</span> command(</span>
-<span id="cb136-210"><a href="#cb136-210" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-211"><a href="#cb136-211" aria-hidden="true" tabindex="-1"></a>                input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-212"><a href="#cb136-212" aria-hidden="true" tabindex="-1"></a>                input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-213"><a href="#cb136-213" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-214"><a href="#cb136-214" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-215"><a href="#cb136-215" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-216"><a href="#cb136-216" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-217"><a href="#cb136-217" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-218"><a href="#cb136-218" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./training/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
-<span id="cb136-219"><a href="#cb136-219" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python training.py "</span></span>
-<span id="cb136-220"><a href="#cb136-220" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_folder $</span><span class="sc">{{</span><span class="st">inputs.input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-221"><a href="#cb136-221" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_filename $</span><span class="sc">{{</span><span class="st">inputs.input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-222"><a href="#cb136-222" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-223"><a href="#cb136-223" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
-<span id="cb136-224"><a href="#cb136-224" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
-<span id="cb136-225"><a href="#cb136-225" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"Training"</span>,</span>
-<span id="cb136-226"><a href="#cb136-226" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-227"><a href="#cb136-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-228"><a href="#cb136-228" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
-<span id="cb136-229"><a href="#cb136-229" aria-hidden="true" tabindex="-1"></a>        training_job <span class="op">=</span> training_component(</span>
-<span id="cb136-230"><a href="#cb136-230" aria-hidden="true" tabindex="-1"></a>            input_folder<span class="op">=</span>preprocessing_training_job.outputs.output_folder,</span>
-<span id="cb136-231"><a href="#cb136-231" aria-hidden="true" tabindex="-1"></a>            input_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
-<span id="cb136-232"><a href="#cb136-232" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb136-233"><a href="#cb136-233" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>training_output_filename,</span>
-<span id="cb136-234"><a href="#cb136-234" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-235"><a href="#cb136-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-236"><a href="#cb136-236" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-237"><a href="#cb136-237" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference</span></span>
-<span id="cb136-238"><a href="#cb136-238" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-239"><a href="#cb136-239" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
-<span id="cb136-240"><a href="#cb136-240" aria-hidden="true" tabindex="-1"></a>        inference_component <span class="op">=</span> command(</span>
-<span id="cb136-241"><a href="#cb136-241" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-242"><a href="#cb136-242" aria-hidden="true" tabindex="-1"></a>                preprocessed_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-243"><a href="#cb136-243" aria-hidden="true" tabindex="-1"></a>                preprocessed_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-244"><a href="#cb136-244" aria-hidden="true" tabindex="-1"></a>                model_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-245"><a href="#cb136-245" aria-hidden="true" tabindex="-1"></a>                model_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-246"><a href="#cb136-246" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
-<span id="cb136-247"><a href="#cb136-247" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-248"><a href="#cb136-248" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
-<span id="cb136-249"><a href="#cb136-249" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
-<span id="cb136-250"><a href="#cb136-250" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb136-251"><a href="#cb136-251" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./inference/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
-<span id="cb136-252"><a href="#cb136-252" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python inference.py "</span> </span>
-<span id="cb136-253"><a href="#cb136-253" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--preprocessed_input_folder $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-254"><a href="#cb136-254" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--preprocessed_input_filename $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-255"><a href="#cb136-255" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--model_input_folder $</span><span class="sc">{{</span><span class="st">inputs.model_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-256"><a href="#cb136-256" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--model_input_filename $</span><span class="sc">{{</span><span class="st">inputs.model_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-257"><a href="#cb136-257" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
-<span id="cb136-258"><a href="#cb136-258" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st"> "</span>,</span>
-<span id="cb136-259"><a href="#cb136-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-260"><a href="#cb136-260" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
-<span id="cb136-261"><a href="#cb136-261" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"inference"</span>,</span>
-<span id="cb136-262"><a href="#cb136-262" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-263"><a href="#cb136-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-264"><a href="#cb136-264" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
-<span id="cb136-265"><a href="#cb136-265" aria-hidden="true" tabindex="-1"></a>        inference_job <span class="op">=</span> inference_component(</span>
-<span id="cb136-266"><a href="#cb136-266" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_folder<span class="op">=</span>preprocessing_test_job.outputs.output_folder,</span>
-<span id="cb136-267"><a href="#cb136-267" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
-<span id="cb136-268"><a href="#cb136-268" aria-hidden="true" tabindex="-1"></a>            model_input_folder<span class="op">=</span>training_job.outputs.output_folder,</span>
-<span id="cb136-269"><a href="#cb136-269" aria-hidden="true" tabindex="-1"></a>            model_input_filename<span class="op">=</span>training_output_filename,</span>
-<span id="cb136-270"><a href="#cb136-270" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
-<span id="cb136-271"><a href="#cb136-271" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>inference_output_filename,</span>
-<span id="cb136-272"><a href="#cb136-272" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb136-273"><a href="#cb136-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-274"><a href="#cb136-274" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build pipeline </span></span>
-<span id="cb136-275"><a href="#cb136-275" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
-<span id="cb136-276"><a href="#cb136-276" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first preprocessing component</span></span>
-<span id="cb136-277"><a href="#cb136-277" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_training_input_file),</span>
-<span id="cb136-278"><a href="#cb136-278" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename<span class="op">=</span>config.preprocessing_training_output_filename,</span>
-<span id="cb136-279"><a href="#cb136-279" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>config.x,</span>
-<span id="cb136-280"><a href="#cb136-280" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb136-281"><a href="#cb136-281" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second preprocessing component</span></span>
-<span id="cb136-282"><a href="#cb136-282" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_test_input_file),</span>
-<span id="cb136-283"><a href="#cb136-283" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename<span class="op">=</span>config.preprocessing_test_output_filename,</span>
-<span id="cb136-284"><a href="#cb136-284" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb136-285"><a href="#cb136-285" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
-<span id="cb136-286"><a href="#cb136-286" aria-hidden="true" tabindex="-1"></a>        training_output_filename<span class="op">=</span>config.training_output_filename,</span>
-<span id="cb136-287"><a href="#cb136-287" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb136-288"><a href="#cb136-288" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
-<span id="cb136-289"><a href="#cb136-289" aria-hidden="true" tabindex="-1"></a>        inference_output_filename<span class="op">=</span>config.inference_output_filename,</span>
-<span id="cb136-290"><a href="#cb136-290" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-291"><a href="#cb136-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-292"><a href="#cb136-292" aria-hidden="true" tabindex="-1"></a>    connect_setup_and_run (</span>
-<span id="cb136-293"><a href="#cb136-293" aria-hidden="true" tabindex="-1"></a>        three_components_pipeline_object, </span>
-<span id="cb136-294"><a href="#cb136-294" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
-<span id="cb136-295"><a href="#cb136-295" aria-hidden="true" tabindex="-1"></a>        compute_name<span class="op">=</span>config.compute_name,</span>
-<span id="cb136-296"><a href="#cb136-296" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>config.image,</span>
-<span id="cb136-297"><a href="#cb136-297" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>config.conda_file,</span>
-<span id="cb136-298"><a href="#cb136-298" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>config.name_env,</span>
-<span id="cb136-299"><a href="#cb136-299" aria-hidden="true" tabindex="-1"></a>        description_env<span class="op">=</span>config.description_env,</span>
-<span id="cb136-300"><a href="#cb136-300" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-301"><a href="#cb136-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-302"><a href="#cb136-302" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-303"><a href="#cb136-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing</span></span>
-<span id="cb136-304"><a href="#cb136-304" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-305"><a href="#cb136-305" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args ():</span>
-<span id="cb136-306"><a href="#cb136-306" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses input arguments"""</span></span>
-<span id="cb136-307"><a href="#cb136-307" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb136-308"><a href="#cb136-308" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
-<span id="cb136-309"><a href="#cb136-309" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
-<span id="cb136-310"><a href="#cb136-310" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--config-path"</span>, </span>
-<span id="cb136-311"><a href="#cb136-311" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
-<span id="cb136-312"><a href="#cb136-312" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"pipeline_input.json"</span>,</span>
-<span id="cb136-313"><a href="#cb136-313" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Path to config file specifying pipeline input parameters."</span>,</span>
-<span id="cb136-314"><a href="#cb136-314" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-315"><a href="#cb136-315" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
-<span id="cb136-316"><a href="#cb136-316" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--experiment-name"</span>, </span>
-<span id="cb136-317"><a href="#cb136-317" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
-<span id="cb136-318"><a href="#cb136-318" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
-<span id="cb136-319"><a href="#cb136-319" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Name of experiment."</span>,</span>
-<span id="cb136-320"><a href="#cb136-320" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-321"><a href="#cb136-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-322"><a href="#cb136-322" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
-<span id="cb136-323"><a href="#cb136-323" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb136-324"><a href="#cb136-324" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">"Running hello-world pipeline with args"</span>, args)</span>
-<span id="cb136-325"><a href="#cb136-325" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb136-326"><a href="#cb136-326" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> args</span>
-<span id="cb136-327"><a href="#cb136-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-328"><a href="#cb136-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-329"><a href="#cb136-329" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-330"><a href="#cb136-330" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
-<span id="cb136-331"><a href="#cb136-331" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-332"><a href="#cb136-332" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main ():</span>
-<span id="cb136-333"><a href="#cb136-333" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses arguments and runs pipeline"""</span></span>
-<span id="cb136-334"><a href="#cb136-334" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args ()</span>
-<span id="cb136-335"><a href="#cb136-335" aria-hidden="true" tabindex="-1"></a>    run_pipeline (</span>
-<span id="cb136-336"><a href="#cb136-336" aria-hidden="true" tabindex="-1"></a>        args.config_path,</span>
-<span id="cb136-337"><a href="#cb136-337" aria-hidden="true" tabindex="-1"></a>        args.experiment_name,</span>
-<span id="cb136-338"><a href="#cb136-338" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb136-339"><a href="#cb136-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-340"><a href="#cb136-340" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-341"><a href="#cb136-341" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
-<span id="cb136-342"><a href="#cb136-342" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb136-343"><a href="#cb136-343" aria-hidden="true" tabindex="-1"></a>    main ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>writefile hello_world_pipeline.py</span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard imports</span></span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-10"><a href="#cb138-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Third-party imports</span></span>
+<span id="cb138-11"><a href="#cb138-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb138-12"><a href="#cb138-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> Bunch</span>
+<span id="cb138-13"><a href="#cb138-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-14"><a href="#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="co"># AML imports</span></span>
+<span id="cb138-15"><a href="#cb138-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml <span class="im">import</span> (</span>
+<span id="cb138-16"><a href="#cb138-16" aria-hidden="true" tabindex="-1"></a>    command,</span>
+<span id="cb138-17"><a href="#cb138-17" aria-hidden="true" tabindex="-1"></a>    dsl,</span>
+<span id="cb138-18"><a href="#cb138-18" aria-hidden="true" tabindex="-1"></a>    Input,</span>
+<span id="cb138-19"><a href="#cb138-19" aria-hidden="true" tabindex="-1"></a>    Output,</span>
+<span id="cb138-20"><a href="#cb138-20" aria-hidden="true" tabindex="-1"></a>    MLClient</span>
+<span id="cb138-21"><a href="#cb138-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb138-22"><a href="#cb138-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.ai.ml.entities <span class="im">import</span> Environment</span>
+<span id="cb138-23"><a href="#cb138-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.identity <span class="im">import</span> DefaultAzureCredential</span>
+<span id="cb138-24"><a href="#cb138-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-25"><a href="#cb138-25" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-26"><a href="#cb138-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Connection</span></span>
+<span id="cb138-27"><a href="#cb138-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-28"><a href="#cb138-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="ex">connect</span> ():</span>
+<span id="cb138-29"><a href="#cb138-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># authenticate</span></span>
+<span id="cb138-30"><a href="#cb138-30" aria-hidden="true" tabindex="-1"></a>    credential <span class="op">=</span> DefaultAzureCredential()</span>
+<span id="cb138-31"><a href="#cb138-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-32"><a href="#cb138-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get a handle to the workspace</span></span>
+<span id="cb138-33"><a href="#cb138-33" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> MLClient.from_config (</span>
+<span id="cb138-34"><a href="#cb138-34" aria-hidden="true" tabindex="-1"></a>        credential<span class="op">=</span>credential,</span>
+<span id="cb138-35"><a href="#cb138-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-36"><a href="#cb138-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ml_client</span>
+<span id="cb138-37"><a href="#cb138-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-38"><a href="#cb138-38" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-39"><a href="#cb138-39" aria-hidden="true" tabindex="-1"></a><span class="co"># environment</span></span>
+<span id="cb138-40"><a href="#cb138-40" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-41"><a href="#cb138-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_env (</span>
+<span id="cb138-42"><a href="#cb138-42" aria-hidden="true" tabindex="-1"></a>    ml_client,</span>
+<span id="cb138-43"><a href="#cb138-43" aria-hidden="true" tabindex="-1"></a>    image: <span class="bu">str</span><span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
+<span id="cb138-44"><a href="#cb138-44" aria-hidden="true" tabindex="-1"></a>    conda_file: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
+<span id="cb138-45"><a href="#cb138-45" aria-hidden="true" tabindex="-1"></a>    name_env: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline"</span>,</span>
+<span id="cb138-46"><a href="#cb138-46" aria-hidden="true" tabindex="-1"></a>    description_env: <span class="bu">str</span><span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
+<span id="cb138-47"><a href="#cb138-47" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb138-48"><a href="#cb138-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">"Creates environment in AML workspace"</span></span>
+<span id="cb138-49"><a href="#cb138-49" aria-hidden="true" tabindex="-1"></a>    env <span class="op">=</span> Environment (</span>
+<span id="cb138-50"><a href="#cb138-50" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
+<span id="cb138-51"><a href="#cb138-51" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
+<span id="cb138-52"><a href="#cb138-52" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span>name_env,</span>
+<span id="cb138-53"><a href="#cb138-53" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span>description_env,</span>
+<span id="cb138-54"><a href="#cb138-54" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-55"><a href="#cb138-55" aria-hidden="true" tabindex="-1"></a>    ml_client.environments.create_or_update (env)</span>
+<span id="cb138-56"><a href="#cb138-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-57"><a href="#cb138-57" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-58"><a href="#cb138-58" aria-hidden="true" tabindex="-1"></a><span class="co"># connect and setup</span></span>
+<span id="cb138-59"><a href="#cb138-59" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-60"><a href="#cb138-60" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_setup_and_run (</span>
+<span id="cb138-61"><a href="#cb138-61" aria-hidden="true" tabindex="-1"></a>    pipeline_object, </span>
+<span id="cb138-62"><a href="#cb138-62" aria-hidden="true" tabindex="-1"></a>    experiment_name: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline experiment"</span>,</span>
+<span id="cb138-63"><a href="#cb138-63" aria-hidden="true" tabindex="-1"></a>    compute_name: <span class="bu">str</span><span class="op">=</span><span class="st">"jaumecpu"</span>,</span>
+<span id="cb138-64"><a href="#cb138-64" aria-hidden="true" tabindex="-1"></a>    image: <span class="bu">str</span><span class="op">=</span><span class="st">"mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04"</span>,</span>
+<span id="cb138-65"><a href="#cb138-65" aria-hidden="true" tabindex="-1"></a>    conda_file: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline.yml"</span>,</span>
+<span id="cb138-66"><a href="#cb138-66" aria-hidden="true" tabindex="-1"></a>    name_env: <span class="bu">str</span><span class="op">=</span><span class="st">"pipeline"</span>,</span>
+<span id="cb138-67"><a href="#cb138-67" aria-hidden="true" tabindex="-1"></a>    description_env: <span class="bu">str</span><span class="op">=</span><span class="st">"Pipeline environment"</span>,</span>
+<span id="cb138-68"><a href="#cb138-68" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb138-69"><a href="#cb138-69" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Does all the setup required to run the pipeline.</span></span>
+<span id="cb138-70"><a href="#cb138-70" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb138-71"><a href="#cb138-71" aria-hidden="true" tabindex="-1"></a><span class="co">    This includes: connecting, creating environment, indicating our compute instance,</span></span>
+<span id="cb138-72"><a href="#cb138-72" aria-hidden="true" tabindex="-1"></a><span class="co">    creating and running the pipeline.</span></span>
+<span id="cb138-73"><a href="#cb138-73" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb138-74"><a href="#cb138-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># connect</span></span>
+<span id="cb138-75"><a href="#cb138-75" aria-hidden="true" tabindex="-1"></a>    ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span>
+<span id="cb138-76"><a href="#cb138-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-77"><a href="#cb138-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create env</span></span>
+<span id="cb138-78"><a href="#cb138-78" aria-hidden="true" tabindex="-1"></a>    create_env (</span>
+<span id="cb138-79"><a href="#cb138-79" aria-hidden="true" tabindex="-1"></a>        ml_client,</span>
+<span id="cb138-80"><a href="#cb138-80" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>image,</span>
+<span id="cb138-81"><a href="#cb138-81" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>conda_file,</span>
+<span id="cb138-82"><a href="#cb138-82" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>name_env,</span>
+<span id="cb138-83"><a href="#cb138-83" aria-hidden="true" tabindex="-1"></a>        description_env<span class="op">=</span>description_env,</span>
+<span id="cb138-84"><a href="#cb138-84" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-85"><a href="#cb138-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-86"><a href="#cb138-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute</span></span>
+<span id="cb138-87"><a href="#cb138-87" aria-hidden="true" tabindex="-1"></a>    pipeline_object.settings.default_compute <span class="op">=</span> compute_name </span>
+<span id="cb138-88"><a href="#cb138-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-89"><a href="#cb138-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create pipeline and run</span></span>
+<span id="cb138-90"><a href="#cb138-90" aria-hidden="true" tabindex="-1"></a>    pipeline_job <span class="op">=</span> ml_client.jobs.create_or_update(</span>
+<span id="cb138-91"><a href="#cb138-91" aria-hidden="true" tabindex="-1"></a>        pipeline_object,</span>
+<span id="cb138-92"><a href="#cb138-92" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Project's name</span></span>
+<span id="cb138-93"><a href="#cb138-93" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb138-94"><a href="#cb138-94" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-95"><a href="#cb138-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-96"><a href="#cb138-96" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb138-97"><a href="#cb138-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline running</span></span>
+<span id="cb138-98"><a href="#cb138-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ----------------------------------------------------</span></span>
+<span id="cb138-99"><a href="#cb138-99" aria-hidden="true" tabindex="-1"></a>    ml_client.jobs.stream(pipeline_job.name)</span>
+<span id="cb138-100"><a href="#cb138-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-101"><a href="#cb138-101" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_config (config_path: <span class="bu">str</span>):</span>
+<span id="cb138-102"><a href="#cb138-102" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Read config json file</span></span>
+<span id="cb138-103"><a href="#cb138-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span> (config_path,<span class="st">"rt"</span>) <span class="im">as</span> config_file:</span>
+<span id="cb138-104"><a href="#cb138-104" aria-hidden="true" tabindex="-1"></a>        config <span class="op">=</span> json.load (config_file)</span>
+<span id="cb138-105"><a href="#cb138-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-106"><a href="#cb138-106" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert config dictionary into a Bunch object.</span></span>
+<span id="cb138-107"><a href="#cb138-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This allows to get access to fields as object attributes</span></span>
+<span id="cb138-108"><a href="#cb138-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Which I find more convenient.</span></span>
+<span id="cb138-109"><a href="#cb138-109" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> Bunch (<span class="op">**</span>config)</span>
+<span id="cb138-110"><a href="#cb138-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-111"><a href="#cb138-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> config</span>
+<span id="cb138-112"><a href="#cb138-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-113"><a href="#cb138-113" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-114"><a href="#cb138-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline running</span></span>
+<span id="cb138-115"><a href="#cb138-115" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-116"><a href="#cb138-116" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_pipeline (</span>
+<span id="cb138-117"><a href="#cb138-117" aria-hidden="true" tabindex="-1"></a>    config_path: <span class="bu">str</span><span class="op">=</span><span class="st">"./pipeline_input.json"</span>,</span>
+<span id="cb138-118"><a href="#cb138-118" aria-hidden="true" tabindex="-1"></a>    experiment_name<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb138-119"><a href="#cb138-119" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb138-120"><a href="#cb138-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># read config</span></span>
+<span id="cb138-121"><a href="#cb138-121" aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> read_config (config_path)</span>
+<span id="cb138-122"><a href="#cb138-122" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb138-123"><a href="#cb138-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline definition</span></span>
+<span id="cb138-124"><a href="#cb138-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">@dsl.pipeline</span>(</span>
+<span id="cb138-125"><a href="#cb138-125" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">"E2E hello world pipeline with input"</span>,</span>
+<span id="cb138-126"><a href="#cb138-126" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-127"><a href="#cb138-127" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> three_components_pipeline(</span>
+<span id="cb138-128"><a href="#cb138-128" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing component parameters, first component:</span></span>
+<span id="cb138-129"><a href="#cb138-129" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file: <span class="bu">str</span>,</span>
+<span id="cb138-130"><a href="#cb138-130" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename: <span class="bu">str</span>,</span>
+<span id="cb138-131"><a href="#cb138-131" aria-hidden="true" tabindex="-1"></a>        x: <span class="bu">int</span>,</span>
+<span id="cb138-132"><a href="#cb138-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-133"><a href="#cb138-133" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing component parameters, second component:</span></span>
+<span id="cb138-134"><a href="#cb138-134" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file: <span class="bu">str</span>,</span>
+<span id="cb138-135"><a href="#cb138-135" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename: <span class="bu">str</span>,</span>
+<span id="cb138-136"><a href="#cb138-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-137"><a href="#cb138-137" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
+<span id="cb138-138"><a href="#cb138-138" aria-hidden="true" tabindex="-1"></a>        training_output_filename: <span class="bu">str</span>, </span>
+<span id="cb138-139"><a href="#cb138-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-140"><a href="#cb138-140" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
+<span id="cb138-141"><a href="#cb138-141" aria-hidden="true" tabindex="-1"></a>        inference_output_filename: <span class="bu">str</span>,</span>
+<span id="cb138-142"><a href="#cb138-142" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb138-143"><a href="#cb138-143" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb138-144"><a href="#cb138-144" aria-hidden="true" tabindex="-1"></a><span class="co">        Third pipeline: preprocessing, training and inference.</span></span>
+<span id="cb138-145"><a href="#cb138-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-146"><a href="#cb138-146" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb138-147"><a href="#cb138-147" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb138-148"><a href="#cb138-148" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_training_input_file: str</span></span>
+<span id="cb138-149"><a href="#cb138-149" aria-hidden="true" tabindex="-1"></a><span class="co">            Path to file containing training data to be preprocessed.</span></span>
+<span id="cb138-150"><a href="#cb138-150" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_training_output_filename: str</span></span>
+<span id="cb138-151"><a href="#cb138-151" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the preprocessed, training data.</span></span>
+<span id="cb138-152"><a href="#cb138-152" aria-hidden="true" tabindex="-1"></a><span class="co">        x: int</span></span>
+<span id="cb138-153"><a href="#cb138-153" aria-hidden="true" tabindex="-1"></a><span class="co">            Number to add to input data for preprocessing it.</span></span>
+<span id="cb138-154"><a href="#cb138-154" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_test_input_file: str</span></span>
+<span id="cb138-155"><a href="#cb138-155" aria-hidden="true" tabindex="-1"></a><span class="co">            Path to file containing test data to be preprocessed.</span></span>
+<span id="cb138-156"><a href="#cb138-156" aria-hidden="true" tabindex="-1"></a><span class="co">        preprocessing_test_output_filename: str</span></span>
+<span id="cb138-157"><a href="#cb138-157" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the preprocessed, test data.</span></span>
+<span id="cb138-158"><a href="#cb138-158" aria-hidden="true" tabindex="-1"></a><span class="co">        training_output_filename: str</span></span>
+<span id="cb138-159"><a href="#cb138-159" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the trained model.</span></span>
+<span id="cb138-160"><a href="#cb138-160" aria-hidden="true" tabindex="-1"></a><span class="co">        inference_output_filename: str</span></span>
+<span id="cb138-161"><a href="#cb138-161" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of file containing the output data with inference results.</span></span>
+<span id="cb138-162"><a href="#cb138-162" aria-hidden="true" tabindex="-1"></a><span class="co">        name_env: str</span></span>
+<span id="cb138-163"><a href="#cb138-163" aria-hidden="true" tabindex="-1"></a><span class="co">            Name of environment to use.</span></span>
+<span id="cb138-164"><a href="#cb138-164" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb138-165"><a href="#cb138-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-166"><a href="#cb138-166" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="ss">f"using </span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>)</span>
+<span id="cb138-167"><a href="#cb138-167" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb138-168"><a href="#cb138-168" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-169"><a href="#cb138-169" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Preprocessing</span></span>
+<span id="cb138-170"><a href="#cb138-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-171"><a href="#cb138-171" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
+<span id="cb138-172"><a href="#cb138-172" aria-hidden="true" tabindex="-1"></a>        preprocessing_component <span class="op">=</span> command(</span>
+<span id="cb138-173"><a href="#cb138-173" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-174"><a href="#cb138-174" aria-hidden="true" tabindex="-1"></a>                input_file<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>),</span>
+<span id="cb138-175"><a href="#cb138-175" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"number"</span>),</span>
+<span id="cb138-176"><a href="#cb138-176" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-177"><a href="#cb138-177" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-178"><a href="#cb138-178" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-179"><a href="#cb138-179" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-180"><a href="#cb138-180" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-181"><a href="#cb138-181" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./preprocessing/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb138-182"><a href="#cb138-182" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python preprocessing.py "</span></span>
+<span id="cb138-183"><a href="#cb138-183" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_file $</span><span class="sc">{{</span><span class="st">inputs.input_file</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-184"><a href="#cb138-184" aria-hidden="true" tabindex="-1"></a>                <span class="st">"-x $</span><span class="sc">{{</span><span class="st">inputs.x</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-185"><a href="#cb138-185" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-186"><a href="#cb138-186" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
+<span id="cb138-187"><a href="#cb138-187" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb138-188"><a href="#cb138-188" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"Pre-processing"</span>,</span>
+<span id="cb138-189"><a href="#cb138-189" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-190"><a href="#cb138-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-191"><a href="#cb138-191" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
+<span id="cb138-192"><a href="#cb138-192" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb138-193"><a href="#cb138-193" aria-hidden="true" tabindex="-1"></a>            input_file<span class="op">=</span>preprocessing_training_input_file,</span>
+<span id="cb138-194"><a href="#cb138-194" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb138-195"><a href="#cb138-195" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb138-196"><a href="#cb138-196" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>x,</span>
+<span id="cb138-197"><a href="#cb138-197" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-198"><a href="#cb138-198" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_job <span class="op">=</span> preprocessing_component(</span>
+<span id="cb138-199"><a href="#cb138-199" aria-hidden="true" tabindex="-1"></a>            input_file<span class="op">=</span>preprocessing_test_input_file,</span>
+<span id="cb138-200"><a href="#cb138-200" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb138-201"><a href="#cb138-201" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb138-202"><a href="#cb138-202" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>x,</span>
+<span id="cb138-203"><a href="#cb138-203" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-204"><a href="#cb138-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-205"><a href="#cb138-205" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-206"><a href="#cb138-206" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component</span></span>
+<span id="cb138-207"><a href="#cb138-207" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-208"><a href="#cb138-208" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
+<span id="cb138-209"><a href="#cb138-209" aria-hidden="true" tabindex="-1"></a>        training_component <span class="op">=</span> command(</span>
+<span id="cb138-210"><a href="#cb138-210" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-211"><a href="#cb138-211" aria-hidden="true" tabindex="-1"></a>                input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-212"><a href="#cb138-212" aria-hidden="true" tabindex="-1"></a>                input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-213"><a href="#cb138-213" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-214"><a href="#cb138-214" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-215"><a href="#cb138-215" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-216"><a href="#cb138-216" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-217"><a href="#cb138-217" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-218"><a href="#cb138-218" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./training/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb138-219"><a href="#cb138-219" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python training.py "</span></span>
+<span id="cb138-220"><a href="#cb138-220" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_folder $</span><span class="sc">{{</span><span class="st">inputs.input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-221"><a href="#cb138-221" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--input_filename $</span><span class="sc">{{</span><span class="st">inputs.input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-222"><a href="#cb138-222" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-223"><a href="#cb138-223" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st">"</span>,</span>
+<span id="cb138-224"><a href="#cb138-224" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb138-225"><a href="#cb138-225" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"Training"</span>,</span>
+<span id="cb138-226"><a href="#cb138-226" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-227"><a href="#cb138-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-228"><a href="#cb138-228" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
+<span id="cb138-229"><a href="#cb138-229" aria-hidden="true" tabindex="-1"></a>        training_job <span class="op">=</span> training_component(</span>
+<span id="cb138-230"><a href="#cb138-230" aria-hidden="true" tabindex="-1"></a>            input_folder<span class="op">=</span>preprocessing_training_job.outputs.output_folder,</span>
+<span id="cb138-231"><a href="#cb138-231" aria-hidden="true" tabindex="-1"></a>            input_filename<span class="op">=</span>preprocessing_training_output_filename,</span>
+<span id="cb138-232"><a href="#cb138-232" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb138-233"><a href="#cb138-233" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb138-234"><a href="#cb138-234" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-235"><a href="#cb138-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-236"><a href="#cb138-236" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-237"><a href="#cb138-237" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference</span></span>
+<span id="cb138-238"><a href="#cb138-238" aria-hidden="true" tabindex="-1"></a>        <span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-239"><a href="#cb138-239" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Interface</span></span>
+<span id="cb138-240"><a href="#cb138-240" aria-hidden="true" tabindex="-1"></a>        inference_component <span class="op">=</span> command(</span>
+<span id="cb138-241"><a href="#cb138-241" aria-hidden="true" tabindex="-1"></a>            inputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-242"><a href="#cb138-242" aria-hidden="true" tabindex="-1"></a>                preprocessed_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-243"><a href="#cb138-243" aria-hidden="true" tabindex="-1"></a>                preprocessed_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-244"><a href="#cb138-244" aria-hidden="true" tabindex="-1"></a>                model_input_folder<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-245"><a href="#cb138-245" aria-hidden="true" tabindex="-1"></a>                model_input_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-246"><a href="#cb138-246" aria-hidden="true" tabindex="-1"></a>                output_filename<span class="op">=</span>Input (<span class="bu">type</span><span class="op">=</span><span class="st">"string"</span>),</span>
+<span id="cb138-247"><a href="#cb138-247" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-248"><a href="#cb138-248" aria-hidden="true" tabindex="-1"></a>            outputs<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb138-249"><a href="#cb138-249" aria-hidden="true" tabindex="-1"></a>                output_folder<span class="op">=</span>Output (<span class="bu">type</span><span class="op">=</span><span class="st">"uri_folder"</span>),</span>
+<span id="cb138-250"><a href="#cb138-250" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb138-251"><a href="#cb138-251" aria-hidden="true" tabindex="-1"></a>            code<span class="op">=</span><span class="ss">f"./inference/"</span>,  <span class="co"># location of source code: in this case, the root folder</span></span>
+<span id="cb138-252"><a href="#cb138-252" aria-hidden="true" tabindex="-1"></a>            command<span class="op">=</span><span class="st">"python inference.py "</span> </span>
+<span id="cb138-253"><a href="#cb138-253" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--preprocessed_input_folder $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-254"><a href="#cb138-254" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--preprocessed_input_filename $</span><span class="sc">{{</span><span class="st">inputs.preprocessed_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-255"><a href="#cb138-255" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--model_input_folder $</span><span class="sc">{{</span><span class="st">inputs.model_input_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-256"><a href="#cb138-256" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--model_input_filename $</span><span class="sc">{{</span><span class="st">inputs.model_input_filename</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-257"><a href="#cb138-257" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_folder $</span><span class="sc">{{</span><span class="st">outputs.output_folder</span><span class="sc">}}</span><span class="st"> "</span></span>
+<span id="cb138-258"><a href="#cb138-258" aria-hidden="true" tabindex="-1"></a>                <span class="st">"--output_filename $</span><span class="sc">{{</span><span class="st">inputs.output_filename</span><span class="sc">}}</span><span class="st"> "</span>,</span>
+<span id="cb138-259"><a href="#cb138-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-260"><a href="#cb138-260" aria-hidden="true" tabindex="-1"></a>            environment<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>config<span class="sc">.</span>name_env<span class="sc">}</span><span class="ss">@latest"</span>,</span>
+<span id="cb138-261"><a href="#cb138-261" aria-hidden="true" tabindex="-1"></a>            display_name<span class="op">=</span><span class="st">"inference"</span>,</span>
+<span id="cb138-262"><a href="#cb138-262" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-263"><a href="#cb138-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-264"><a href="#cb138-264" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Instantiation</span></span>
+<span id="cb138-265"><a href="#cb138-265" aria-hidden="true" tabindex="-1"></a>        inference_job <span class="op">=</span> inference_component(</span>
+<span id="cb138-266"><a href="#cb138-266" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_folder<span class="op">=</span>preprocessing_test_job.outputs.output_folder,</span>
+<span id="cb138-267"><a href="#cb138-267" aria-hidden="true" tabindex="-1"></a>            preprocessed_input_filename<span class="op">=</span>preprocessing_test_output_filename,</span>
+<span id="cb138-268"><a href="#cb138-268" aria-hidden="true" tabindex="-1"></a>            model_input_folder<span class="op">=</span>training_job.outputs.output_folder,</span>
+<span id="cb138-269"><a href="#cb138-269" aria-hidden="true" tabindex="-1"></a>            model_input_filename<span class="op">=</span>training_output_filename,</span>
+<span id="cb138-270"><a href="#cb138-270" aria-hidden="true" tabindex="-1"></a>            <span class="co">#output_folder: automatically determined</span></span>
+<span id="cb138-271"><a href="#cb138-271" aria-hidden="true" tabindex="-1"></a>            output_filename<span class="op">=</span>inference_output_filename,</span>
+<span id="cb138-272"><a href="#cb138-272" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb138-273"><a href="#cb138-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-274"><a href="#cb138-274" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build pipeline </span></span>
+<span id="cb138-275"><a href="#cb138-275" aria-hidden="true" tabindex="-1"></a>    three_components_pipeline_object <span class="op">=</span> three_components_pipeline(</span>
+<span id="cb138-276"><a href="#cb138-276" aria-hidden="true" tabindex="-1"></a>        <span class="co"># first preprocessing component</span></span>
+<span id="cb138-277"><a href="#cb138-277" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_training_input_file),</span>
+<span id="cb138-278"><a href="#cb138-278" aria-hidden="true" tabindex="-1"></a>        preprocessing_training_output_filename<span class="op">=</span>config.preprocessing_training_output_filename,</span>
+<span id="cb138-279"><a href="#cb138-279" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>config.x,</span>
+<span id="cb138-280"><a href="#cb138-280" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb138-281"><a href="#cb138-281" aria-hidden="true" tabindex="-1"></a>        <span class="co"># second preprocessing component</span></span>
+<span id="cb138-282"><a href="#cb138-282" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_input_file<span class="op">=</span>Input(<span class="bu">type</span><span class="op">=</span><span class="st">"uri_file"</span>, path<span class="op">=</span>config.preprocessing_test_input_file),</span>
+<span id="cb138-283"><a href="#cb138-283" aria-hidden="true" tabindex="-1"></a>        preprocessing_test_output_filename<span class="op">=</span>config.preprocessing_test_output_filename,</span>
+<span id="cb138-284"><a href="#cb138-284" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb138-285"><a href="#cb138-285" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Training component parameters:</span></span>
+<span id="cb138-286"><a href="#cb138-286" aria-hidden="true" tabindex="-1"></a>        training_output_filename<span class="op">=</span>config.training_output_filename,</span>
+<span id="cb138-287"><a href="#cb138-287" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb138-288"><a href="#cb138-288" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Inference component parameters:</span></span>
+<span id="cb138-289"><a href="#cb138-289" aria-hidden="true" tabindex="-1"></a>        inference_output_filename<span class="op">=</span>config.inference_output_filename,</span>
+<span id="cb138-290"><a href="#cb138-290" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-291"><a href="#cb138-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-292"><a href="#cb138-292" aria-hidden="true" tabindex="-1"></a>    connect_setup_and_run (</span>
+<span id="cb138-293"><a href="#cb138-293" aria-hidden="true" tabindex="-1"></a>        three_components_pipeline_object, </span>
+<span id="cb138-294"><a href="#cb138-294" aria-hidden="true" tabindex="-1"></a>        experiment_name<span class="op">=</span>experiment_name,</span>
+<span id="cb138-295"><a href="#cb138-295" aria-hidden="true" tabindex="-1"></a>        compute_name<span class="op">=</span>config.compute_name,</span>
+<span id="cb138-296"><a href="#cb138-296" aria-hidden="true" tabindex="-1"></a>        image<span class="op">=</span>config.image,</span>
+<span id="cb138-297"><a href="#cb138-297" aria-hidden="true" tabindex="-1"></a>        conda_file<span class="op">=</span>config.conda_file,</span>
+<span id="cb138-298"><a href="#cb138-298" aria-hidden="true" tabindex="-1"></a>        name_env<span class="op">=</span>config.name_env,</span>
+<span id="cb138-299"><a href="#cb138-299" aria-hidden="true" tabindex="-1"></a>        description_env<span class="op">=</span>config.description_env,</span>
+<span id="cb138-300"><a href="#cb138-300" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-301"><a href="#cb138-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-302"><a href="#cb138-302" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-303"><a href="#cb138-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing</span></span>
+<span id="cb138-304"><a href="#cb138-304" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-305"><a href="#cb138-305" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_args ():</span>
+<span id="cb138-306"><a href="#cb138-306" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses input arguments"""</span></span>
+<span id="cb138-307"><a href="#cb138-307" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb138-308"><a href="#cb138-308" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
+<span id="cb138-309"><a href="#cb138-309" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb138-310"><a href="#cb138-310" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--config-path"</span>, </span>
+<span id="cb138-311"><a href="#cb138-311" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb138-312"><a href="#cb138-312" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"pipeline_input.json"</span>,</span>
+<span id="cb138-313"><a href="#cb138-313" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Path to config file specifying pipeline input parameters."</span>,</span>
+<span id="cb138-314"><a href="#cb138-314" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-315"><a href="#cb138-315" aria-hidden="true" tabindex="-1"></a>    parser.add_argument (</span>
+<span id="cb138-316"><a href="#cb138-316" aria-hidden="true" tabindex="-1"></a>        <span class="st">"--experiment-name"</span>, </span>
+<span id="cb138-317"><a href="#cb138-317" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, </span>
+<span id="cb138-318"><a href="#cb138-318" aria-hidden="true" tabindex="-1"></a>        default<span class="op">=</span><span class="st">"hello-world-experiment"</span>,</span>
+<span id="cb138-319"><a href="#cb138-319" aria-hidden="true" tabindex="-1"></a>        <span class="bu">help</span><span class="op">=</span><span class="st">"Name of experiment."</span>,</span>
+<span id="cb138-320"><a href="#cb138-320" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-321"><a href="#cb138-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-322"><a href="#cb138-322" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb138-323"><a href="#cb138-323" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb138-324"><a href="#cb138-324" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="st">"Running hello-world pipeline with args"</span>, args)</span>
+<span id="cb138-325"><a href="#cb138-325" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb138-326"><a href="#cb138-326" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> args</span>
+<span id="cb138-327"><a href="#cb138-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-328"><a href="#cb138-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-329"><a href="#cb138-329" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-330"><a href="#cb138-330" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
+<span id="cb138-331"><a href="#cb138-331" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-332"><a href="#cb138-332" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main ():</span>
+<span id="cb138-333"><a href="#cb138-333" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parses arguments and runs pipeline"""</span></span>
+<span id="cb138-334"><a href="#cb138-334" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parse_args ()</span>
+<span id="cb138-335"><a href="#cb138-335" aria-hidden="true" tabindex="-1"></a>    run_pipeline (</span>
+<span id="cb138-336"><a href="#cb138-336" aria-hidden="true" tabindex="-1"></a>        args.config_path,</span>
+<span id="cb138-337"><a href="#cb138-337" aria-hidden="true" tabindex="-1"></a>        args.experiment_name,</span>
+<span id="cb138-338"><a href="#cb138-338" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-339"><a href="#cb138-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-340"><a href="#cb138-340" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-341"><a href="#cb138-341" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------------------------------------</span></span>
+<span id="cb138-342"><a href="#cb138-342" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb138-343"><a href="#cb138-343" aria-hidden="true" tabindex="-1"></a>    main ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Overwriting hello_world_pipeline.py</code></pre>
 </div>
 </div>
 <div id="fe27bc97-8349-4243-8f51-cd1062bf2b95" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run hello_world_pipeline.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>run hello_world_pipeline.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Found the config file in: /config.json</code></pre>
 </div>
@@ -4181,22 +4185,22 @@ Web View: https://ml.azure.com/runs/lucid_napkin_t6nkwzqqfx?wsid=/subscriptions/
 <section id="debugging" class="level3">
 <h3 class="anchored" data-anchor-id="debugging">Debugging</h3>
 <div id="a8631516-99d3-4169-aa4f-4851ffbf7f66" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mydec (f):</span>
-<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mywrap (<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="st">"hello"</span>)</span>
-<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>        f()</span>
-<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="st">"bye"</span>)</span>
-<span id="cb141-6"><a href="#cb141-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mywrap</span>
-<span id="cb141-7"><a href="#cb141-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb141-8"><a href="#cb141-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outerf ():</span>
-<span id="cb141-9"><a href="#cb141-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb141-10"><a href="#cb141-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@mydec</span></span>
-<span id="cb141-11"><a href="#cb141-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> myf ():</span>
-<span id="cb141-12"><a href="#cb141-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="ss">f"myf: </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb141-13"><a href="#cb141-13" aria-hidden="true" tabindex="-1"></a>    myf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mydec (f):</span>
+<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mywrap (<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="st">"hello"</span>)</span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>        f()</span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="st">"bye"</span>)</span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mywrap</span>
+<span id="cb143-7"><a href="#cb143-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-8"><a href="#cb143-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outerf ():</span>
+<span id="cb143-9"><a href="#cb143-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb143-10"><a href="#cb143-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@mydec</span></span>
+<span id="cb143-11"><a href="#cb143-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> myf ():</span>
+<span id="cb143-12"><a href="#cb143-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> (<span class="ss">f"myf: </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb143-13"><a href="#cb143-13" aria-hidden="true" tabindex="-1"></a>    myf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="4f86cad5-1906-4f41-ac28-4fa409d3313a" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>outerf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>outerf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>hello
 myf: 3
@@ -4204,49 +4208,49 @@ bye</code></pre>
 </div>
 </div>
 <div id="a6cc0a7c-5077-4a9c-be3b-4bb4c05eb6b7" class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co">'${{parent.inputs.name_env}}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co">'${{parent.inputs.name_env}}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="9bfcb801-2405-4ee1-a14e-59bd5d2c1240" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hello_world_pipeline <span class="im">import</span> <span class="ex">connect</span>, create_env, read_config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hello_world_pipeline <span class="im">import</span> <span class="ex">connect</span>, create_env, read_config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="6026ba04-12c9-4b3d-af99-24ab2439d2bf" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>ml_client <span class="op">=</span> <span class="ex">connect</span> ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Found the config file in: /config.json</code></pre>
 </div>
 </div>
 <div id="6878f200-38d2-4cac-acde-aa4054fb39c7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> read_config (<span class="st">"./pipeline_input.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> read_config (<span class="st">"./pipeline_input.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="ed412488-28b6-48dd-b134-f05c880cba84" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>create_env (</span>
-<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a>    ml_client, </span>
-<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a>    config.image,</span>
-<span id="cb149-4"><a href="#cb149-4" aria-hidden="true" tabindex="-1"></a>    config.conda_file,</span>
-<span id="cb149-5"><a href="#cb149-5" aria-hidden="true" tabindex="-1"></a>    config.name_env,</span>
-<span id="cb149-6"><a href="#cb149-6" aria-hidden="true" tabindex="-1"></a>    config.description_env,</span>
-<span id="cb149-7"><a href="#cb149-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>create_env (</span>
+<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a>    ml_client, </span>
+<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a>    config.image,</span>
+<span id="cb151-4"><a href="#cb151-4" aria-hidden="true" tabindex="-1"></a>    config.conda_file,</span>
+<span id="cb151-5"><a href="#cb151-5" aria-hidden="true" tabindex="-1"></a>    config.name_env,</span>
+<span id="cb151-6"><a href="#cb151-6" aria-hidden="true" tabindex="-1"></a>    config.description_env,</span>
+<span id="cb151-7"><a href="#cb151-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Found the config file in: /config.json</code></pre>
 </div>
 </div>
 <div id="ea11965a-3767-465d-9acc-d509830a3b3f" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>ml_client.environments.get (config.name_env, version<span class="op">=</span><span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>ml_client.environments.get (config.name_env, version<span class="op">=</span><span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="a1902e11-2ac9-4252-9864-0a77c577758d" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>x.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>x.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>'hello-world'</code></pre>
 </div>
 </div>
 <div id="d6b9bac2-ff7d-42dd-a3ee-806f9b75fa24" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>config.name_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>config.name_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>'hello-world'</code></pre>
 </div>
 </div>
 <div id="e89d4537-2393-4677-9812-b85a82dabeca" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>x.version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>x.version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>'1'</code></pre>
 </div>
@@ -4317,18 +4321,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -4360,7 +4353,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/JaumeAmoresDS\.github\.io\/home\/");
@@ -4368,7 +4383,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
