@@ -20,7 +20,7 @@
   - Number of times I urinate.
   - Approx. number of times I pass gas (if that could be easily tracked by an app), or overall bloating feeling.
 
-- EasyTracker: 
+- **EasyTracker:**
     - when I start working, 
     - how many hours I’ve worked that day, 
     - when I finish working
