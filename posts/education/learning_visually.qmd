@@ -22,4 +22,6 @@ Working both with Michael Nielsen and independently, [Andy Matuschak](https://an
 
 [Bret Victor](https://worrydream.com/) has worked extensively on this domain. In particular, I like his essays [Learnable Programming](https://worrydream.com/LearnableProgramming/) and [Kill Math](https://worrydream.com/KillMath/).
 
+Closely related with some of Bret Victor's work is the topic of **exploratory programming**. [Hamel Husain](https://hamel.dev/) has a nice [talk](https://www.youtube.com/watch?v=rX1yGxJijsI) about this topic.
+
 Similar ideas are recently being developed by many scientists and educators and put in practice in journals such as [Distill](https://distill.pub/). I will be including those references in here as I find them, with a brief description, to serve as sources for the future.
