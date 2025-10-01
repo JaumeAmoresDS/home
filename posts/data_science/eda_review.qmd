@@ -83,6 +83,8 @@ https://library.acadlore.com/ATAIML/2022/1/1/ATAIML_01.01_03.pdf
 
 ### Notebooks
 
+https://necote.github.io/VisDepot/landing.html
+
 https://www.kaggle.com/competitions/titanic/discussion/176690
 
     https://www.kaggle.com/code/neomatrix369/chaieda-sessions-titanic

@@ -1,0 +1,32 @@
+---
+title: "Scholars and Experts"
+author: "Jaume Amores"
+date: 2025-10-01
+toc: true
+categories:
+  - Health & Well Being
+---
+
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
+Short notes on resources found regarding scholars and experts in different areas, mostly from podcasts.
+
+## Habit formation
+
+- [James Clear](https://jamesclear.com/)
+- [Nicole Vignola](https://www.nicolesneuroscience.com/)
+
+## Meditation
+
+- [Sam Harris](https://www.samharris.org/)
+- [Jay L. Garfield](https://jaygarfield.org/)
+- [Eckhart Tolle](https://eckharttolle.com/)
+- [Pablo d'Ors][https://www.amigosdeldesierto.org/pablo/]
+
+## Spirituality 
+
+- [Philip Gulley](https://philipgulley.com/)
+- [Pablo d'Ors][https://www.amigosdeldesierto.org/pablo/]
+- [Eckhart Tolle](https://eckharttolle.com/)
+- [Sergi Torres](https://sergitorres.es/en/home/)
+
