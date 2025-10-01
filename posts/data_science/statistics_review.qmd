@@ -1,0 +1,31 @@
+---
+title: "Statistics for DataScience readings"
+subtitle: Collection of references on blogs and books
+author: "Jaume Amores"
+date: 2024-08-10
+toc: true
+categories:
+  - Data Science
+---
+
+<span style="color:orange">**Note: this post is just a draft in progress. As of now, it consists of a collection of random notes.**</span>
+
+## Introduction
+
+The current post as it is now represents a dump of references on statistics useful in general and for data science in particular.
+
+## Books
+
+https://lakens.github.io/statistical_inferences/
+https://theoryandpractice.org/stats-ds-book/intro.html
+
+## Blogs
+
+https://daniellakens.blogspot.com/
+
+## Courses
+
+https://www.khanacademy.org/math/statistics-probability
+https://online.stanford.edu/courses/xfds110-introduction-statistics
+https://www.coursera.org/learn/statistical-inferences
+https://www.coursera.org/learn/improving-statistical-questions
