@@ -3,6 +3,7 @@
     "listing": "/posts/posts.html",
     "items": [
       "/posts/others/textbook-recommendations.html",
+      "/posts/others/textbook_recommendation_counts.html",
       "/posts/others/religion.html",
       "/posts/data_science/personal_health_tracking.html",
       "/posts/data_science/hp_tuning_with_mlflow.html",

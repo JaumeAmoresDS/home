@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>textbook_recommendation_counts – Jaume Amores</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-18f124b609fd10898fb39b13a0728c26.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jaume Amores">
+<meta property="og:image" content="https://JaumeAmoresDS.github.io/home/posts/others/textbook_counts_by_field_subfield.png">
+<meta property="og:site_name" content="Jaume Amores">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="760">
+<meta property="og:image:width" content="1362">
+<meta name="twitter:title" content="Jaume Amores">
+<meta name="twitter:image" content="https://JaumeAmoresDS.github.io/home/posts/others/textbook_counts_by_field_subfield.png">
+<meta name="twitter:creator" content="@JaumeEire">
+<meta name="twitter:image-height" content="760">
+<meta name="twitter:image-width" content="1362">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jaume Amores</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/posts.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../papers.pdf"> 
+<span class="menu-text">Papers</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="textbook-recommendation-counts" class="level1">
+<h1>Textbook Recommendation Counts</h1>
+<section id="source" class="level2">
+<h2 class="anchored" data-anchor-id="source">Source</h2>
+<ul>
+<li>Source document: <a href="https://github.com/JaumeAmoresDS/home/blob/main/posts/others/textbook-recommendations.md" class="uri">https://github.com/JaumeAmoresDS/home/blob/main/posts/others/textbook-recommendations.md</a></li>
+<li>Generated from a best-effort normalized extraction of book-title mentions in the Markdown source.</li>
+<li>Obvious aliases were consolidated, for example <code>SICP</code> → <code>Structure and Interpretation of Computer Programs</code>, <code>QCQI</code> → <code>Quantum Computation and Quantum Information</code>, and <code>MTW/MWT</code> → <code>Gravitation</code>.</li>
+<li>Link-preview duplicates that repeated a title in the source text were counted as textual occurrences.</li>
+<li>Broad or vague references such as “this book” were omitted unless the referenced title or alias was clear.</li>
+</ul>
+</section>
+<section id="prompt-used-for-the-counting-task" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-used-for-the-counting-task">Prompt Used for the Counting Task</h2>
+<pre class="text"><code>Count the occurrences of each book title in the document below and provide the final aggregate counts:
+
+https://github.com/JaumeAmoresDS/home/blob/main/posts/others/textbook-recommendations.md</code></pre>
+</section>
+<section id="current-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="current-prompt">Current Prompt</h2>
+<pre class="text"><code>write a markdown document, in english, where you include the prompt i gave you (without the splitting or subagent instructions since it seems it wasn't really necessary), and with the result as a table. Include a small graph in png of counts grouped by fields (physics, CS, etc., and subfields (quantum mechanics, etc.). include the current prompt as well</code></pre>
+</section>
+<section id="summary-graph" class="level2">
+<h2 class="anchored" data-anchor-id="summary-graph">Summary Graph</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="textbook_counts_by_field_subfield.png" class="img-fluid figure-img"></p>
+<figcaption>Textbook counts grouped by field and subfield</figcaption>
+</figure>
+</div>
+<p>The graph groups normalized title counts by broad field and subfield. Interdisciplinary titles are assigned to the most natural combined field label.</p>
+</section>
+<section id="fieldsubfield-aggregate-counts" class="level2">
+<h2 class="anchored" data-anchor-id="fieldsubfield-aggregate-counts">Field/Subfield Aggregate Counts</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Subfield</th>
+<th>Total mentions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Physics</td>
+<td>General physics</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Electromagnetism</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>Physics / Computer Science</td>
+<td>Quantum information and quantum computing</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Linear algebra</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Thermodynamics and statistical physics</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Statistics &amp; Probability</td>
+<td>Probability theory</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Cell biology</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Machine learning and neural networks</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Algebra</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Complex analysis</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Differential geometry</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Physics / Mathematics</td>
+<td>Mathematical physics</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Computer Science / Statistics</td>
+<td>Information theory and machine learning</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Differential equations</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>General mathematics</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Mathematics / Physics</td>
+<td>Dynamical systems</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Arts &amp; Design</td>
+<td>Music theory</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Immunology</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Biology &amp; Medicine</td>
+<td>Protein structure</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Chemistry</td>
+<td>General chemistry</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Chemistry</td>
+<td>Organic chemistry</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Compilers and programming languages</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Security and cryptography</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Theory of computation</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Engineering &amp; Operations</td>
+<td>Manufacturing and operations</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Humanities &amp; Social Science</td>
+<td>Nature writing and culture</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Number theory</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Topology</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Mathematics / Computer Science</td>
+<td>Discrete mathematics</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Mathematics / Philosophy</td>
+<td>Logic</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Classical mechanics</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Condensed matter physics</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Field theory and relativity</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Many-body physics</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Physics anthology/history</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Quantum foundations</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Statistical physics</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Theoretical physics</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Physics / Astronomy</td>
+<td>Astronomy and astrophysics</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Physics / Mathematics</td>
+<td>Classical mechanics</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Statistics &amp; Probability</td>
+<td>Bayesian statistics</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Arts &amp; Design</td>
+<td>Architecture and design</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Arts &amp; Design</td>
+<td>Art history</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Arts &amp; Design</td>
+<td>Drawing</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Arts &amp; Design</td>
+<td>Game design</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Biochemistry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Biology &amp; Medicine</td>
+<td>Biophysics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Developmental biology</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Biology &amp; Medicine</td>
+<td>Epidemiology</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Evolutionary biology</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Biology &amp; Medicine</td>
+<td>General biology</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Nutrition and neuroscience</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Biology &amp; Medicine</td>
+<td>Plant physiology</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Biology &amp; Medicine</td>
+<td>Protein physics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Business &amp; Management</td>
+<td>Management</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Chemistry</td>
+<td>Electrochemistry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Chemistry / Mathematics</td>
+<td>Molecular science</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Chemistry / Physics</td>
+<td>Quantum chemistry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Artificial intelligence</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Computer systems</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Distributed systems and databases</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Evolutionary computation</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Linear algebra and computing</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Low-level programming</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Networks and systems</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Computer Science</td>
+<td>Operating systems</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science</td>
+<td>Reinforcement learning</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Computer Science / Graphics</td>
+<td>Computer graphics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Computer Science / Network Science</td>
+<td>Networks</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Earth &amp; Environmental Science</td>
+<td>Geology and tectonics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Earth &amp; Environmental Science</td>
+<td>Meteorology and nature writing</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Economics</td>
+<td>Economic theory</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Economics</td>
+<td>International economics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Economics</td>
+<td>Microeconomics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Economics / Mathematics</td>
+<td>Game theory</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Engineering &amp; Operations</td>
+<td>Dynamical systems</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Engineering &amp; Operations</td>
+<td>Electronics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Engineering &amp; Operations</td>
+<td>Rocketry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Engineering &amp; Operations</td>
+<td>Signals and systems</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Engineering &amp; Operations</td>
+<td>Simulation</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Engineering &amp; Operations</td>
+<td>Technology and mechanics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Humanities &amp; Social Science</td>
+<td>History and civilization</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Humanities &amp; Social Science</td>
+<td>Memoir</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Literature</td>
+<td>Fiction</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Literature</td>
+<td>Fiction / intellectual history</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Algebra and representation theory</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Algebraic geometry</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Analysis and transforms</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Category theory</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Combinatorics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Geometry and measure theory</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Geometry and trigonometry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Lie theory</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Number theory and algebraic geometry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics</td>
+<td>Partial differential equations</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics</td>
+<td>Set theory and logic</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics / Computer Science</td>
+<td>Algebra and CS</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics / Computer Science</td>
+<td>Cryptography</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics / Engineering</td>
+<td>Optimization</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics / Philosophy</td>
+<td>Logic and foundations</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Mathematics / Physics</td>
+<td>Mathematical methods</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Mathematics / Physics</td>
+<td>Vector calculus</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Philosophy</td>
+<td>Ethics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Philosophy / Religion</td>
+<td>Religion and apologetics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Acoustics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Atomic physics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Condensed matter / matter structure</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Mathematical physics and cosmology</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Modern physics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Optics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics</td>
+<td>Quantum physics</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics</td>
+<td>Relativity and quantum theory</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics / Astronomy</td>
+<td>Astronomy history</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics / Astronomy</td>
+<td>Cosmology</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics / Biology</td>
+<td>Biophysics and vision</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Physics / Mathematics</td>
+<td>Gauge theory and geometry</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Physics / Mathematics</td>
+<td>Particle physics and algebra</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Political Science</td>
+<td>Democracy and politics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Psychology / Decision Science</td>
+<td>Decision science</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Statistics &amp; Probability</td>
+<td>Causality</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Statistics &amp; Probability</td>
+<td>Monte Carlo methods</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Statistics &amp; Probability</td>
+<td>Reliability statistics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Statistics &amp; Probability</td>
+<td>Statistical inference</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Statistics &amp; Probability</td>
+<td>Statistical learning</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Statistics &amp; Probability / Mathematics</td>
+<td>Stochastic calculus</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Writing &amp; Language</td>
+<td>Semantics</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Writing &amp; Language</td>
+<td>Writing</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="full-normalized-title-counts" class="level2">
+<h2 class="anchored" data-anchor-id="full-normalized-title-counts">Full Normalized Title Counts</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Title</th>
+<th>Count</th>
+<th>Field</th>
+<th>Subfield</th>
+<th>Notes / aliases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quantum Computation and Quantum Information</td>
+<td>11</td>
+<td>Physics / Computer Science</td>
+<td>Quantum information and quantum computing</td>
+<td>Includes QCQI and ‘Quantum Computing by Mike and Ike’.</td>
+</tr>
+<tr class="even">
+<td>The Feynman Lectures on Physics</td>
+<td>11</td>
+<td>Physics</td>
+<td>General physics</td>
+<td>Includes variants such as Feynman lectures / Feynman’s lectures in physics.</td>
+</tr>
+<tr class="odd">
+<td>Structure and Interpretation of Computer Programs</td>
+<td>9</td>
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td>Includes SICP and wizard-book references.</td>
+</tr>
+<tr class="even">
+<td>Electricity and Magnetism — Purcell</td>
+<td>6</td>
+<td>Physics</td>
+<td>Electromagnetism</td>
+<td>Includes Purcell E&amp;M and Berkeley-series references.</td>
+</tr>
+<tr class="odd">
+<td>Introduction to Electrodynamics — Griffiths</td>
+<td>5</td>
+<td>Physics</td>
+<td>Electromagnetism</td>
+<td>Includes ‘David Griffiths on electromagnetism’ and Griffiths electrodynamics variants.</td>
+</tr>
+<tr class="even">
+<td>Probability Theory: The Logic of Science — Jaynes</td>
+<td>4</td>
+<td>Statistics &amp; Probability</td>
+<td>Probability theory</td>
+<td>Includes Jaynes Probability Theory variants.</td>
+</tr>
+<tr class="odd">
+<td>The Molecular Biology of the Cell</td>
+<td>4</td>
+<td>Biology &amp; Medicine</td>
+<td>Cell biology</td>
+<td>Includes MBOC and Alberts references.</td>
+</tr>
+<tr class="even">
+<td>The Principles of Quantum Mechanics — Dirac</td>
+<td>4</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>Includes POQM and Dirac variants.</td>
+</tr>
+<tr class="odd">
+<td>An Introduction to Thermal Physics — Schroeder</td>
+<td>3</td>
+<td>Physics</td>
+<td>Thermodynamics and statistical physics</td>
+<td>Includes Schroeder on thermal physics.</td>
+</tr>
+<tr class="even">
+<td>Calculus — Spivak</td>
+<td>3</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td>Includes Spivak’s Calculus.</td>
+</tr>
+<tr class="odd">
+<td>Fundamentals of Physics / Physics — Halliday, Resnick, Walker</td>
+<td>3</td>
+<td>Physics</td>
+<td>General physics</td>
+<td>Includes Halliday &amp; Resnick and Fundamentals of Physics variants.</td>
+</tr>
+<tr class="even">
+<td>Gravitation — Misner, Thorne, Wheeler / MTW</td>
+<td>3</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>Includes MTW/MWT variants.</td>
+</tr>
+<tr class="odd">
+<td>Information Theory, Inference, and Learning Algorithms</td>
+<td>3</td>
+<td>Computer Science / Statistics</td>
+<td>Information theory and machine learning</td>
+<td>David J. C. MacKay.</td>
+</tr>
+<tr class="even">
+<td>Introduction to Quantum Mechanics — Griffiths</td>
+<td>3</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>Griffiths QM variants.</td>
+</tr>
+<tr class="odd">
+<td>Linear Algebra Done Right</td>
+<td>3</td>
+<td>Mathematics</td>
+<td>Linear algebra</td>
+<td>Sheldon Axler.</td>
+</tr>
+<tr class="even">
+<td>Nonlinear Dynamics and Chaos</td>
+<td>3</td>
+<td>Mathematics / Physics</td>
+<td>Dynamical systems</td>
+<td>Steven Strogatz.</td>
+</tr>
+<tr class="odd">
+<td>Spacetime Physics</td>
+<td>3</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>Taylor and Wheeler.</td>
+</tr>
+<tr class="even">
+<td>The Little Schemer</td>
+<td>3</td>
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td>Includes lower-case variants.</td>
+</tr>
+<tr class="odd">
+<td>Thermal Physics — Kittel and Kroemer</td>
+<td>3</td>
+<td>Physics</td>
+<td>Thermodynamics and statistical physics</td>
+<td>Kittel/Kroemer.</td>
+</tr>
+<tr class="even">
+<td>Understanding Analysis</td>
+<td>3</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td>Includes repeated link-preview title occurrences.</td>
+</tr>
+<tr class="odd">
+<td>Classical Theory of Fields — Landau &amp; Lifshitz</td>
+<td>2</td>
+<td>Physics</td>
+<td>Field theory and relativity</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Compilers / Dragon Book</td>
+<td>2</td>
+<td>Computer Science</td>
+<td>Compilers and programming languages</td>
+<td>Aho, Lam, Sethi, Ullman.</td>
+</tr>
+<tr class="odd">
+<td>Complex Variables and Applications</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>Complex analysis</td>
+<td>Brown and Churchill.</td>
+</tr>
+<tr class="even">
+<td>Essentials of Discrete Mathematics</td>
+<td>2</td>
+<td>Mathematics / Computer Science</td>
+<td>Discrete mathematics</td>
+<td>David Hunter; includes link-preview duplicate.</td>
+</tr>
+<tr class="odd">
+<td>Factory Physics</td>
+<td>2</td>
+<td>Engineering &amp; Operations</td>
+<td>Manufacturing and operations</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Introduction to Proteins: Structure, Function, and Motion</td>
+<td>2</td>
+<td>Biology &amp; Medicine</td>
+<td>Protein structure</td>
+<td>Includes link-preview duplicate.</td>
+</tr>
+<tr class="odd">
+<td>Linear Algebra — Gilbert Strang</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>Linear algebra</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mathematical Methods of Classical Mechanics — Arnold</td>
+<td>2</td>
+<td>Physics / Mathematics</td>
+<td>Classical mechanics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Mathematical Omnibus</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>General mathematics</td>
+<td>Includes link-preview duplicate.</td>
+</tr>
+<tr class="even">
+<td>Modern Quantum Mechanics — Sakurai</td>
+<td>2</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>Includes Sakurai variants.</td>
+</tr>
+<tr class="odd">
+<td>Neural Networks and Deep Learning</td>
+<td>2</td>
+<td>Computer Science</td>
+<td>Machine learning and neural networks</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>On Trails</td>
+<td>2</td>
+<td>Humanities &amp; Social Science</td>
+<td>Nature writing and culture</td>
+<td>Includes referenced post and title.</td>
+</tr>
+<tr class="odd">
+<td>Ordinary Differential Equations — Arnold</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>Differential equations</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PCT, Spin and Statistics, and All That</td>
+<td>2</td>
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td>Includes link-preview title duplicate.</td>
+</tr>
+<tr class="odd">
+<td>Quantum Mechanics — Cohen-Tannoudji</td>
+<td>2</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quantum Theory: Concepts and Methods — Peres</td>
+<td>2</td>
+<td>Physics</td>
+<td>Quantum foundations</td>
+<td>Asher Peres.</td>
+</tr>
+<tr class="odd">
+<td>Statistical Rethinking</td>
+<td>2</td>
+<td>Statistics &amp; Probability</td>
+<td>Bayesian statistics</td>
+<td>Richard McElreath.</td>
+</tr>
+<tr class="even">
+<td>The Physical Universe: An Introduction to Astronomy</td>
+<td>2</td>
+<td>Physics / Astronomy</td>
+<td>Astronomy and astrophysics</td>
+<td>Includes link-preview title duplicate.</td>
+</tr>
+<tr class="odd">
+<td>The Quantum Theory of Fields — Weinberg</td>
+<td>2</td>
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>The World of Physics</td>
+<td>2</td>
+<td>Physics</td>
+<td>Physics anthology/history</td>
+<td>Includes shortened link-preview duplicate.</td>
+</tr>
+<tr class="odd">
+<td>Visual Complex Analysis</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>Complex analysis</td>
+<td>Needham.</td>
+</tr>
+<tr class="even">
+<td>Visual Differential Geometry / Visual Differential Geometry and Forms</td>
+<td>2</td>
+<td>Mathematics</td>
+<td>Differential geometry</td>
+<td>Needham.</td>
+</tr>
+<tr class="odd">
+<td>A First Course in General Relativity</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>Bernard Schutz.</td>
+</tr>
+<tr class="even">
+<td>A Unified Grand Tour of Theoretical Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Theoretical physics</td>
+<td>Lawrie.</td>
+</tr>
+<tr class="odd">
+<td>ANSI Common Lisp</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td>Paul Graham.</td>
+</tr>
+<tr class="even">
+<td>Abbas Immunology</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Immunology</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Advanced Quantum Mechanics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>J. J. Sakurai.</td>
+</tr>
+<tr class="even">
+<td>Algebra for Computer Science</td>
+<td>1</td>
+<td>Mathematics / Computer Science</td>
+<td>Algebra and CS</td>
+<td>Garding and Tambour.</td>
+</tr>
+<tr class="odd">
+<td>Algebra — Godemont</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Algebraic Topology — Hatcher</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Topology</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Algorithms — Dasgupta, Papadimitriou, Vazirani</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Algorithms — Jeff Erickson</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>An Introduction to Statistical Inference</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Statistical inference</td>
+<td>Michael Trosset.</td>
+</tr>
+<tr class="even">
+<td>An Introduction to Statistical Learning</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Statistical learning</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Artificial Intelligence: A Modern Approach</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Artificial intelligence</td>
+<td>AIMA.</td>
+</tr>
+<tr class="even">
+<td>Atomic Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Atomic physics</td>
+<td>Christopher J. Foot.</td>
+</tr>
+<tr class="odd">
+<td>Barbarian Days</td>
+<td>1</td>
+<td>Humanities &amp; Social Science</td>
+<td>Memoir</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Basic Algebra II</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra</td>
+<td>Jacobson.</td>
+</tr>
+<tr class="odd">
+<td>Calculus books by Mir Publishers</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td>Piskunov, Maron.</td>
+</tr>
+<tr class="even">
+<td>Calculus with Analytic Geometry — Swokowski</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Calculus with Analytical Geometry — Larson, Hostetler, Edwards</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Calculus — Apostol</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Callen’s Thermodynamics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Thermodynamics and statistical physics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Campbell’s Biology</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>General biology</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Categories in Context</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Category theory</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Causality</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Causality</td>
+<td>Judea Pearl.</td>
+</tr>
+<tr class="odd">
+<td>Cell Biology by the Numbers</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Cell biology</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Chemistry: The Central Science</td>
+<td>1</td>
+<td>Chemistry</td>
+<td>General chemistry</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Classical Electrodynamics — Jackson</td>
+<td>1</td>
+<td>Physics</td>
+<td>Electromagnetism</td>
+<td>JD Jackson.</td>
+</tr>
+<tr class="even">
+<td>Coding the Matrix</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Linear algebra and computing</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>College Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>General physics</td>
+<td>AP French.</td>
+</tr>
+<tr class="even">
+<td>Contemporary Abstract Algebra</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra</td>
+<td>Joseph Gallian.</td>
+</tr>
+<tr class="odd">
+<td>Continuous System Simulation</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Simulation</td>
+<td>Cellier and Kofman.</td>
+</tr>
+<tr class="even">
+<td>Conversations on Natural Philosophy</td>
+<td>1</td>
+<td>Physics</td>
+<td>General physics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Convex Optimization</td>
+<td>1</td>
+<td>Mathematics / Engineering</td>
+<td>Optimization</td>
+<td>Boyd and Vandenberghe.</td>
+</tr>
+<tr class="even">
+<td>Cosmology: The Science of the Universe</td>
+<td>1</td>
+<td>Physics / Astronomy</td>
+<td>Cosmology</td>
+<td>Edward R. Harrison.</td>
+</tr>
+<tr class="odd">
+<td>Cryptography Engineering</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Security and cryptography</td>
+<td>Ferguson, Schneier, Kohno.</td>
+</tr>
+<tr class="even">
+<td>Data Communications and Networking</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Networks and systems</td>
+<td>Forouzan.</td>
+</tr>
+<tr class="odd">
+<td>Designing Data-Intensive Applications</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Distributed systems and databases</td>
+<td>Kleppmann.</td>
+</tr>
+<tr class="even">
+<td>Differential Equations with Applications and Historical Notes</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Differential equations</td>
+<td>George Simmons.</td>
+</tr>
+<tr class="odd">
+<td>Differential Forms in Algebraic Topology</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Topology</td>
+<td>Bott and Tu.</td>
+</tr>
+<tr class="even">
+<td>Div, Grad, Curl, and All That</td>
+<td>1</td>
+<td>Mathematics / Physics</td>
+<td>Vector calculus</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Economic Theory</td>
+<td>1</td>
+<td>Economics</td>
+<td>Economic theory</td>
+<td>Becker.</td>
+</tr>
+<tr class="even">
+<td>Electrochemical Methods</td>
+<td>1</td>
+<td>Chemistry</td>
+<td>Electrochemistry</td>
+<td>Bard and Faulkner.</td>
+</tr>
+<tr class="odd">
+<td>Elementary Calculus: An Infinitesimal Approach</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Calculus and analysis</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Elements of PDE</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Partial differential equations</td>
+<td>Sneddon.</td>
+</tr>
+<tr class="odd">
+<td>Elliptic Curves</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Number theory and algebraic geometry</td>
+<td>Washington.</td>
+</tr>
+<tr class="even">
+<td>Enumerative Combinatorics</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Combinatorics</td>
+<td>Stanley.</td>
+</tr>
+<tr class="odd">
+<td>Epidemiologic Methods</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Epidemiology</td>
+<td>Koepsell and Weiss.</td>
+</tr>
+<tr class="even">
+<td>Essentials of Electromagnetism</td>
+<td>1</td>
+<td>Physics</td>
+<td>Electromagnetism</td>
+<td>David Dugdale.</td>
+</tr>
+<tr class="odd">
+<td>Evolution of Civilizations</td>
+<td>1</td>
+<td>Humanities &amp; Social Science</td>
+<td>History and civilization</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Evolutionary Design by Computers</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Evolutionary computation</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Feller’s Introduction to Probability Theory</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Probability theory</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fourier Transforms</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Analysis and transforms</td>
+<td>Sneddon.</td>
+</tr>
+<tr class="odd">
+<td>From Photon to Neuron</td>
+<td>1</td>
+<td>Physics / Biology</td>
+<td>Biophysics and vision</td>
+<td>Philip Nelson.</td>
+</tr>
+<tr class="even">
+<td>Fun and Games: A Text on Game Theory</td>
+<td>1</td>
+<td>Economics / Mathematics</td>
+<td>Game theory</td>
+<td>Ken Binmore.</td>
+</tr>
+<tr class="odd">
+<td>Fundamentals of Physics — Shankar</td>
+<td>1</td>
+<td>Physics</td>
+<td>General physics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GR Workbook</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>Thomas Moore.</td>
+</tr>
+<tr class="odd">
+<td>Galois Theory</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra</td>
+<td>Emil Artin.</td>
+</tr>
+<tr class="even">
+<td>Gardner’s Art Through the Ages</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Art history</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gauge Fields, Knots and Gravity</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Gauge theory and geometry</td>
+<td>Baez and Muniain.</td>
+</tr>
+<tr class="even">
+<td>General Chemistry — Pauling</td>
+<td>1</td>
+<td>Chemistry</td>
+<td>General chemistry</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Geometric Measure Theory</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Geometry and measure theory</td>
+<td>Frank Morgan.</td>
+</tr>
+<tr class="even">
+<td>Geometrical Methods of Mathematical Physics</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Mathematical physics</td>
+<td>Bernard Schulz.</td>
+</tr>
+<tr class="odd">
+<td>Gilbert’s Developmental Biology</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Developmental biology</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Grain Brain</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Nutrition and neuroscience</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Guide to Feynman Diagrams in the Many-Body Problem</td>
+<td>1</td>
+<td>Physics</td>
+<td>Many-body physics</td>
+<td>Richard Mattuck.</td>
+</tr>
+<tr class="even">
+<td>Gödel’s Proof</td>
+<td>1</td>
+<td>Mathematics / Philosophy</td>
+<td>Logic</td>
+<td>Nagel and Newman.</td>
+</tr>
+<tr class="odd">
+<td>Hacker’s Delight</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Low-level programming</td>
+<td>Henry S. Warren Jr.</td>
+</tr>
+<tr class="even">
+<td>Harmonic Experience</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Music theory</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Ideals, Varieties and Algorithms</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebraic geometry</td>
+<td>Cox, Little, O’Shea.</td>
+</tr>
+<tr class="even">
+<td>Ignition</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Rocketry</td>
+<td>Clark.</td>
+</tr>
+<tr class="odd">
+<td>Illustrating C</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td>Donald Alcock.</td>
+</tr>
+<tr class="even">
+<td>Introduction to Classical Mechanics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Classical mechanics</td>
+<td>David Morin.</td>
+</tr>
+<tr class="odd">
+<td>Introduction to Dynamic Systems</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Dynamical systems</td>
+<td>David Luenberger.</td>
+</tr>
+<tr class="even">
+<td>Introduction to Lie Algebras and Representation Theory</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Algebra and representation theory</td>
+<td>Humphreys.</td>
+</tr>
+<tr class="odd">
+<td>Introduction to Probability</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Probability theory</td>
+<td>Stat110 / Jessica Hwang.</td>
+</tr>
+<tr class="even">
+<td>Introduction to Riemannian Manifolds</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Differential geometry</td>
+<td>John M. Lee.</td>
+</tr>
+<tr class="odd">
+<td>Introduction to the Structure of Matter</td>
+<td>1</td>
+<td>Physics</td>
+<td>Condensed matter / matter structure</td>
+<td>Chalmers.</td>
+</tr>
+<tr class="even">
+<td>Introduction to the Theory of Computation</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Theory of computation</td>
+<td>Sipser.</td>
+</tr>
+<tr class="odd">
+<td>Introduction to the Theory of Numbers</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Number theory</td>
+<td>Niven.</td>
+</tr>
+<tr class="even">
+<td>Janeway’s Immunology</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Immunology</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Knots and Physics</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Mathematical physics</td>
+<td>Kauffman.</td>
+</tr>
+<tr class="even">
+<td>Language, Proof and Logic</td>
+<td>1</td>
+<td>Mathematics / Philosophy</td>
+<td>Logic</td>
+<td>Barwise and Etchemendy.</td>
+</tr>
+<tr class="odd">
+<td>Lectures on Phase Transitions and the Renormalization Group</td>
+<td>1</td>
+<td>Physics</td>
+<td>Statistical physics</td>
+<td>Nigel Goldenfeld.</td>
+</tr>
+<tr class="even">
+<td>Lectures on Quantum Theory: Mathematical and Structural Foundations</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>Isham.</td>
+</tr>
+<tr class="odd">
+<td>Lehninger’s Principles of Biochemistry</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Biochemistry</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Lie Algebras in Particle Physics</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Particle physics and algebra</td>
+<td>Howard Georgi.</td>
+</tr>
+<tr class="odd">
+<td>Linear Algebra — Friedberg, Insel, Spence</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Linear algebra</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Linear Algebra — Lang</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Linear algebra</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Managerial Dilemmas</td>
+<td>1</td>
+<td>Business &amp; Management</td>
+<td>Management</td>
+<td>Miller.</td>
+</tr>
+<tr class="even">
+<td>Many-Particle Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Many-body physics</td>
+<td>Gerald Mahan.</td>
+</tr>
+<tr class="odd">
+<td>Mas-Colell / Microeconomic Theory</td>
+<td>1</td>
+<td>Economics</td>
+<td>Microeconomics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mathematical Cryptography</td>
+<td>1</td>
+<td>Mathematics / Computer Science</td>
+<td>Cryptography</td>
+<td>Hoffstein and Silverman.</td>
+</tr>
+<tr class="odd">
+<td>Mathematical Methods by Boas</td>
+<td>1</td>
+<td>Mathematics / Physics</td>
+<td>Mathematical methods</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mathematical Methods for Molecular Science</td>
+<td>1</td>
+<td>Chemistry / Mathematics</td>
+<td>Molecular science</td>
+<td>John Straub.</td>
+</tr>
+<tr class="odd">
+<td>Mathematical Physics — Geroch</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Mathematical physics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Mathematical Physics — Sadri Hassani</td>
+<td>1</td>
+<td>Physics / Mathematics</td>
+<td>Mathematical physics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Modern Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Modern physics</td>
+<td>Arthur Beiser.</td>
+</tr>
+<tr class="even">
+<td>Monte Carlo Methods</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Monte Carlo methods</td>
+<td>Mark Newman.</td>
+</tr>
+<tr class="odd">
+<td>Naive Lie Theory</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Lie theory</td>
+<td>John Stillwell.</td>
+</tr>
+<tr class="even">
+<td>Networks — Newman</td>
+<td>1</td>
+<td>Computer Science / Network Science</td>
+<td>Networks</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Neural Networks for Pattern Recognition</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Machine learning and neural networks</td>
+<td>Christopher Bishop.</td>
+</tr>
+<tr class="even">
+<td>Newton’s Principia for the Common Reader</td>
+<td>1</td>
+<td>Physics</td>
+<td>Classical mechanics</td>
+<td>Chandrasekhar.</td>
+</tr>
+<tr class="odd">
+<td>Normative Ethics</td>
+<td>1</td>
+<td>Philosophy</td>
+<td>Ethics</td>
+<td>Shelly Kagan.</td>
+</tr>
+<tr class="even">
+<td>Number Theory and Its History</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Number theory</td>
+<td>Ore.</td>
+</tr>
+<tr class="odd">
+<td>On Writing Well</td>
+<td>1</td>
+<td>Writing &amp; Language</td>
+<td>Writing</td>
+<td>William Zinsser.</td>
+</tr>
+<tr class="even">
+<td>Operating Systems — Tanenbaum</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Operating systems</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Optics — Hecht</td>
+<td>1</td>
+<td>Physics</td>
+<td>Optics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Organic Chemistry — Morrison &amp; Boyd</td>
+<td>1</td>
+<td>Chemistry</td>
+<td>Organic chemistry</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Organic Chemistry — Reutov, Kurz and Butin</td>
+<td>1</td>
+<td>Chemistry</td>
+<td>Organic chemistry</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pattern Recognition and Machine Learning</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Machine learning and neural networks</td>
+<td>Christopher M. Bishop.</td>
+</tr>
+<tr class="odd">
+<td>Pauli Theory of Relativity</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Physically Based Rendering</td>
+<td>1</td>
+<td>Computer Science / Graphics</td>
+<td>Computer graphics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Physics from Symmetry</td>
+<td>1</td>
+<td>Physics</td>
+<td>Theoretical physics</td>
+<td>Jakob Schwichtenberg.</td>
+</tr>
+<tr class="even">
+<td>Plant Physiology</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Plant physiology</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Practical Electronics for Inventors</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Electronics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Principles of Quantum Mechanics — Shankar</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Problem Solving with Algorithms and Data Structures Using Python</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td>Miller and Ranum.</td>
+</tr>
+<tr class="even">
+<td>Programming in Scala</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Programming languages and computation</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Protein Physics</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Protein physics</td>
+<td>Finkelstein and Ptitsyn.</td>
+</tr>
+<tr class="even">
+<td>Quantum Chemistry</td>
+<td>1</td>
+<td>Chemistry / Physics</td>
+<td>Quantum chemistry</td>
+<td>Lowe.</td>
+</tr>
+<tr class="odd">
+<td>Quantum Field Theory in a Nutshell</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td>Zee.</td>
+</tr>
+<tr class="even">
+<td>Quantum Field Theory of Many-Body Systems</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td>Xiao-Gang Wen.</td>
+</tr>
+<tr class="odd">
+<td>Quantum Mechanics — Landau &amp; Lifshitz</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum mechanics</td>
+<td>Eisberg and Resnick.</td>
+</tr>
+<tr class="odd">
+<td>Quantum Theory of Fields, Vol. I — Weinberg</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum field theory</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Quantum Universe</td>
+<td>1</td>
+<td>Physics</td>
+<td>Quantum physics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Rational Choice in an Uncertain World</td>
+<td>1</td>
+<td>Psychology / Decision Science</td>
+<td>Decision science</td>
+<td>Hastie and Dawes.</td>
+</tr>
+<tr class="even">
+<td>Rational Trigonometry</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Geometry and trigonometry</td>
+<td>N. J. Wildberg.</td>
+</tr>
+<tr class="odd">
+<td>Reinforcement Learning: An Introduction</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Reinforcement learning</td>
+<td>Barto and Sutton.</td>
+</tr>
+<tr class="even">
+<td>Relativity and Quantum Theory</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and quantum theory</td>
+<td>Robert Resnick.</td>
+</tr>
+<tr class="odd">
+<td>Reliability: Probabilistic Models and Statistical Methods</td>
+<td>1</td>
+<td>Statistics &amp; Probability</td>
+<td>Reliability statistics</td>
+<td>Leemis.</td>
+</tr>
+<tr class="even">
+<td>Salt Tectonics</td>
+<td>1</td>
+<td>Earth &amp; Environmental Science</td>
+<td>Geology and tectonics</td>
+<td>Jackson and Hudec.</td>
+</tr>
+<tr class="odd">
+<td>Scaling and Renormalization in Statistical Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Statistical physics</td>
+<td>John Cardy.</td>
+</tr>
+<tr class="even">
+<td>Sean Carroll’s general relativity book</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Security Engineering</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Security and cryptography</td>
+<td>Anderson.</td>
+</tr>
+<tr class="even">
+<td>Semantics: Primes and Universals</td>
+<td>1</td>
+<td>Writing &amp; Language</td>
+<td>Semantics</td>
+<td>Anna Wierzbicka.</td>
+</tr>
+<tr class="odd">
+<td>Set Theory: An Introduction to Independence Proofs</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Set theory and logic</td>
+<td>Kenneth Kunen.</td>
+</tr>
+<tr class="even">
+<td>Shreve’s Stochastic Calculus</td>
+<td>1</td>
+<td>Statistics &amp; Probability / Mathematics</td>
+<td>Stochastic calculus</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Signals and Systems</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Signals and systems</td>
+<td>Oppenheim and Willsky.</td>
+</tr>
+<tr class="even">
+<td>Solid State Physics</td>
+<td>1</td>
+<td>Physics</td>
+<td>Condensed matter physics</td>
+<td>Kittel.</td>
+</tr>
+<tr class="odd">
+<td>Special Relativity</td>
+<td>1</td>
+<td>Physics</td>
+<td>Relativity and gravitation</td>
+<td>French.</td>
+</tr>
+<tr class="even">
+<td>Spivak’s Introduction to Differential Geometry</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>Differential geometry</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The Alchemist</td>
+<td>1</td>
+<td>Literature</td>
+<td>Fiction</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>The Algorithm Design Manual</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td>Steven Skiena.</td>
+</tr>
+<tr class="odd">
+<td>The Art of Computer Programming, Vol. 4A/4B</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Algorithms and data structures</td>
+<td>Donald Knuth.</td>
+</tr>
+<tr class="even">
+<td>The Art of Game Design</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Game design</td>
+<td>Jesse Schell.</td>
+</tr>
+<tr class="odd">
+<td>The Cloudspotter’s Guide</td>
+<td>1</td>
+<td>Earth &amp; Environmental Science</td>
+<td>Meteorology and nature writing</td>
+<td>Gavin Pretor-Piney.</td>
+</tr>
+<tr class="even">
+<td>The Dollar Trap</td>
+<td>1</td>
+<td>Economics</td>
+<td>International economics</td>
+<td>Eswar Prasad.</td>
+</tr>
+<tr class="odd">
+<td>The Elements of Computing Systems</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Computer systems</td>
+<td>Nand2Tetris.</td>
+</tr>
+<tr class="even">
+<td>The Foundations of Arithmetic</td>
+<td>1</td>
+<td>Mathematics / Philosophy</td>
+<td>Logic and foundations</td>
+<td>Frege.</td>
+</tr>
+<tr class="odd">
+<td>The Glass Bead Game</td>
+<td>1</td>
+<td>Literature</td>
+<td>Fiction / intellectual history</td>
+<td>Hesse.</td>
+</tr>
+<tr class="even">
+<td>The History and Practice of Ancient Astronomy</td>
+<td>1</td>
+<td>Physics / Astronomy</td>
+<td>Astronomy history</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The Irony of Democracy</td>
+<td>1</td>
+<td>Political Science</td>
+<td>Democracy and politics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>The Natural Way to Draw</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Drawing</td>
+<td>Kimon Nicolaides.</td>
+</tr>
+<tr class="odd">
+<td>The Nature of Computation</td>
+<td>1</td>
+<td>Computer Science</td>
+<td>Theory of computation</td>
+<td>Mertens and Moore.</td>
+</tr>
+<tr class="even">
+<td>The Nature of Order</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Architecture and design</td>
+<td>Christopher Alexander.</td>
+</tr>
+<tr class="odd">
+<td>The Reason for God</td>
+<td>1</td>
+<td>Philosophy / Religion</td>
+<td>Religion and apologetics</td>
+<td>Tim Keller.</td>
+</tr>
+<tr class="even">
+<td>The Road to Reality</td>
+<td>1</td>
+<td>Physics</td>
+<td>Mathematical physics and cosmology</td>
+<td>Roger Penrose.</td>
+</tr>
+<tr class="odd">
+<td>The Science of Sound</td>
+<td>1</td>
+<td>Physics</td>
+<td>Acoustics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>The Selfish Gene</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Evolutionary biology</td>
+<td>Richard Dawkins.</td>
+</tr>
+<tr class="odd">
+<td>The Way Things Work</td>
+<td>1</td>
+<td>Engineering &amp; Operations</td>
+<td>Technology and mechanics</td>
+<td>David Macaulay.</td>
+</tr>
+<tr class="even">
+<td>Theory of Harmony</td>
+<td>1</td>
+<td>Arts &amp; Design</td>
+<td>Music theory</td>
+<td>Arnold Schoenberg.</td>
+</tr>
+<tr class="odd">
+<td>Theory of Solids</td>
+<td>1</td>
+<td>Physics</td>
+<td>Condensed matter physics</td>
+<td>John Ziman.</td>
+</tr>
+<tr class="even">
+<td>What Is Life?</td>
+<td>1</td>
+<td>Biology &amp; Medicine</td>
+<td>Biophysics</td>
+<td>Erwin Schrödinger.</td>
+</tr>
+<tr class="odd">
+<td>What Is Mathematics?</td>
+<td>1</td>
+<td>Mathematics</td>
+<td>General mathematics</td>
+<td>Courant and Robbins.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/JaumeAmoresDS\.github\.io\/home\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "JaumeAmoresDS/home";
+    script.dataset.repoId = "";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2023 Jaume Amores.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
