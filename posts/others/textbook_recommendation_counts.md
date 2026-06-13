@@ -1,5 +1,12 @@
 # Textbook Recommendation Counts
 
+## Motivation and context
+
+This compilation is based on responses to an X thread started by Michael Nielsen asking people to share the most wonderful textbook they had ever read. Because the source is an informal social-media thread, the results should be interpreted as a reflection of that particular audience rather than as a representative survey of textbook recommendations across all disciplines.
+
+From a quick overview, the counts appear naturally weighted toward fields that are especially prominent among Michael Nielsen’s readership and in the initial examples he mentioned, such as physics, mathematics, and computer science. Social sciences, including economics and psychology, appear less frequently, while humanities-oriented areas such as literature, music, and art are represented more sparsely. **Even with that caveat, it is a very rich and valuable compilation!** :-)
+
+
 ## Source
 
 - Source document: <https://github.com/JaumeAmoresDS/home/blob/main/posts/others/textbook-recommendations.md>
